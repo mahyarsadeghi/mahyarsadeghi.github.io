@@ -113,6 +113,7 @@
 
               <div class="box-actions">
                 <button>
+                  Go
                   <a href="geo.html">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -135,6 +136,7 @@
                   data-toggle="modal"
                   data-target="#ModalGeo"
                 >
+                Info
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -163,6 +165,7 @@
 
               <div class="box-actions">
                 <button>
+                  Go
                   <a href="time.html">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -180,7 +183,8 @@
                   </a>
                 </button>
 
-                <button>
+                <button data-toggle="modal" data-target="#ModalTime">
+                  Info
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -209,6 +213,7 @@
 
               <div class="box-actions">
                 <button>
+                  Go
                   <a href="genre.html">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -226,7 +231,8 @@
                   </a>
                 </button>
 
-                <button>
+                <button data-toggle="modal" data-target="#ModalGenre">
+                  Info
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -241,6 +247,7 @@
               </div>
             </div>
           </section>
+
           <div
             class="modal fade"
             id="ModalGeo"
@@ -252,7 +259,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="ModalGeoTitle">Modal title</h5>
+                  <h5 class="modal-title" id="ModalGeoTitle">Geo Analysis</h5>
                   <button
                     type="button"
                     class="close"
@@ -262,22 +269,86 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body">...</div>
+                <div class="modal-body">Long Description</div>
                 <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="button" class="btn btn-primary">
-                    Save changes
-                  </button>
+                  <a href="geo.html">
+                    <button type="button" class="btn" id="btnGeoModal">
+                      Go to Section
+                    </button>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
+
+          <div
+            class="modal fade"
+            id="ModalTime"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="ModalTimeTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalTimeTitle">Time Analysis</h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">Long Description</div>
+                <div class="modal-footer">
+                  <a href="geo.html">
+                    <button type="button" class="btn" id="btnTimeModal">
+                      Go to Section
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="modal fade"
+            id="ModalGenre"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="ModalGenreTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalGenreTitle">
+                    Genre Analysis
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">Long Description</div>
+                <div class="modal-footer">
+                  <a href="geo.html">
+                    <button type="button" class="btn" id="btnGenreModal">
+                      Go to Section
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+       
         </div>
         <footer id="includeFooter"></footer>
       </main>

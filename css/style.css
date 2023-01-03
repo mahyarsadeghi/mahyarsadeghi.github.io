@@ -260,9 +260,11 @@ header{
   fill: var(--title-color);
 }
 .content-wrap .person-boxes {
+  text-align: center;
+  align-items: center;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); */
   grid-gap: 2em;
 }
 .content-wrap .person-boxes .person-box {
@@ -272,6 +274,7 @@ header{
   padding: 3em;
   border: 1px solid #ede8f0;
   border-radius: 5px;
+  margin-top: 60px;
 }
 .content-wrap .person-boxes .person-box:nth-child(2n) .box-avatar .no-name {
   background: #4b84fe;
@@ -308,6 +311,7 @@ header{
 }
 .content-wrap .person-boxes .person-box .box-bio {
   white-space: no-wrap;
+  text-align: center;
 }
 .content-wrap .person-boxes .person-box .box-bio .bio-name {
   margin: 2em 0 0.75em;
@@ -320,6 +324,7 @@ header{
   margin: 0;
   font-size: 0.875em;
   line-height: 100%;
+  text-align: center;
 }
 .content-wrap .person-boxes .person-box .box-actions {
   margin-top: 1.25em;
@@ -366,15 +371,13 @@ h2, h3, h4 {
 	color:var(--title-color)
 }
 h1 {
-  font-size: 2.2em;
+  font-size: 45px;
   line-height: 100%;
   align-items: center;
   text-transform: uppercase;
-  color:var(--title-color);
   font-weight: 800;
   text-align: center;
-  margin: 0;
-  padding: 0;
+  margin: 0 0 24px;
 
 }
 #membersList{
@@ -391,7 +394,6 @@ p {
   color: black;
 }
 #members {
-	font-family: 'Roboto Slab', serif;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -409,9 +411,31 @@ p {
 	text-align: center;
 }
 
+#headersContainer {
+	background-image: url("../iimages/banner.jpg");
+	background-size: cover;
+	background-position: center center;
+	height: 250px;
+	margin-bottom: 20px;
+
+}
+.h1-mainPage {
+	color: white;
+	text-shadow:
+		-2px -2px 0 var(--title-color),
+		2px -2px 0 var(--title-color),
+		-2px 2px 0 var(--title-color),
+		2px 2px 0 var(--title-color);
+	/* padding: 80px; */
+}
+#HomePageTitle {
+	padding-top: 22px;
+	margin-top: 70px;
+}
 
 
 #includeFooter{
+  margin-top: 80px;
 	height:280px;
 	background-color: var(--primary-color);
 }
@@ -466,34 +490,3 @@ p {
 #F_container a:hover{
   color: var(--title-color);
 }
-/* .footer-links {
-	padding-left: 0;
-	list-style: none
-}
-
-.footer-links li {
-	display: block
-}
-
-.footer-links a {
-	color: black
-}
-
-.footer-links a:active,
-.footer-links a:focus,
-.footer-links a:hover {
-	color: white;
-	text-decoration: none;
-}
-.link {
-	fill: none;
-	stroke: #000;
-	stroke-opacity: .2;
-  }
-  .link:hover {
-	stroke-opacity: .5;
-  }
-  
-.footer-links.inline li {
-	display: inline-block
-} */

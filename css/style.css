@@ -388,6 +388,10 @@ h1 {
   background-color: var(--title-color);
   color: white;
 }
+#geoTitle, #timeTitle, #genreTitle{
+	padding-top: 22px;
+	margin-top: 90px;
+}
 p {
 	/*font-family: 'Fira Sans';*/
 

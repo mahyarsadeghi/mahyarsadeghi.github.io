@@ -1,19 +1,19 @@
 
 // The svg
-const svg = d3.select("#geoChart1"),
-  width = +svg.attr("width"),
-  height = +svg.attr("height");
+const svg3 = d3.select("#geoChart3"),
+  width3 = +svg3.attr("width"),
+  height3 = +svg3.attr("height");
 
 // Map and projection
-const path = d3.geoPath();
-const projection = d3.geoMercator()
+const path3 = d3.geoPath();
+const projection3 = d3.geoMercator()
   .scale(70)
   .center([0,20])
-  .translate([width / 2, height / 2]);
+  .translate([width3 / 2, height3 / 2]);
 
 // Data and color scale
-const data = new Map();
-const colorScale = d3.scaleThreshold()
+const data3 = new Map();
+const colorScale3 = d3.scaleThreshold()
   .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
   .range(d3.schemeBlues[7]);
 
@@ -21,7 +21,7 @@ const colorScale = d3.scaleThreshold()
 Promise.all([
 d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
 d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world_population.csv", function(d) {
-    data.set(d.code, +d.pop)
+    data3.set(d.code, +d.pop)
 })]).then(function(loadData){
     let topo = loadData[0]
 
@@ -49,19 +49,19 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/wo
   }
 
   // Draw the map
-  svg.append("g")
+  svg3.append("g")
     .selectAll("path")
     .data(topo.features)
     .enter()
     .append("path")
       // draw each country
       .attr("d", d3.geoPath()
-        .projection(projection)
+        .projection(projection3)
       )
       // set the color of each country
       .attr("fill", function (d) {
-        d.total = data.get(d.id) || 0;
-        return colorScale(d.total);
+        d.total = data3.get(d.id) || 0;
+        return colorScale3(d.total);
       })
       .style("stroke", "transparent")
       .attr("class", function(d){ return "Country" } )

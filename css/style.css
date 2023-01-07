@@ -499,3 +499,8 @@ p {
 #F_container a:hover{
   color: var(--title-color);
 }
+
+.map-container{
+	text-align: center;
+
+}

@@ -14,14 +14,14 @@ const projection2 = d3.geoMercator()
 // Data and color scale
 const data2 = new Map();
 const colorScale2 = d3.scaleThreshold()
-  .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
+  .domain([100000000, 250000000, 500000000, 1000000000, 3000000000, 8000000000])
   .range(d3.schemeBlues[7]);
 
 // Load external data and boot
 Promise.all([
 d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
-d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world_population.csv", function(d) {
-    data2.set(d.code, +d.pop)
+d3.csv("../../data/TCUCountry.csv", function(d) {
+    data2.set(d['Country Code'], +d.TCUForCountry)
 })]).then(function(loadData){
     let topo = loadData[0]
 

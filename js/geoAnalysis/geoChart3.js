@@ -14,14 +14,14 @@ const projection3 = d3.geoMercator()
 // Data and color scale
 const data3 = new Map();
 const colorScale3 = d3.scaleThreshold()
-  .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
-  .range(d3.schemeBlues[7]);
+  .domain([1, 2, 5, 10, 20, 80])
+  .range(d3.schemeBlues[8]);
 
 // Load external data and boot
 Promise.all([
 d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
-d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world_population.csv", function(d) {
-    data3.set(d.code, +d.pop)
+d3.csv("../../data/ArtistPerCountry.csv", function(d) {
+    data3.set(d['Code Country'], +d.ArtistForCountry)
 })]).then(function(loadData){
     let topo = loadData[0]
 

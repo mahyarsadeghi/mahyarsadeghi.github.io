@@ -82,12 +82,12 @@ body {
 }
 .search-wrap .user-actions button svg path,
 .search-wrap .user-actions button svg circle {
-  fill: #b6bbc6;
+  fill: black;
   transition: fill 0.15s ease;
 }
 .search-wrap .user-actions button:hover svg path,
 .search-wrap .user-actions button:hover svg circle {
-  fill: #2b3a60;
+  fill: var(--title-color);
 }
 .menu-wrap {
   grid-area: menu;
@@ -349,15 +349,33 @@ header{
 }
 .content-wrap .person-boxes .person-box .box-actions button svg path,
 .content-wrap .person-boxes .person-box .box-actions button svg circle {
-  fill: #b6bbc6;
+  fill: black;
   transition: fill 0.15s ease;
 }
 .content-wrap .person-boxes .person-box .box-actions button:hover svg path,
+.content-wrap .person-boxes .person-box .box-actions button:hover a,
 .content-wrap .person-boxes .person-box .box-actions button:hover svg circle {
-  fill: #2b3a60;
+  fill: var(--title-color);
+}
+.content-wrap .person-boxes .person-box .box-actions a{
+  color: black;
+}
+.content-wrap .person-boxes .person-box .box-actions a:hover{
+  color: var(--title-color);
+}
+.content-wrap .person-boxes .person-box .box-bio a:hover .bio-name{
+  color: var(--title-color);
+}
+.content-wrap .person-boxes .person-box .box-avatar a:hover {
+  color: var(--title-color);
+}
+.content-wrap .person-boxes a:hover{
+  color: var(--title-color);
 }
 
-
+#includeSidebar a:hover figcaption{
+  color: var(--title-color);
+}
 
 /* 
 #HomePageTitle {
@@ -503,4 +521,8 @@ p {
 .map-container{
 	text-align: center;
 
+}
+
+.fa {
+  margin-right: 15px;
 }

@@ -51,5 +51,5 @@ df.to_csv(f'{DATA_PATH}/TA_CH_2.csv', index=True)
 
 
 #test:
-df=pd.read_csv(DATA_PATH+"/TA_CH_2.csv")
-print(df.columns)
+#df=pd.read_csv(DATA_PATH+"/TA_CH_2.csv")
+#print(df.columns)

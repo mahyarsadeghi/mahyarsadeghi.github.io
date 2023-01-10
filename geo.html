@@ -47,6 +47,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://unpkg.com/svg-pan-zoom-container"></script>
   </head>
   <body>
     <div class="dashboard">
@@ -61,48 +62,66 @@
         <br />
 
         <div class="content">
-
-
-          <h2><b>Geo Distribution of the Best Selling Music Artists' Sales ($)</b></h2>
+          <h2>
+            <b>Geo Distribution of the Best Selling Music Artists' Sales ($)</b>
+          </h2>
           <h4>
-            The first map shows the total amount of music sales earned by each country, thanks to their best selling music artists. <br>
-            The increasing of the intensity of green scale color follows the increasing of the sales amount. 
+            The first map shows the total amount of music sales earned by each
+            country, thanks to their best selling music artists. <br />
+            The increasing of the intensity of green scale color follows the
+            increasing of the sales amount.
           </h4>
           <div class="map-container" id="geoChart1Div">
-              <svg id="geoChart1" width="600" height="400"></svg>
-              <svg id="geoLegend1" width="900"></svg>
-      
-          <br>
-          <hr>
-          <br>
+            <div data-zoom-on-wheel="zoom-amount: 0.002; min-scale: 1; max-scale: 2; scaling-property: 'width/height'" data-pan-on-drag class="map-container" id="geoChart1Div">
+              <svg id="geoChart1" width="1200" height="800"></svg>
+            </div>
+            
+            <svg id="geoLegend1" width="900"></svg>
+          </div>
 
-          <h2><b>Geo Distribution of the Best Selling Music Artists' TCU (units)</b></h2>
+          <br />
+          <hr />
+          <br />
+
+          <h2>
+            <b
+              >Geo Distribution of the Best Selling Music Artists' TCU
+              (units)</b
+            >
+          </h2>
           <h4>
-            The second map, instead, displays the total amount of music units (TCU) sold by best selling music artists of each country. <br>
-            The increasing of the intensity of blue scale color follows the increasing of the TCU.
+            The second map, instead, displays the total amount of music units
+            (TCU) sold by best selling music artists of each country. <br />
+            The increasing of the intensity of blue scale color follows the
+            increasing of the TCU.
           </h4>
           <div class="map-container" id="geoChart2Div">
-              <svg id="geoChart2" width="600" height="400"></svg>
-              <svg id="geoLegend2" width="900"></svg>
-      
-          <br>
-          <hr>
-          <br>
+            <div data-zoom-on-wheel="zoom-amount: 0.002; min-scale: 1; max-scale: 2; scaling-property: 'width/height'" data-pan-on-drag class="map-container" id="geoChart1Div">
+              <svg id="geoChart2" width="1200" height="800"></svg>
+            </div>
+            <svg id="geoLegend2" width="900"></svg>
+          </div>
+          <br />
+          <hr />
+          <br />
 
           <h2><b>Geo Distribution of the Best Selling Music Artists</b></h2>
           <h4>
-            This last map want to show the number of best selling music artists for each country. <br>
-            The increasing of the intensity of purple scale color follows the increasing of the number of music artists.
+            This last map want to show the number of best selling music artists
+            for each country. <br />
+            The increasing of the intensity of purple scale color follows the
+            increasing of the number of music artists.
           </h4>
           <div class="map-container" id="geoChart3Div">
-              <svg id="geoChart3" width="600" height="400"></svg>
-              <svg id="geoLegend3" width="900"></svg>
+            <div data-zoom-on-wheel="zoom-amount: 0.002; min-scale: 1; max-scale: 2;  scaling-property: 'width/height'" data-pan-on-drag class="map-container" id="geoChart1Div">
+              <svg id="geoChart3" width="1200" height="800"></svg>
+            </div>
+            <svg id="geoLegend3" width="900"></svg>
           </div>
-      
-          <br>
-          <hr>
-          <br>
 
+          <br />
+          <hr />
+          <br />
         </div>
 
         <footer id="includeFooter"></footer>
@@ -119,7 +138,7 @@
         $("#includeFooter").load("./components/footer.html");
       });
     </script>
-     <script src="./js/utils/mapLegend.js" crossorigin="anonymous"></script>
+    <script src="./js/utils/mapLegend.js" crossorigin="anonymous"></script>
     <script src="./js/geoAnalysis/geoChart1.js"></script>
     <script src="./js/geoAnalysis/geoChart2.js"></script>
     <script src="./js/geoAnalysis/geoChart3.js"></script>

@@ -7,7 +7,7 @@ const svg2 = d3.select("#geoChart2"),
 // Map and projection
 const path2 = d3.geoPath();
 const projection2 = d3.geoMercator()
-  .scale(70)
+  .scale(120)
   .center([0, 20])
   .translate([width2 / 2, height2 / 2]);
 

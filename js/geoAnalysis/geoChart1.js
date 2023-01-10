@@ -4,15 +4,11 @@ const svg = d3.select("#geoChart1"),
   width = +svg.attr("width"),
   height = +svg.attr("height");
 
-//   svg.call(d3.zoom().on("zoom", function (event) {
-//     svg.attr("transform", event.transform)
-//  }))
-// .append("g");
 
 // Map and projection
 const path = d3.geoPath();
 const projection = d3.geoMercator()
-  .scale(70)
+  .scale(120)
   .center([0, 20])
   .translate([width / 2, height / 2]);
 

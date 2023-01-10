@@ -432,7 +432,9 @@ p {
 }
 .map-container{
 	text-align: center;
-
+  align-items: center;
+  margin-left: 20px;
+  margin-top: -30px;
 }
 .map-container p{
 	text-align: center;

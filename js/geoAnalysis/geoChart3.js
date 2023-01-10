@@ -8,65 +8,102 @@ const svg3 = d3.select("#geoChart3"),
 const path3 = d3.geoPath();
 const projection3 = d3.geoMercator()
   .scale(70)
-  .center([0,20])
+  .center([0, 20])
   .translate([width3 / 2, height3 / 2]);
 
 // Data and color scale
 const data3 = new Map();
 const colorScale3 = d3.scaleThreshold()
-  .domain([1, 2, 5, 10, 20, 80])
-  .range(d3.schemeBlues[8]);
+  .domain([ 0, 1, 2, 5, 10, 20, 80])
+  .range(d3.schemeBlues[9]);
+
+let tooltip3 = d3.select("#geoChart3Div")
+  .append("div")
+  .style("background-color", "white")
+  .style("border", "solid")
+  .style("border-width", "2px")
+  .style("border-radius", "5px")
+  .style("padding", "10px")
+  // .style("min-width", "2px")
+  .style("opacity", 0)
+  .attr("class", "tooltip")
+  .style("font-size", "16px")
 
 // Load external data and boot
 Promise.all([
-d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
-d3.csv("../../data/ArtistPerCountry.csv", function(d) {
-    data3.set(d['Code Country'], +d.ArtistForCountry)
-})]).then(function(loadData){
+  d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
+  d3.csv("../../data/ArtistPerCountry.csv", function (d) {
+    data3.set(d['Country'], +d.ArtistForCountry)
+  })]).then(function (loadData) {
     let topo = loadData[0]
 
-    let mouseOver = function(d) {
-    d3.selectAll(".Country")
-      .transition()
-      .duration(200)
-      .style("opacity", .5)
-    d3.select(this)
-      .transition()
-      .duration(200)
-      .style("opacity", 1)
-      .style("stroke", "black")
-  }
+    let mouseOver = function (event, d) {
+      console.log(d)
+      console.log(d.properties.name)
 
-  let mouseLeave = function(d) {
-    d3.selectAll(".Country")
-      .transition()
-      .duration(200)
-      .style("opacity", .8)
-    d3.select(this)
-      .transition()
-      .duration(200)
-      .style("stroke", "transparent")
-  }
+      d3.selectAll(".Country")
+        .transition()
+        .duration(200)
+        .style("opacity", .5)
+        .style('stroke', 'transparent')
+      d3.select(this)
+        .transition()
+        .duration(200)
+        .style("opacity", 1)
+        .style("stroke", "red")
 
-  // Draw the map
-  svg3.append("g")
-    .selectAll("path")
-    .data(topo.features)
-    .enter()
-    .append("path")
+      tooltip3
+        .transition()
+        .duration(200)
+        .style("opacity", 1)
+      tooltip3
+        .html("<span style='color:grey'>Country: </span>" + d.properties.name + "<br>" + "<span style='color:grey'>Nbr. of Artist: </span>" + d.total)
+        .style("top", (event.pageY) + "px")
+        .style("left", (event.pageX + 30) + "px")
+    }
+    let mouseMove = function (event, d) {
+      tooltip3
+        .style("left", (event.pageX + 30) + "px")
+        .style("top", (event.pageY) + "px")
+    }
+
+    let mouseLeave = function (event, d) {
+      d3.selectAll(".Country")
+        .transition()
+        .duration(200)
+        .style("opacity", 1)
+        .style("stroke", 'black')
+      d3.select(this)
+        .transition()
+        .duration(200)
+        .style("stroke", "black")
+      tooltip2
+        .transition()
+        .duration(200)
+        .style("opacity", 0)
+    }
+
+
+    // Draw the map
+    svg3.append("g")
+      .selectAll("path")
+      .data(topo.features)
+      .enter()
+      .append("path")
       // draw each country
       .attr("d", d3.geoPath()
         .projection(projection3)
       )
       // set the color of each country
       .attr("fill", function (d) {
-        d.total = data3.get(d.id) || 0;
+        d.total = data3.get(d.properties.name) || 0;
         return colorScale3(d.total);
       })
-      .style("stroke", "transparent")
-      .attr("class", function(d){ return "Country" } )
-      .style("opacity", .8)
-      .on("mouseover", mouseOver )
-      .on("mouseleave", mouseLeave )
+      .style("stroke", "black")
+      .attr("class", function (d) { return "Country" })
+      .style("opacity", 1)
+      .on("mouseover", mouseOver)
+      .on('mousemove', mouseMove)
+      .on("mouseleave", mouseLeave)
 
-})
+  })

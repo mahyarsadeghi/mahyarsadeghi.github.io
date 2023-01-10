@@ -421,9 +421,9 @@ p {
 }
 
 #headersContainer {
-	background-image: url("../iimages/banner.jpg");
+	background-image: url("../iimages/banner2.jpg");
 	background-size: cover;
-	background-position: center center;
+	/* background-position: center center; */
 	height: 250px;
 	margin-bottom: 20px;
 
@@ -431,10 +431,10 @@ p {
 .h1-mainPage {
 	color: white;
 	text-shadow:
-		-2px -2px 0 var(--title-color),
-		2px -2px 0 var(--title-color),
-		-2px 2px 0 var(--title-color),
-		2px 2px 0 var(--title-color);
+		-2px -2px 0 var(white),
+		2px -2px 0 var(white),
+		-2px 2px 0 var(white),
+		2px 2px 0 var(white);
 	/* padding: 80px; */
 }
 #HomePageTitle {

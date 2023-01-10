@@ -23,12 +23,12 @@ print(d_country)
 df['CountryCodes']=df['Country'].apply(lambda x: d_country[x])
 
 # -- Chart 1 Geo Analysis --
-result1 = df[['Country' ,'Sales ($ million)']]
-result2 = result1.groupby('Country').sum().rename(columns={'Sales ($ million)': 'SalesForCountry'}).reset_index()
-ordered_result = result2.sort_values(by='SalesForCountry', ascending=False)
-ordered_result['Country Code'] = ordered_result['Country'].apply(lambda x: d_country[x])
-print(ordered_result)
-ordered_result.to_csv(f'{DATA_PATH}/SalesCountry.csv')
+# result1 = df[['Country' ,'Sales ($ million)']]
+# result2 = result1.groupby('Country').sum().rename(columns={'Sales ($ million)': 'SalesForCountry'}).reset_index()
+# ordered_result = result2.sort_values(by='SalesForCountry', ascending=False)
+# ordered_result['Country Code'] = ordered_result['Country'].apply(lambda x: d_country[x])
+# print(ordered_result)
+# ordered_result.to_csv(f'{DATA_PATH}/SalesCountry.csv')
 
 # # -- Chart 2 Geo Analysis --
 # result1 = df[['Country' ,'TCU (unit)']]

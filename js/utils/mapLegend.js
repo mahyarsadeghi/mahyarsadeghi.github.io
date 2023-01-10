@@ -1,7 +1,7 @@
 function Legend(color, id, {
     title,
     tickSize = 6,
-    width = 400, 
+    width = 600, 
     height = 44 + tickSize,
     marginTop = 18,
     marginRight = 20,
@@ -24,14 +24,14 @@ function Legend(color, id, {
     return canvas;
   }
   
-  const svgLeg = d3v6.select(id)
+  const svgLeg = d3.select(id)
               .append("svg")
               .attr("viewBox", '0 0 ' + (width + marginLeft + marginRight) +
                   ' ' + (height + marginTop + marginBottom))
               .append("g")
               .attr("transform", `translate(${marginLeft}, ${marginTop})`);
   
-  //const prova = d3v6.select("graph5").append(svgLeg)
+  //const prova = d3.select("graph5").append(svgLeg)
   
   let tickAdjust = g => g.selectAll(".tick line").attr("y1", marginTop + marginBottom - height);
   let x;
@@ -40,7 +40,7 @@ function Legend(color, id, {
   if (color.interpolate) {
     const n = Math.min(color.domain().length, color.range().length);
   
-    x = color.copy().rangeRound(d3v6.quantize(d3v6.interpolate(marginLeft, width - marginRight), n));
+    x = color.copy().rangeRound(d3.quantize(d3.interpolate(marginLeft, width - marginRight), n));
   
     svgLeg.append("image")
         .attr("x", marginLeft)
@@ -48,13 +48,13 @@ function Legend(color, id, {
         .attr("width", width - marginLeft - marginRight)
         .attr("height", height - marginTop - marginBottom)
         .attr("preserveAspectRatio", "none")
-        .attr("xlink:href", ramp(color.copy().domain(d3v6.quantize(d3v6.interpolate(0, 1), n))).toDataURL());
+        .attr("xlink:href", ramp(color.copy().domain(d3.quantize(d3.interpolate(0, 1), n))).toDataURL());
   }
   
   // Sequential
   else if (color.interpolator) {
     x = Object.assign(color.copy()
-        .interpolator(d3v6.interpolateRound(marginLeft, width - marginRight)),
+        .interpolator(d3.interpolateRound(marginLeft, width - marginRight)),
         {range() { return [marginLeft, width - marginRight]; }});
   
     svgLeg.append("image")
@@ -69,10 +69,10 @@ function Legend(color, id, {
     if (!x.ticks) {
       if (tickValues === undefined) {
         const n = Math.round(ticks + 1);
-        tickValues = d3v6.range(n).map(i => d3v6.quantile(color.domain(), i / (n - 1)));
+        tickValues = d3.range(n).map(i => d3.quantile(color.domain(), i / (n - 1)));
       }
       if (typeof tickFormat !== "function") {
-        tickFormat = d3v6.format(tickFormat === undefined ? ",f" : tickFormat);
+        tickFormat = d3.format(tickFormat === undefined ? ",f" : tickFormat);
       }
     }
   }
@@ -86,10 +86,10 @@ function Legend(color, id, {
   
     const thresholdFormat
         = tickFormat === undefined ? d => d
-        : typeof tickFormat === "string" ? d3v6.format(tickFormat)
+        : typeof tickFormat === "string" ? d3.format(tickFormat)
         : tickFormat;
   
-    x = d3v6.scaleLinear()
+    x = d3.scaleLinear()
         .domain([-1, color.range().length - 1])
         .rangeRound([marginLeft, width - marginRight]);
   
@@ -103,13 +103,13 @@ function Legend(color, id, {
         .attr("height", height - marginTop - marginBottom)
         .attr("fill", d => d);
   
-    tickValues = d3v6.range(thresholds.length);
+    tickValues = d3.range(thresholds.length);
     tickFormat = i => thresholdFormat(thresholds[i], i);
   }
   
   // Ordinal
   else {
-    x = d3v6.scaleBand()
+    x = d3.scaleBand()
         .domain(color.domain())
         .rangeRound([marginLeft, width - marginRight]);
   
@@ -128,7 +128,7 @@ function Legend(color, id, {
   
   svgLeg.append("g")
   .attr("transform", `translate(0,${height - marginBottom})`)
-  .call(d3v6.axisBottom(x)
+  .call(d3.axisBottom(x)
     .ticks(ticks, typeof tickFormat === "string" ? tickFormat : undefined)
     .tickFormat(typeof tickFormat === "function" ? tickFormat : undefined)
     .tickSize(tickSize)

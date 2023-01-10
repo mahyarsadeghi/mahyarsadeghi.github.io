@@ -11,11 +11,14 @@ const projection = d3.geoMercator()
   .center([0, 20])
   .translate([width / 2, height / 2]);
 
+
+Legend(d3.scaleThreshold([0, 10, 20, 30, 50, 500, 1000, 5000, 10000], d3.schemeGreens[9]), "#geoLegend1")
+
 // Data and color scale
 const data = new Map();
 const colorScale = d3.scaleThreshold()
-  .domain([0, 100, 200, 300, 500, 700, 1000, 5000, 10000])
-  .range(d3.schemeBlues[9]);
+  .domain([0, 10, 20, 30, 50, 500, 1000, 5000, 10000])
+  .range(d3.schemeGreens[9]);
 
 let tooltip = d3.select("#geoChart1Div")
   .append("div")
@@ -40,8 +43,15 @@ Promise.all([
     let mouseOver = function (event, d) {
       console.log(d)
       console.log(d.properties.name)
+    let value = ''
+    value = d.total.toString().split(".")[0]
+      if(value > 999){
+        value = `${d.total} billion`
+      }else{
+        value = `${d.total} million`
+      }
 
-      d3.selectAll(".Country")
+      d3.selectAll(".Country")  
         .transition()
         .duration(200)
         .style("opacity", .5)
@@ -56,8 +66,12 @@ Promise.all([
         .transition()
         .duration(200)
         .style("opacity", 1)
+        // let numb = d.total.toString().split(".")[0]
+        
       tooltip
-        .html("<span style='color:grey'>Country: </span>" + d.properties.name + "<br>" + "<span style='color:grey'>Sales: </span>" + `${d.total} million`)
+        .html("<span style='color:grey'>Country: </span>" + d.properties.name + 
+        "<br>" + "<span style='color:grey'>Sales ($): </span>" + value
+        )
         .style("top", (event.pageY) + "px")
         .style("left", (event.pageX + 30) + "px")
     }

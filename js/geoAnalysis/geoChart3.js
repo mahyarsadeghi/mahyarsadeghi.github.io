@@ -14,8 +14,10 @@ const projection3 = d3.geoMercator()
 // Data and color scale
 const data3 = new Map();
 const colorScale3 = d3.scaleThreshold()
-  .domain([ 0, 1, 2, 5, 10, 20, 80])
-  .range(d3.schemeBlues[9]);
+  .domain([ 0, 1, 2, 3, 5, 10, 20, 80])
+  .range(d3.schemePurples[9]);
+
+  Legend(d3.scaleThreshold([0, 1, 2, 3, 5, 10, 20, 80], d3.schemePurples[9]), "#geoLegend3")
 
 let tooltip3 = d3.select("#geoChart3Div")
   .append("div")
@@ -77,7 +79,7 @@ Promise.all([
         .transition()
         .duration(200)
         .style("stroke", "black")
-      tooltip2
+      tooltip3
         .transition()
         .duration(200)
         .style("opacity", 0)

@@ -26,7 +26,7 @@ d3.csv("../../data/TA_CH_2.csv").then(function (data) {
     //     'progressive rock', 'psychedelic rock', 'punk rock', 'r&b', 'rap rock',
     //     'reggae', 'rock', 'rock and roll', 'smooth jazz', 'soft rock', 'soul',
     //     'surf rock', 'swing', 'teen pop', 'thrash metal']
-    let allGroup = ['pop', 'rock']
+    let allGroup = ['pop', 'rock','country']
 
     let selected_country = "United States";
     data = data.filter(function (row) {
@@ -80,18 +80,17 @@ d3.csv("../../data/TA_CH_2.csv").then(function (data) {
         .style("border-width", "1px")
         .style("border-radius", "5px")
         .style("padding", "10px")
-    let mouseover = function(d) {
+    let mouseover = function (d) {
         tooltip
             .style("opacity", 1)
     }
-    let mousemove = function(event, d) {
-        console.log(d);
+    let mousemove = function (event, d) {
         tooltip
-            .html("Year: " + d.Year + " Sales: "+d.value+ " M$")
-            .style("left", (event.pageX+30) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+            .html("Year: " + d.Year + " Sales: " + d.value + " M$")
+            .style("left", (event.pageX + 30) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
             .style("top", (event.pageY) + "px")
     }
-    var mouseleave = function(d) {
+    var mouseleave = function (d) {
         tooltip
             .transition()
             .duration(200)
@@ -133,20 +132,20 @@ d3.csv("../../data/TA_CH_2.csv").then(function (data) {
         .on("mouseleave", mouseleave)
 
     // Add a label at the end of each line
-    svg2
-        .selectAll("myLabels")
-        .data(dataReady)
-        .join('g')
-        .append("text")
-        .attr("class", d => d.genre)
-        .datum(d => {
-            return {genre: d.genre, value: d.values[d.values.length - 1]};
-        }) // keep only the last value of each time series
-        .attr("transform", d => `translate(${x(d.value.Year)},${y(d.value.value)})`) // Put the text at the position of the last point
-        .attr("x", 12) // shift the text a bit more right
-        .text(d => d.genre)
-        .style("fill", d => myColor(d.genre))
-        .style("font-size", 15)
+    // svg2
+    //     .selectAll("myLabels")
+    //     .data(dataReady)
+    //     .join('g')
+    //     .append("text")
+    //     .attr("class", d => d.genre)
+    //     .datum(d => {
+    //         return {genre: d.genre, value: d.values[d.values.length - 1]};
+    //     }) // keep only the last value of each time series
+    //     .attr("transform", d => `translate(${x(d.value.Year)},${y(d.value.value)})`) // Put the text at the position of the last point
+    //     .attr("x", 12) // shift the text a bit more right
+    //     .text(d => d.genre)
+    //     .style("fill", d => myColor(d.genre))
+    //     .style("font-size", 15)
 
     // Add a legend (interactive)
     svg2

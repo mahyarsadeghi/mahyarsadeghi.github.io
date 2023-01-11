@@ -26,10 +26,10 @@ d3.csv("../../data/TA_CH_2.csv").then(function (data) {
     //     'progressive rock', 'psychedelic rock', 'punk rock', 'r&b', 'rap rock',
     //     'reggae', 'rock', 'rock and roll', 'smooth jazz', 'soft rock', 'soul',
     //     'surf rock', 'swing', 'teen pop', 'thrash metal']
-    let allGroup=['pop','rock']
+    let allGroup = ['pop', 'rock']
 
     let selected_country = "United States";
-    data=data.filter(function(row) {
+    data = data.filter(function (row) {
         return row['Country'] == selected_country;
     });
     // Reformat the data: we need an array of arrays of {x, y} tuples
@@ -46,7 +46,7 @@ d3.csv("../../data/TA_CH_2.csv").then(function (data) {
             })
         };
     });
-    console.log(dataReady)
+    // console.log(dataReady)
     // I strongly advise to have a look to dataReady with
     // console.log(dataReady)
 
@@ -70,6 +70,34 @@ d3.csv("../../data/TA_CH_2.csv").then(function (data) {
     svg2.append("g")
         .call(d3.axisLeft(y));
 
+    //Adding Tooltip
+    let tooltip = d3.select("#timeChart2")
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .style("background-color", "white")
+        .style("border", "solid")
+        .style("border-width", "1px")
+        .style("border-radius", "5px")
+        .style("padding", "10px")
+    let mouseover = function(d) {
+        tooltip
+            .style("opacity", 1)
+    }
+    let mousemove = function(event, d) {
+        console.log(d);
+        tooltip
+            .html("Year: " + d.Year + " Sales: "+d.value+ " M$")
+            .style("left", (event.pageX+30) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+            .style("top", (event.pageY) + "px")
+    }
+    var mouseleave = function(d) {
+        tooltip
+            .transition()
+            .duration(200)
+            .style("opacity", 0)
+    }
+
     // Add the lines
     let line = d3.line()
         .x(d => x(+d.Year))
@@ -82,6 +110,7 @@ d3.csv("../../data/TA_CH_2.csv").then(function (data) {
         .attr("stroke", d => myColor(d.genre))
         .style("stroke-width", 4)
         .style("fill", "none")
+
 
     // Add the points
     svg2
@@ -99,6 +128,9 @@ d3.csv("../../data/TA_CH_2.csv").then(function (data) {
         .attr("cy", d => y(d.value))
         .attr("r", 5)
         .attr("stroke", "white")
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave)
 
     // Add a label at the end of each line
     svg2
@@ -139,7 +171,7 @@ d3.csv("../../data/TA_CH_2.csv").then(function (data) {
         .attr("class", "x label")
         .attr("text-anchor", "end")
         .attr("x", width2)
-        .attr("y", height2+30)
+        .attr("y", height2 + 30)
         .text("Year");
     svg2.append("text")
         .attr("class", "y label")
@@ -148,4 +180,6 @@ d3.csv("../../data/TA_CH_2.csv").then(function (data) {
         .attr("dy", ".75em")
         .attr("transform", "rotate(-90)")
         .text("Sales (M $)");
+
+
 })

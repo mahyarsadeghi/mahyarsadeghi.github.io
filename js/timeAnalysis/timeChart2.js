@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 let margin2 = {top: 10, right: 100, bottom: 30, left: 30},
-    width2 = 460 - margin2.left - margin2.right,
-    height2 = 400 - margin2.top - margin2.bottom;
+    width2 = 800 - margin2.left - margin2.right,
+    height2 = 500 - margin2.top - margin2.bottom;
 
 // append the svg object to the body of the page
 let svg2 = d3.select("#timeChart2")
@@ -134,4 +134,18 @@ d3.csv("../../data/TA_CH_2.csv").then(function (data) {
             d3.selectAll("." + d.genre).transition().style("opacity", currentOpacity == 1 ? 0 : 1)
 
         })
+    //adding x and y labels
+    svg2.append("text")
+        .attr("class", "x label")
+        .attr("text-anchor", "end")
+        .attr("x", width2)
+        .attr("y", height2+30)
+        .text("Year");
+    svg2.append("text")
+        .attr("class", "y label")
+        .attr("text-anchor", "end")
+        .attr("y", 6)
+        .attr("dy", ".75em")
+        .attr("transform", "rotate(-90)")
+        .text("Sales (M $)");
 })

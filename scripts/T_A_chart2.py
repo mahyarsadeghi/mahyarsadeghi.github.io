@@ -1,15 +1,13 @@
 import pandas as pd
 import re
+import numpy as np
 
 DATA_PATH = '../data'
 
 columns_to_read = ['Country', "Year", "Genre", "Sales ($)"]
-# genres_set = {'R&B', 'pop', 'rock', 'Country', 'rock and roll', 'gospel', 'Hip-hop', 'neo soul', 'Alternative rock',
-#               'J-pop', 'Hard rock', 'heavy metal', 'dance', 'Latin pop', 'hip house', 'EDM', 'Pop rock', 'Soul', 'jazz',
-#               'blues', 'soft rock'}
 
 temp_genre = []
-df = pd.read_csv(f'{DATA_PATH}/best_selling_artists.csv', usecols=columns_to_read)
+df = pd.read_csv(f'{DATA_PATH}/best_selling_artists_ORIGINAL.csv', usecols=columns_to_read)
 df_genres = df['Genre']
 for row in df_genres:
     genres = row.split(' / ')
@@ -41,6 +39,17 @@ for index, row in df.iterrows():
         df.at[index, 'Genre'] = temp_genres[0].lower()
         df.at[index, "Sales ($)"] = temp_salary
 df = df.drop(dropped_indexes)
+df['Sales ($)'] = df['Sales ($)'].astype(float)
+# Group By and pivot
+# df = df.groupby(by=["Country", "Year", "Genre"], as_index=False)['Sales ($)'].sum()
+df = df.pivot_table(index=["Country", "Year"], columns="Genre", values="Sales ($)", aggfunc=np.sum)
+df = df.fillna(0)
+print(df.head(1))
 
-df.to_csv(f'{DATA_PATH}/TA_CH_2.csv', index=False)
-print(df.to_string())
+df.to_csv(f'{DATA_PATH}/TA_CH_2.csv', index=True)
+# print(df.to_string())
+
+
+#test:
+#df=pd.read_csv(DATA_PATH+"/TA_CH_2.csv")
+#print(df.columns)

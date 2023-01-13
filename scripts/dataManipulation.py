@@ -23,8 +23,8 @@ print(d_country)
 df['CountryCodes']=df['Country'].apply(lambda x: d_country[x])
 
 # -- Chart 1 Geo Analysis --
-# result1 = df[['Country' ,'Sales ($ million)']]
-# result2 = result1.groupby('Country').sum().rename(columns={'Sales ($ million)': 'SalesForCountry'}).reset_index()
+# result1 = df[['Country' ,'Sales ($)']]
+# result2 = result1.groupby('Country').sum().rename(columns={'Sales ($)': 'SalesForCountry'}).reset_index()
 # ordered_result = result2.sort_values(by='SalesForCountry', ascending=False)
 # ordered_result['Country Code'] = ordered_result['Country'].apply(lambda x: d_country[x])
 # print(ordered_result)
@@ -47,3 +47,66 @@ df['CountryCodes']=df['Country'].apply(lambda x: d_country[x])
 # ordered_result['Country Code'] = ordered_result['Country'].apply(lambda x: d_country[x])
 # print(ordered_result)
 # ordered_result.to_csv(f'{DATA_PATH}/ArtistPerCountry.csv', index=False)
+
+#           ------- Genre Analysis -------
+
+# # -- Chart 1 Genre Analysis --
+# result1 = df[['Country','Genre']]
+# top = 15
+# # convert to list
+# result1['Genre'] = result1['Genre'].str.split(' / ')
+
+# # convert list of pd.Series then stack it
+# result1 = (result1
+# .set_index(['Country'])['Genre']
+#  .apply(pd.Series)
+#  .stack()
+#  .reset_index()
+#  .drop('level_1', axis=1)
+#  .rename(columns={0:'Genre'}))
+
+# result1.Genre = result1.Genre.str.capitalize()
+# # print(result1)
+# result2 = result1.groupby('Genre').count().rename(columns={'Country': 'Count'}).reset_index()
+# ordered_result = result2.sort_values(by='Count', ascending=False)[:top]
+
+# all_genres = result2['Genre'].unique()
+# top_genres = list(ordered_result['Genre'])
+# other_genres = list(set(all_genres) - set(top_genres))
+# # print(len(other_genres))
+# final_result = ordered_result.append({'Genre': 'Other', 'Count': len(other_genres)}, ignore_index=True)
+# # print(final_result)
+# final_result.to_csv(f'{DATA_PATH}/top_{top}_genres.csv', index=False)
+
+# # -- Chart 2 Genre Analysis --
+result1 = df[['Sales ($)','Genre']]
+top = 15
+
+result1['Genre'] = result1['Genre'].str.split(' / ')
+
+# convert list of pd.Series then stack it
+result1 = (result1
+.set_index(['Sales ($)'])['Genre']
+ .apply(pd.Series)
+ .stack()
+ .reset_index()
+ .drop('level_1', axis=1)
+ .rename(columns={0:'Genre'}))
+
+result1.Genre = result1.Genre.str.capitalize()
+# print(result1)
+
+result2 = result1.groupby('Genre').sum().rename(columns={'Sales ($)': 'SalesForGenre'}).reset_index()
+ordered_result = result2.sort_values(by='SalesForGenre', ascending=False)[:top]
+# print(ordered_result)
+
+all_genres = result2['Genre'].unique()
+top_genres = list(ordered_result['Genre'])
+other_genres = list(set(all_genres) - set(top_genres))
+
+others  = result1[result1['Genre'].isin(other_genres)]
+othersSales = others['Sales ($)'].sum()
+
+final_result = ordered_result.append({'Genre': 'Other', 'SalesForGenre': othersSales}, ignore_index=True)
+print(final_result)
+final_result.to_csv(f'{DATA_PATH}/top_{top}_genres_sales.csv', index=False)

@@ -1,4 +1,4 @@
-Artist,Country,period_active,Year,Genre,TCU (unit),Sales ($ million)
+Artist,Country,period_active,Year,Genre,TCU (unit),Sales ($)
 Christina Aguilera,United States,1993–present,1998,R&B / pop / rock,76600000,95
 Johnny Cash,United States,1954–2003,1956,Country / rock and roll / gospel,32200000,90
 Lionel Richie,United States,1968–present,1981,Pop / R&B,43000000,90
@@ -15,7 +15,7 @@ The Black Eyed Peas,United States,1995–present,1998,Hip-hop / R&B / dance,6980
 Tim McGraw,United States,1990–present,1994,Country,72300000,80
 Shakira,Colombia,1988–present,1995,Latin pop / pop / pop rock,75000000,80
 Usher,United States,1991–present,1994,R&B / pop,76600000,80
-Flo Rida,United States,2007–present,2007,Hip-hop / hip house /EDM,85000000,80
+Flo Rida,United States,2007–present,2007,Hip-hop / hip house / EDM,85000000,80
 Imagine Dragons,United States,2008–present,2012,Pop rock / electropop / pop,124400000,75
 The Weeknd,Canada,2010–present,2013,Pop / R&B,213400000,75
 Aretha Franklin,United States,1956–2018,1961,Soul / jazz / blues / R&B,26600000,75
@@ -28,7 +28,7 @@ Bryan Adams,Canada,1979–present,1979,Rock,49900000,75
 Enya,Ireland,1982–present,1987,New-age / Celtic,51900000,75
 Green Day,United States,1987–present,1994,Punk rock / pop punk / alternative rock,53000000,75
 Kenny G,United States,1982–present,1984,Smooth jazz,53900000,75
-Bob Seger,United States,1961–present,1967,Rock / Hard rock/ Pop rock,55300000,75
+Bob Seger,United States,1961–present,1967,Rock / Hard rock / Pop rock,55300000,75
 Robbie Williams,United Kingdom,1990–present,1996,Pop rock,55900000,75
 Nirvana,United States,1987–1994,1990,Grunge / alternative rock,56000000,75
 R. Kelly,United States,1989–2019,1991,R&B / soul / hip-hop,56800000,75

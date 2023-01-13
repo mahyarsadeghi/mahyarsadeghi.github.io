@@ -1,7 +1,7 @@
 // var margin = {top: 100, right: 100, bottom: 100, left: 100},
 // 				width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
 // 				height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
-					
+
 // 			////////////////////////////////////////////////////////////// 
 // 			////////////////////////// Data ////////////////////////////// 
 // 			////////////////////////////////////////////////////////////// 
@@ -42,7 +42,7 @@
 
 // 			var color = d3.scaleOrdinal()
 // 				.range(["#EDC951","#CC333F","#00A0B0"]);
-				
+
 // 			var radarChartOptions = {
 // 			  w: width,
 // 			  h: height,
@@ -79,35 +79,35 @@
 // 	 roundStrokes: false,	//If true the area and stroke will follow a round path (cardinal-closed)
 // 	 color: d3.scaleOrdinal()	//Color function
 // 	};
-	
+
 // 	//Put all of the options into a variable called cfg
 // 	if('undefined' !== typeof options){
 // 	  for(var i in options){
 // 		if('undefined' !== typeof options[i]){ cfg[i] = options[i]; }
 // 	  }//for i
 // 	}//if
-	
+
 // 	//If the supplied maxValue is smaller than the actual one, replace by the max in the data
 // 	var maxValue = Math.max(cfg.maxValue, d3.max(data, function(i){return d3.max(i.map(function(o){return o.value;}))}));
-		
+
 // 	var allAxis = (data[0].map(function(i, j){return i.axis})),	//Names of each axis
 // 		total = allAxis.length,					//The number of different axes
 // 		radius = Math.min(cfg.w/2, cfg.h/2), 	//Radius of the outermost circle
 // 		Format = d3.format('%'),			 	//Percentage formatting
 // 		angleSlice = Math.PI * 2 / total;		//The width in radians of each "slice"
-	
+
 // 	//Scale for the radius
 // 	var rScale = d3.scaleLinear()
 // 		.range([0, radius])
 // 		.domain([0, maxValue]);
-		
+
 // 	/////////////////////////////////////////////////////////
 // 	//////////// Create the container SVG and g /////////////
 // 	/////////////////////////////////////////////////////////
 
 // 	//Remove whatever chart with the same id/class was present before
 // 	d3.select(id).select("svg").remove();
-	
+
 // 	//Initiate the radar chart SVG
 // 	var svg = d3.select(id).append("svg")
 // 			.attr("width",  cfg.w + cfg.margin.left + cfg.margin.right)
@@ -116,11 +116,11 @@
 // 	//Append a g element		
 // 	var g = svg.append("g")
 // 			.attr("transform", "translate(" + (cfg.w/2 + cfg.margin.left) + "," + (cfg.h/2 + cfg.margin.top) + ")");
-	
+
 // 	/////////////////////////////////////////////////////////
 // 	////////// Glow filter for some extra pizzazz ///////////
 // 	/////////////////////////////////////////////////////////
-	
+
 // 	//Filter for the outside glow
 // 	var filter = g.append('defs').append('filter').attr('id','glow'),
 // 		feGaussianBlur = filter.append('feGaussianBlur').attr('stdDeviation','2.5').attr('result','coloredBlur'),
@@ -131,10 +131,10 @@
 // 	/////////////////////////////////////////////////////////
 // 	/////////////// Draw the Circular grid //////////////////
 // 	/////////////////////////////////////////////////////////
-	
+
 // 	//Wrapper for the grid & axes
 // 	var axisGrid = g.append("g").attr("class", "axisWrapper");
-	
+
 // 	//Draw the background circles
 // 	axisGrid.selectAll(".levels")
 // 	   .data(d3.range(1,(cfg.levels+1)).reverse())
@@ -162,7 +162,7 @@
 // 	/////////////////////////////////////////////////////////
 // 	//////////////////// Draw the axes //////////////////////
 // 	/////////////////////////////////////////////////////////
-	
+
 // 	//Create the straight lines radiating outward from the center
 // 	var axis = axisGrid.selectAll(".axis")
 // 		.data(allAxis)
@@ -193,26 +193,26 @@
 // 	/////////////////////////////////////////////////////////
 // 	///////////// Draw the radar chart blobs ////////////////
 // 	/////////////////////////////////////////////////////////
-	
+
 // 	//The radial line function
 // 	var radarLine = d3.lineRadial()
 // 		// .interpolate("linear-closed")
-  
+
 // 		.radius(function(d) { return rScale(d.value); })
 // 		.angle(function(d,i) {	return i*angleSlice; })
 //         .curve(d3.curveLinear);
-		
+
 // 	if(cfg.roundStrokes) {
 // 		// radarLine.interpolate("cardinal-closed");
 //         radarLine.curve(d3.curveCardinal)
 // 	}
-				
+
 // 	//Create a wrapper for the blobs	
 // 	var blobWrapper = g.selectAll(".radarWrapper")
 // 		.data(data)
 // 		.enter().append("g")
 // 		.attr("class", "radarWrapper");
-			
+
 // 	//Append the backgrounds	
 // 	blobWrapper
 // 		.append("path")
@@ -236,7 +236,7 @@
 // 				.transition().duration(200)
 // 				.style("fill-opacity", cfg.opacityArea);
 // 		});
-		
+
 // 	//Create the outlines	
 // 	blobWrapper.append("path")
 // 		.attr("class", "radarStroke")
@@ -245,7 +245,7 @@
 // 		.style("stroke", function(d,i) { return cfg.color(i); })
 // 		.style("fill", "none")
 // 		.style("filter" , "url(#glow)");		
-	
+
 // 	//Append the circles
 // 	blobWrapper.selectAll(".radarCircle")
 // 		.data(function(d,i) { return d; })
@@ -260,13 +260,13 @@
 // 	/////////////////////////////////////////////////////////
 // 	//////// Append invisible circles for tooltip ///////////
 // 	/////////////////////////////////////////////////////////
-	
+
 // 	//Wrapper for the invisible circles on top
 // 	var blobCircleWrapper = g.selectAll(".radarCircleWrapper")
 // 		.data(data)
 // 		.enter().append("g")
 // 		.attr("class", "radarCircleWrapper");
-		
+
 // 	//Append a set of invisible circles on top for the mouseover pop-up
 // 	blobCircleWrapper.selectAll(".radarInvisibleCircle")
 // 		.data(function(d,i) { return d; })
@@ -280,7 +280,7 @@
 // 		.on("mouseover", function(d,i) {
 // 			newX =  parseFloat(d3.select(this).attr('cx')) - 10;
 // 			newY =  parseFloat(d3.select(this).attr('cy')) - 10;
-					
+
 // 			tooltip
 // 				.attr('x', newX)
 // 				.attr('y', newY)
@@ -292,12 +292,12 @@
 // 			tooltip.transition().duration(200)
 // 				.style("opacity", 0);
 // 		});
-		
+
 // 	//Set up the small tooltip for when you hover over a circle
 // 	var tooltip = g.append("text")
 // 		.attr("class", "tooltip")
 // 		.style("opacity", 0);
-	
+
 // 	/////////////////////////////////////////////////////////
 // 	/////////////////// Helper Function /////////////////////
 // 	/////////////////////////////////////////////////////////
@@ -316,7 +316,7 @@
 // 			x = text.attr("x"),
 // 			dy = parseFloat(text.attr("dy")),
 // 			tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
-			
+
 // 		while (word = words.pop()) {
 // 		  line.push(word);
 // 		  tspan.text(line.join(" "));
@@ -329,67 +329,179 @@
 // 		}
 // 	  });
 // 	}//wrap	
-	
+
 // }//RadarChart
 
+
+// create 2 data_set
+
+
 // set the dimensions and margins of the graph
-const margin3 = {top: 30, right: 30, bottom: 70, left: 60},
-    width3 = 460 - margin3.left - margin3.right,
-    height3 = 400 - margin3.top - margin3.bottom;
+const margin3 = { top: 30, right: 30, bottom: 70, left: 60 },
+	width3 = 700 - margin3.left - margin3.right,
+	height3 = 650 - margin3.top - margin3.bottom;
+
 
 // append the svg object to the body of the page
 const svg3 = d3.select("#genreChart3")
-  .append("svg")
-    .attr("width", width3 + margin3.left + margin3.right)
-    .attr("height", height3 + margin3.top + margin3.bottom)
-  .append("g")
-    .attr("transform", `translate(${margin3.left},${margin3.top})`);
+	.append("svg")
+	// .attr("width", width3 + margin3.left + margin3.right)
+	// .attr("height", height3 + margin3.top + margin3.bottom)
+	.attr("viewBox", `-180 0 1000 650`)
+	.append("g")
+	.attr("transform", `translate(${margin3.left},${margin3.top})`);
+
+
+	let tooltip = d3.select("#genreChart3")
+	.append("div")
+	.style("opacity", 0)
+	.attr("class", "tooltip")
+	.style("background-color", "white")
+	.style("border", "solid")
+	.style("border-width", "2px")
+	.style("border-radius", "5px")
+	.style("padding", "10px")
 
 // Initialize the X axis
-const x = d3.scaleBand()
-  .range([ 0, width3 ])
-  .padding(0.2);
-const xAxis = svg3.append("g")
-  .attr("transform", `translate(0,${height3})`);
+let x = d3.scaleLinear()
+	.range([0, width3])
+//   .padding(0.2);
+let xAxis = svg3.append("g")
+	.attr("transform", `translate(0,${height3})`)
+
 
 // Initialize the Y axis
-const y = d3.scaleLinear()
-  .range([ height3, 0]);
-const yAxis = svg3.append("g")
-  .attr("class", "myYaxis");
+let y = d3.scaleBand()
+	.range([0, height3])
+	.padding(.2);
+let yAxis = svg3.append("g")
+	.attr("class", "myYaxis")
 
 
 // A function that create / update the plot for a given variable:
-function update(selectedVar) {
+function update1() {
+	d3.csv("../../data/top_20_artists_sales.csv").then(function (data) {
 
-  // Parse the Data
-  d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/barplot_change_data.csv").then( function(data) {
+		let scolor = d3.scaleSequential()
+			.domain([0, 550])
+			.interpolator(d3.interpolateGreens);
 
-    // X axis
-    x.domain(data.map(d => d.group));
-    xAxis.transition().duration(1000).call(d3.axisBottom(x));
 
-    // Add Y axis
-    y.domain([0, d3.max(data, d => +d[selectedVar]) ]);
-    yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
-    // variable u: map data to existing bars
-    const u = svg3.selectAll("rect")
-      .data(data)
+		let mouseover = function (event, d) {
+			let totalAmount = d['Sales ($)'];
+			let artist = d.Artist;
 
-    // update bars
-    u.join("rect")
-      .transition()
-      .duration(1000)
-        .attr("x", d => x(d.group))
-        .attr("y", d => y(d[selectedVar]))
-        .attr("width", x.bandwidth())
-        .attr("height", d => height3 - y(d[selectedVar]))
-        .attr("fill", "#69b3a2")
-  })
+			tooltip
+				.html("<span style='color:grey'>Artist: </span>" + artist +
+					"<br>" + "<span style='color:grey'>Sales ($): </span>" + totalAmount)
+				.style("opacity", 1);
+			d3.select(this).attr("fill", "#9B2335");
+		}
+		let mousemove = function (event, d) {
+			tooltip
+				.style('left', (event.pageX + 40) + 'px')
+				.style('top', (event.pageY + 5) + 'px')
+		}
+		let mouseleave = function (event, d) {
+			tooltip
+				.style("opacity", 0);
+			d3.select(this).attr("fill", d => scolor(d['Sales ($)']));
+		}
+
+		x.domain([0, 600])
+		xAxis.call(d3.axisBottom(x))
+			.selectAll("text")
+			.attr("transform", "translate(-10,0)rotate(-45)")
+			.style("text-anchor", "end");
+
+		// Update the Y axis
+		y.domain(data.map(d => d.Artist));
+		yAxis.transition().duration(1000).call(d3.axisLeft(y))
+			.selectAll("text")
+			.attr("transform", "translate(-10,0)rotate(-45)")
+			.style("text-anchor", "end");
+
+		// Create the u variable
+		var u = svg3.selectAll("rect")
+			.data(data)
+
+
+		u
+			.join("rect") // Add a new rect for each new elements
+			.attr("y", d => y(d.Artist))
+			.attr("x", x(0))
+			.attr("width", d => x(d['Sales ($)']))
+			.attr("height", y.bandwidth())
+			.attr("fill", d => scolor(d['Sales ($)']))
+			.on('mouseover', mouseover)
+			.on('mouseleave', mouseleave)
+			.on('mousemove', mousemove)
+			
+
+	});
+	// Update the X axis
 
 }
 
-// Initialize plot
-update('var1')
+function update2() {
+	d3.csv("../../data/top_20_artists_TCU.csv").then(function (data) {
+		let scolor2 = d3.scaleSequential()
+			.domain([0, 450000000])
+			.interpolator(d3.interpolateBlues);
 
+			let mouseoverUpdate = function (event, d) {
+				let totalAmount = d['TCU (unit)'];
+				let artist = d.Artist;
+	
+				tooltip
+					.html("<span style='color:grey'>Artist: </span>" + artist +
+						"<br>" + "<span style='color:grey'>TCU (unit): </span>" + totalAmount)
+					.style("opacity", 1);
+				d3.select(this).attr("fill", "#9B2335");
+			}
+			let mousemoveUpdate = function (event, d) {
+				tooltip
+					.style('left', (event.pageX + 40) + 'px')
+					.style('top', (event.pageY + 5) + 'px')
+			}
+			let mouseleaveUpdate = function (event, d) {
+				tooltip
+					.style("opacity", 0);
+				d3.select(this).attr("fill", d => scolor2(d['TCU (unit)']));
+			}
+
+		x.domain([0, 450000000])
+		xAxis.call(d3.axisBottom(x))
+			.selectAll("text")
+			.attr("transform", "translate(-10,0)rotate(-45)")
+			.style("text-anchor", "end");
+
+		// Update the Y axis
+		y.domain(data.map(d => d.Artist));
+		yAxis.transition().duration(1000).call(d3.axisLeft(y))
+			.selectAll("text")
+			.attr("transform", "translate(-10,0)rotate(-45)")
+			.style("text-anchor", "end");
+
+		// Create the u variable
+		var u = svg3.selectAll("rect")
+			.data(data)
+
+		u
+			.join("rect") // Add a new rect for each new elements
+			.attr("y", d => y(d.Artist))
+			.attr("x", x(0))
+			.attr("width", d => x(d['TCU (unit)']))
+			.attr("height", y.bandwidth())
+			.attr("fill", d => scolor2(d['TCU (unit)']))
+			.on('mouseover', mouseoverUpdate)
+			.on('mouseleave', mouseleaveUpdate)
+			.on('mousemove', mousemoveUpdate)
+	});
+	// Update the X axis
+
+}
+
+// Initialize the plot with the first dataset
+update1()

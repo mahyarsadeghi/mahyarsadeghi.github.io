@@ -59,15 +59,15 @@
 
 // set the dimensions and margins of the graph
 const margin1 = {top: 20, right: 30, bottom: 40, left: 90},
-    width1 = 460 - margin1.left - margin1.right,
-    height1 = 400 - margin1.top - margin1.bottom;
+    width1 = 600 - margin1.left - margin1.right,
+    height1 = 500 - margin1.top - margin1.bottom;
 
 // append the svg object to the body of the page
 const svg1 = d3.select("#genreChart2")
   .append("svg")
-    // .attr("width", width2 + margin2.left + margin2.right)
+    .attr("viewBox", `-200 0 1000 500`)
+    //  .attr("width", width2 + margin2.left + margin2.right)
     // .attr("height", height2 + margin2.top + margin2.bottom)
-    .attr("viewBox", `0 0 1000 500`)
   .append("g")
     .attr("transform", `translate(${margin1.left}, ${margin1.top})`);
 
@@ -75,7 +75,7 @@ const svg1 = d3.select("#genreChart2")
 d3.csv("../../data/top_15_genres_sales.csv").then( function(data) {
 
   // Add X axis
-  const x = d3.scaleLinear()
+  let x = d3.scaleLinear()
     .domain([0, 9000])
     .range([ 0, width1]);
     svg1.append("g")
@@ -86,12 +86,14 @@ d3.csv("../../data/top_15_genres_sales.csv").then( function(data) {
       .style("text-anchor", "end");
 
   // Y axis
-  const y = d3.scaleBand()
+  let y = d3.scaleBand()
     .range([ 0, height1 ])
     .domain(data.map(d => d.Genre))
     .padding(.2);
     svg1.append("g")
+    .transition().duration(1000)
     .call(d3.axisLeft(y))
+
 
   //Bars
   svg1.selectAll("myRect")
@@ -101,6 +103,6 @@ d3.csv("../../data/top_15_genres_sales.csv").then( function(data) {
     .attr("y", d => y(d.Genre))
     .attr("width", d => x(d.SalesForGenre))
     .attr("height", y.bandwidth())
-    .attr("fill", "#69b3a2")
+    .attr("fill", "#17823c")
 
 })

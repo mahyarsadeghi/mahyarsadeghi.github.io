@@ -48,9 +48,9 @@ df['CountryCodes']=df['Country'].apply(lambda x: d_country[x])
 # print(ordered_result)
 # ordered_result.to_csv(f'{DATA_PATH}/ArtistPerCountry.csv', index=False)
 
-#           ------- Genre Analysis -------
+#           ------- Artist & Genre Analysis -------
 
-# # -- Chart 1 Genre Analysis --
+# # -- Chart 1 Artist & Genre Analysis --
 # result1 = df[['Country','Genre']]
 # top = 15
 # # convert to list
@@ -78,35 +78,64 @@ df['CountryCodes']=df['Country'].apply(lambda x: d_country[x])
 # # print(final_result)
 # final_result.to_csv(f'{DATA_PATH}/top_{top}_genres.csv', index=False)
 
-# # -- Chart 2 Genre Analysis --
-result1 = df[['Sales ($)','Genre']]
-top = 15
+# # -- Chart 2 Artist & Genre Analysis --
+# result1 = df[['Sales ($)','Genre']]
+# top = 15
 
-result1['Genre'] = result1['Genre'].str.split(' / ')
+# result1['Genre'] = result1['Genre'].str.split(' / ')
 
-# convert list of pd.Series then stack it
-result1 = (result1
-.set_index(['Sales ($)'])['Genre']
- .apply(pd.Series)
- .stack()
- .reset_index()
- .drop('level_1', axis=1)
- .rename(columns={0:'Genre'}))
+# # convert list of pd.Series then stack it
+# result1 = (result1
+# .set_index(['Sales ($)'])['Genre']
+#  .apply(pd.Series)
+#  .stack()
+#  .reset_index()
+#  .drop('level_1', axis=1)
+#  .rename(columns={0:'Genre'}))
 
-result1.Genre = result1.Genre.str.capitalize()
-# print(result1)
+# result1.Genre = result1.Genre.str.capitalize()
+# # print(result1)
 
-result2 = result1.groupby('Genre').sum().rename(columns={'Sales ($)': 'SalesForGenre'}).reset_index()
-ordered_result = result2.sort_values(by='SalesForGenre', ascending=False)[:top]
-# print(ordered_result)
+# result2 = result1.groupby('Genre').sum().rename(columns={'Sales ($)': 'SalesForGenre'}).reset_index()
+# ordered_result = result2.sort_values(by='SalesForGenre', ascending=False)[:top]
+# # print(ordered_result)
 
-all_genres = result2['Genre'].unique()
-top_genres = list(ordered_result['Genre'])
-other_genres = list(set(all_genres) - set(top_genres))
+# all_genres = result2['Genre'].unique()
+# top_genres = list(ordered_result['Genre'])
+# other_genres = list(set(all_genres) - set(top_genres))
 
-others  = result1[result1['Genre'].isin(other_genres)]
-othersSales = others['Sales ($)'].sum()
+# others  = result1[result1['Genre'].isin(other_genres)]
+# othersSales = others['Sales ($)'].sum()
 
-final_result = ordered_result.append({'Genre': 'Other', 'SalesForGenre': othersSales}, ignore_index=True)
-print(final_result)
-final_result.to_csv(f'{DATA_PATH}/top_{top}_genres_sales.csv', index=False)
+# final_result = ordered_result.append({'Genre': 'Other', 'SalesForGenre': othersSales}, ignore_index=True)
+# print(final_result)
+# final_result.to_csv(f'{DATA_PATH}/top_{top}_genres_sales.csv', index=False)
+
+# # -- Chart 3 Artist & Genre Analysis --
+# top = 20
+# result1 = df[['Artist', 'Sales ($)', 'TCU (unit)']]
+
+# ordered_result = result1.sort_values(by='Sales ($)', ascending=False)[:top]
+# # print(ordered_result)
+# ordered_result = ordered_result[['Artist', 'Sales ($)']]
+# ordered_result.to_csv(f'{DATA_PATH}/top_{top}_artists_sales.csv', index=False)
+
+# ordered_result2 = result1.sort_values(by='TCU (unit)', ascending=False)[:top]
+# ordered_result2 = ordered_result2[['Artist', 'TCU (unit)']]
+# # print(ordered_result2)
+# ordered_result2.to_csv(f'{DATA_PATH}/top_{top}_artists_TCU.csv', index=False)
+
+
+# # -- Chart 4 Artist & Genre Analysis --
+result1 = df[['Artist', 'Country','Sales ($)']]
+
+countries = result1['Country'].unique()
+final_result = pd.DataFrame(columns=['Artist', 'Country', 'Sales ($)'])
+
+for country in countries:
+    dd = result1[result1['Country'] == country]
+    row = dd.sort_values(by='Sales ($)', ascending=False)[:1]
+    final_result  = pd.concat([final_result, row])
+
+# print(final_result)
+final_result.to_csv(f'{DATA_PATH}/top_artist_country.csv', index=False)

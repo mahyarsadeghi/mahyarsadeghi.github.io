@@ -205,7 +205,7 @@ final_result.to_csv(f'{DATA_PATH}/top_artist_countryTCU.csv', index=False)
 
 # %%
 #-------------------------------- Time Analysis ----------------------------
-# -- Chart 1 Time Analysis --
+
 result1 = df[['Artist','Country', 'Sales ($)','TCU (unit)', 'Genre', 'period_active']]
 result1['period_active'] = df['period_active'].str.replace('present', '2023').str.split(', ')
 
@@ -234,5 +234,12 @@ result1 = (result1
  .rename(columns={0:'period_active'}))
 
 result1.to_csv(f'{DATA_PATH}/timeData.csv', index=False)
+
+# %%
+# -- Chart 1 Time Analysis --
+final_result = result1[['period_active']]
+# final_result = final_result.sort_values(by='period_active', ascending=False)
+# print(final_result)
+final_result.to_csv(f'{DATA_PATH}/allYears.csv', index=False)
 
 # %%

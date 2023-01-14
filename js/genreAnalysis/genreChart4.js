@@ -94,7 +94,7 @@ function update_initial_chart4() {
 			.attr('class', "text-axis-chart4")
 			.attr("text-anchor", "end")
 			.attr("x", -55)
-			.attr("y", height1 - 390)
+			.attr("y", height1 - 490)
 			.text("Artists");
 
     z.domain([75, 550])
@@ -177,7 +177,7 @@ function update1_chart4() {
 			.attr('class', "text-axis-chart4")
 			.attr("text-anchor", "end")
 			.attr("x", -55)
-			.attr("y", height1 - 390)
+			.attr("y", height1 - 490)
 			.text("Artists");
 
     z.domain([75, 550])
@@ -263,7 +263,7 @@ function update2_chart4() {
 			.attr('class', "text-axis-chart4")
 			.attr("text-anchor", "end")
 			.attr("x", -55)
-			.attr("y", height1 - 390)
+			.attr("y", height1 - 490)
 			.text("Artists");
 
     z.domain([28900000, 413060000])

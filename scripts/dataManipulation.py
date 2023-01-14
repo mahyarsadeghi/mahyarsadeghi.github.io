@@ -53,7 +53,7 @@ ordered_result['Country Code'] = ordered_result['Country'].apply(lambda x: d_cou
 print(ordered_result)
 ordered_result.to_csv(f'{DATA_PATH}/ArtistPerCountry.csv', index=False)
 
-#           ------- Artist & Genre Analysis -------
+#-------------------------------- Artist & Genre Analysis ----------------------------
 
 #%%
 # -- Chart 1 Artist & Genre Analysis --
@@ -202,5 +202,37 @@ for country in countries:
 # print(final_result)
 # final_result = final_result.sort_values(by='TCU (unit)', ascending=False)
 final_result.to_csv(f'{DATA_PATH}/top_artist_countryTCU.csv', index=False)
+
+# %%
+#-------------------------------- Time Analysis ----------------------------
+# -- Chart 1 Time Analysis --
+result1 = df[['Artist','Country', 'Sales ($)','TCU (unit)', 'Genre', 'period_active']]
+result1['period_active'] = df['period_active'].str.replace('present', '2023').str.split(', ')
+
+for i, row in result1.iterrows():
+    if len(row.period_active) == 2:
+        st1 = row.period_active[0].split('–')
+        print(st1)
+        st2 = row.period_active[1].split('–')
+        print(st2)
+        seq1 = list( range( int(st1[0]), int(st1[1])+1 ) )
+        seq2 = list( range( int(st2[0]), int(st2[1])+1 ) )
+        result1['period_active'][i] = seq1 + seq2
+    
+    else:
+        st = row.period_active[0].split('–')
+        seq = list( range( int(st[0]), int(st[1])+1 ) )
+        result1['period_active'][i] = seq
+
+# print(result1)
+result1 = (result1
+.set_index(['Artist','Country', 'Sales ($)','TCU (unit)', 'Genre'])['period_active']
+ .apply(pd.Series)
+ .stack()
+ .reset_index()
+ .drop('level_5', axis=1)
+ .rename(columns={0:'period_active'}))
+
+result1.to_csv(f'{DATA_PATH}/timeData.csv', index=False)
 
 # %%

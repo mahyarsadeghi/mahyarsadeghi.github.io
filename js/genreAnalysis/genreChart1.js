@@ -29,6 +29,10 @@ let tooltip3 = d3.select("#genreChart1")
 // Parse the Data
 d3.csv("../../data/top_15_genres.csv").then(function (data) {
 
+  let scolor = d3.scaleSequential()
+  .domain([0, 59])
+  .interpolator(d3.interpolatePurples);
+
   let mouseover = function (event, d) {
     let totalAmount = d.Count;
     let genre = d.Genre;
@@ -47,8 +51,9 @@ d3.csv("../../data/top_15_genres.csv").then(function (data) {
   let mouseleave = function (event, d) {
     tooltip3
       .style("opacity", 0);
-    d3.select(this).attr("fill", '#6e5ba8');
-    d3.select('#Other').attr('fill', "#ced4da");
+    // d3.select(this).attr("fill", '#6e5ba8');
+    d3.select(this).attr('fill', d => scolor(d.Count))
+    d3.select('#Other').attr('fill', "#868e96");
   }
 
   // Add X axis
@@ -81,7 +86,7 @@ d3.csv("../../data/top_15_genres.csv").then(function (data) {
   svg2.append("text")
     .attr("text-anchor", "end")
     .attr("x", -40)
-    .attr("y", height2 - 520)
+    .attr("y", height2 - 490)
     .text("Genres");
 
   //Bars
@@ -92,12 +97,13 @@ d3.csv("../../data/top_15_genres.csv").then(function (data) {
     .attr("y", d => y(d.Genre))
     .attr("width", d => x(0))
     .attr("height", y.bandwidth())
-    .attr("fill", "#6e5ba8")
+    // .attr("fill", "#6e5ba8")
+    .attr('fill', d => scolor(d.Count))
     .attr('id', d => d.Genre)
     .on('mouseover', mouseover)
     .on('mouseleave', mouseleave)
     .on('mousemove', mousemove)
-    d3.select('#Other').attr('fill','#ced4da')
+    d3.select('#Other').attr('fill','#868e96')
 
   svg2.selectAll("rect")
     .transition()

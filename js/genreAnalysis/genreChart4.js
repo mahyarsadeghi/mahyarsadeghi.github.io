@@ -32,17 +32,14 @@ let yAxis4 = svg.append("g")
   // .attr("transform", `translate(0, ${height})`)
   .attr("class", "myYaxis")
 
-  let z = d3.scaleLinear()
+let z = d3.scaleLinear()
   .range([4, 40]);
 
-function update1_chart4() {
+function update_initial_chart4() {
 
   d3.csv("../../data/top_artist_country.csv").then(function (data) {
 
     // Add a scale for bubble size
-
-
-
 
     const showTooltip = function (event, d) {
 
@@ -80,27 +77,127 @@ function update1_chart4() {
       .selectAll("text")
       .attr("transform", "translate(-10,0)rotate(-45)")
       .style("text-anchor", "end");
+      svg.append("text")
+			.attr('class', "text-axis-chart4")
+			.attr("text-anchor", "end")
+			.attr("x", width)
+			.attr("y", height + 50)
+			.text("Sales ($)");
+
 
     y4.domain([0, 600]);
     yAxis4.transition().duration(1000).call(d3.axisLeft(y4))
-    .selectAll("text")
-    .attr("transform", "translate(-10,0)rotate(-45)")
-    .style("text-anchor", "end");
+      .selectAll("text")
+      .attr("transform", "translate(-25,0)rotate(-45)")
+      .style("text-anchor", "end");
+      svg.append("text")
+			.attr('class', "text-axis-chart4")
+			.attr("text-anchor", "end")
+			.attr("x", -55)
+			.attr("y", height1 - 390)
+			.text("Artists");
 
     z.domain([75, 550])
 
     // Add dots
-    svg.append('g')
-      .selectAll("dot")
+    let u = svg
+      .selectAll("circle")
       .data(data)
+    u
       .join("circle")
       .attr("id", d => "bubbles" + d.Artist.split(" ").join('').split('/').join("").split("'").join(""))
       .attr("class", d => "bubbles" + d.Artist)
-      .attr("cx", d => x(d.Country))
-      .attr("cy", d => y(d['Sales ($)']))
+      .attr("cx", d => x4(d.Country))
+      .attr("cy", d => y4(d['Sales ($)']))
       .attr("r", d => z(d['Sales ($)']))
       .style("fill", '#17823c')
       // -3- Trigger the functions
+      .on("mouseover", showTooltip)
+      .on("mousemove", moveTooltip)
+      .on("mouseleave", hideTooltip)
+
+  })
+
+}
+
+function update1_chart4() {
+
+  d3.csv("../../data/top_artist_country.csv").then(function (data) {
+    d3.selectAll('.text-axis-chart4').remove()
+    // Add a scale for bubble size
+    const showTooltip = function (event, d) {
+
+      let totalAmount = d['Sales ($)'];
+      let artist = d.Artist;
+      let country = d.Country;
+
+      tooltip4
+        .html("<span style='color:grey'>Artist: </span>" + artist +
+          "<br>" + "<span style='color:grey'>Sales ($): </span>" + totalAmount + ' million' +
+          "<br>" + "<span style='color:grey'>Country: </span>" + country)
+        .style("opacity", 1);
+      //   d3.select(this).attr("fill", "#9B2335");
+      console.log(artist)
+      d3.select(`#bubbles${artist}`.split(" ").join('').split('/').join("").split("'").join("")).attr('stroke', '#9B2335').attr('stroke-width', '3px')
+      //  d3.select(`circle`).attr('stroke' ,'black')
+
+
+    }
+    const moveTooltip = function (event, d) {
+      tooltip4
+        .style('left', (event.pageX + 40) + 'px')
+        .style('top', (event.pageY + 5) + 'px')
+    }
+    const hideTooltip = function (event, d) {
+      tooltip4
+        .transition()
+        .duration(200)
+        .style("opacity", 0)
+      d3.selectAll("circle").attr('stroke', 'none')
+    }
+
+    x4.domain(data.map(d => d.Country))
+    xAxis4.transition().duration(1000).call(d3.axisBottom(x4))
+      .selectAll("text")
+      .attr("transform", "translate(-10,0)rotate(-45)")
+      .style("text-anchor", "end");
+      svg.append("text")
+			.attr('class', "text-axis-chart4")
+			.attr("text-anchor", "end")
+			.attr("x", width)
+			.attr("y", height + 50)
+			.text("Sales ($)");
+
+    y4.domain([0, 600]);
+    yAxis4.transition().duration(1000).call(d3.axisLeft(y4))
+      .selectAll("text")
+      .attr("transform", "translate(-25,0)rotate(-45)")
+      .style("text-anchor", "end");
+      svg.append("text")
+			.attr('class', "text-axis-chart4")
+			.attr("text-anchor", "end")
+			.attr("x", -55)
+			.attr("y", height1 - 390)
+			.text("Artists");
+
+    z.domain([75, 550])
+
+    // Add dots
+    let u = svg
+      .selectAll("circle")
+      .data(data)
+    u
+      .join("circle")
+      .transition()
+      .duration(1000)
+      .attr("id", d => "bubbles" + d.Artist.split(" ").join('').split('/').join("").split("'").join(""))
+      .attr("class", d => "bubbles" + d.Artist)
+      .attr("cx", d => x4(d.Country))
+      .attr("cy", d => y4(d['Sales ($)']))
+      .attr("r", d => z(d['Sales ($)']))
+      .style("fill", '#17823c')
+      // -3- Trigger the functions
+      u
       .on("mouseover", showTooltip)
       .on("mousemove", moveTooltip)
       .on("mouseleave", hideTooltip)
@@ -111,9 +208,89 @@ function update1_chart4() {
 
 function update2_chart4() {
 
+  d3.csv("../../data/top_artist_countryTCU.csv").then(function (data) {
+    d3.selectAll('.text-axis-chart4').remove()
+    // Add a scale for bubble siz
+    const showTooltip = function (event, d) {
 
+      let totalAmount = d['TCU (unit)'];
+      let artist = d.Artist;
+      let country = d.Country;
+
+      tooltip4
+        .html("<span style='color:grey'>Artist: </span>" + artist +
+          "<br>" + "<span style='color:grey'>TCU (unit): </span>" + totalAmount + ' units' +
+          "<br>" + "<span style='color:grey'>Country: </span>" + country)
+        .style("opacity", 1);
+      //   d3.select(this).attr("fill", "#9B2335");
+      console.log(artist)
+      d3.select(`#bubbles${artist}`.split(" ").join('').split('/').join("").split("'").join("")).attr('stroke', '#9B2335').attr('stroke-width', '3px')
+      //  d3.select(`circle`).attr('stroke' ,'black')
+
+
+    }
+    const moveTooltip = function (event, d) {
+      tooltip4
+        .style('left', (event.pageX + 40) + 'px')
+        .style('top', (event.pageY + 5) + 'px')
+    }
+    const hideTooltip = function (event, d) {
+      tooltip4
+        .transition()
+        .duration(200)
+        .style("opacity", 0)
+      d3.selectAll("circle").attr('stroke', 'none')
+    }
+
+    x4.domain(data.map(d => d.Country))
+    xAxis4.transition().duration(1000).call(d3.axisBottom(x4))
+      .selectAll("text")
+      .attr("transform", "translate(-10,0)rotate(-45)")
+      .style("text-anchor", "end");
+      svg.append("text")
+			.attr('class', "text-axis-chart4")
+			.attr("text-anchor", "end")
+			.attr("x", width)
+			.attr("y", height + 50)
+			.text("TCU (unit)");
+
+    y4.domain([0, 450000000]);
+    yAxis4.transition().duration(1000).call(d3.axisLeft(y4))
+      .selectAll("text")
+      .attr("transform", "translate(-20,0)rotate(-45)")
+      .style("text-anchor", "end");
+      svg.append("text")
+			.attr('class', "text-axis-chart4")
+			.attr("text-anchor", "end")
+			.attr("x", -55)
+			.attr("y", height1 - 390)
+			.text("Artists");
+
+    z.domain([28900000, 413060000])
+
+    // Add dots
+    let u = svg
+      .selectAll("circle")
+      .data(data)
+    u
+      .join("circle")
+      .transition()
+      .duration(1000)
+      .attr("id", d => "bubbles" + d.Artist.split(" ").join('').split('/').join("").split("'").join(""))
+      .attr("class", d => "bubbles" + d.Artist)
+      .attr("cx", d => x4(d.Country))
+      .attr("cy", d => y4(d['TCU (unit)']))
+      .attr("r", d => z(d['TCU (unit)']))
+      .style("fill", '#2877b7')
+    // -3- Trigger the functions
+    u
+      .on("mouseover", showTooltip)
+      .on("mousemove", moveTooltip)
+      .on("mouseleave", hideTooltip)
+
+  })
 };
 
-update1_chart4();
+update_initial_chart4();
 //Read the data
 

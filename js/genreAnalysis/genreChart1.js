@@ -1,15 +1,15 @@
 
 // set the dimensions and margins of the graph
-const margin2 = { top: 20, right: 30, bottom: 40, left: 90 },
+const margin2 = { top: 20, right: 30, bottom: 70, left: 60 },
   width2 = 600 - margin2.left - margin2.right,
-  height2 = 500 - margin2.top - margin2.bottom;
+  height2 = 600 - margin2.top - margin2.bottom;
 
 // append the svg object to the body of the page
 const svg2 = d3.select("#genreChart1")
   .append("svg")
   // .attr("width", width2 + margin2.left + margin2.right)
   // .attr("height", height2 + margin2.top + margin2.bottom)
-  .attr("viewBox", `-200 0 1000 500`)
+  .attr("viewBox", `-200 20 1000 600`)
   .append("g")
   .attr("transform", `translate(${margin2.left}, ${margin2.top})`);
 
@@ -62,6 +62,14 @@ d3.csv("../../data/top_15_genres.csv").then(function (data) {
     .attr("transform", "translate(-10,0)rotate(-45)")
     .style("text-anchor", "end");
 
+
+    svg2.append("text")
+        .attr("text-anchor", "end")
+        .attr("x", width2)
+        .attr("y", height2 + 50)
+        .text("Sales ($)");
+
+
   // Y axis
   let y = d3.scaleBand()
     .range([0, height2])
@@ -69,6 +77,12 @@ d3.csv("../../data/top_15_genres.csv").then(function (data) {
     .padding(.2);
   svg2.append("g")
     .call(d3.axisLeft(y))
+
+  svg2.append("text")
+    .attr("text-anchor", "end")
+    .attr("x", -40)
+    .attr("y", height2 - 520)
+    .text("Genres");
 
   //Bars
   svg2.selectAll("myRect")

@@ -200,4 +200,7 @@ for country in countries:
     final_result  = pd.concat([final_result, row])
 
 # print(final_result)
+# final_result = final_result.sort_values(by='TCU (unit)', ascending=False)
 final_result.to_csv(f'{DATA_PATH}/top_artist_countryTCU.csv', index=False)
+
+# %%

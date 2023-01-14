@@ -352,7 +352,7 @@ const svg3 = d3.select("#genreChart3")
 	.attr("transform", `translate(${margin3.left},${margin3.top})`);
 
 
-	let tooltip = d3.select("#genreChart3")
+let tooltip = d3.select("#genreChart3")
 	.append("div")
 	.style("opacity", 0)
 	.attr("class", "tooltip")
@@ -363,18 +363,18 @@ const svg3 = d3.select("#genreChart3")
 	.style("padding", "10px")
 
 // Initialize the X axis
-let x = d3.scaleLinear()
+let x3 = d3.scaleLinear()
 	.range([0, width3])
 //   .padding(0.2);
-let xAxis = svg3.append("g")
+let xAxis3 = svg3.append("g")
 	.attr("transform", `translate(0,${height3})`)
 
 
 // Initialize the Y axis
-let y = d3.scaleBand()
+let y3 = d3.scaleBand()
 	.range([0, height3])
 	.padding(.2);
-let yAxis = svg3.append("g")
+let yAxis3 = svg3.append("g")
 	.attr("class", "myYaxis")
 
 
@@ -389,8 +389,13 @@ function update1() {
 
 
 		let mouseover = function (event, d) {
-			let totalAmount = d['Sales ($)'];
 			let artist = d.Artist;
+			let totalAmount = d['Sales ($)'].toString().split(".")[0]
+			if(totalAmount > 999){
+			  totalAmount = `${d['Sales ($)']} billion`
+			}else{
+			  totalAmount = `${d['Sales ($)']} million`
+			}
 
 			tooltip
 				.html("<span style='color:grey'>Artist: </span>" + artist +
@@ -409,15 +414,15 @@ function update1() {
 			d3.select(this).attr("fill", d => scolor(d['Sales ($)']));
 		}
 
-		x.domain([0, 600])
-		xAxis.call(d3.axisBottom(x))
+		x3.domain([0, 600])
+		xAxis3.transition().duration(1000).call(d3.axisBottom(x3))
 			.selectAll("text")
 			.attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
 
 		// Update the Y axis
-		y.domain(data.map(d => d.Artist));
-		yAxis.transition().duration(1000).call(d3.axisLeft(y))
+		y3.domain(data.map(d => d.Artist));
+		yAxis3.transition().duration(1000).call(d3.axisLeft(y3))
 			.selectAll("text")
 			.attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
@@ -428,15 +433,17 @@ function update1() {
 
 
 		u
-			.join("rect") // Add a new rect for each new elements
-			.attr("y", d => y(d.Artist))
-			.attr("x", x(0))
-			.attr("width", d => x(d['Sales ($)']))
-			.attr("height", y.bandwidth())
-			.attr("fill", d => scolor(d['Sales ($)']))
-			.on('mouseover', mouseover)
-			.on('mouseleave', mouseleave)
-			.on('mousemove', mousemove)
+			.join("rect")
+			// .transition()
+			// .duration(1000) // Add a new rect for each new elements
+				.attr("y", d => y3(d.Artist))
+				.attr("x", x3(0))
+				.attr("width", d => x3(d['Sales ($)']))
+				.attr("height", y3.bandwidth())
+				.attr("fill", d => scolor(d['Sales ($)']))
+				.on('mouseover', mouseover)
+				.on('mouseleave', mouseleave)
+				.on('mousemove', mousemove)
 			
 
 	});
@@ -456,7 +463,7 @@ function update2() {
 	
 				tooltip
 					.html("<span style='color:grey'>Artist: </span>" + artist +
-						"<br>" + "<span style='color:grey'>TCU (unit): </span>" + totalAmount)
+						"<br>" + "<span style='color:grey'>TCU (unit): </span>" + totalAmount +' units')
 					.style("opacity", 1);
 				d3.select(this).attr("fill", "#9B2335");
 			}
@@ -471,15 +478,15 @@ function update2() {
 				d3.select(this).attr("fill", d => scolor2(d['TCU (unit)']));
 			}
 
-		x.domain([0, 450000000])
-		xAxis.call(d3.axisBottom(x))
+		x3.domain([0, 450000000])
+		xAxis3.transition().duration(1000).call(d3.axisBottom(x3))
 			.selectAll("text")
 			.attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
 
 		// Update the Y axis
-		y.domain(data.map(d => d.Artist));
-		yAxis.transition().duration(1000).call(d3.axisLeft(y))
+		y3.domain(data.map(d => d.Artist));
+		yAxis3.transition().duration(1000).call(d3.axisLeft(y3))
 			.selectAll("text")
 			.attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
@@ -489,12 +496,16 @@ function update2() {
 			.data(data)
 
 		u
-			.join("rect") // Add a new rect for each new elements
-			.attr("y", d => y(d.Artist))
-			.attr("x", x(0))
-			.attr("width", d => x(d['TCU (unit)']))
-			.attr("height", y.bandwidth())
-			.attr("fill", d => scolor2(d['TCU (unit)']))
+			.join("rect")
+			.transition()
+			.duration(1000) // Add a new rect for each new elements
+				.attr("y", d => y3(d.Artist))
+				.attr("x", x3(0))
+				.attr("width", d => x3(d['TCU (unit)']))
+				.attr("height", y3.bandwidth())
+				.attr("fill", d => scolor2(d['TCU (unit)']));
+
+			u
 			.on('mouseover', mouseoverUpdate)
 			.on('mouseleave', mouseleaveUpdate)
 			.on('mousemove', mousemoveUpdate)

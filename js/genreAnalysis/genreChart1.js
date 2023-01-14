@@ -48,6 +48,7 @@ d3.csv("../../data/top_15_genres.csv").then(function (data) {
     tooltip3
       .style("opacity", 0);
     d3.select(this).attr("fill", '#6e5ba8');
+    d3.select('#Other').attr('fill', "#ced4da");
   }
 
   // Add X axis
@@ -78,9 +79,11 @@ d3.csv("../../data/top_15_genres.csv").then(function (data) {
     .attr("width", d => x(0))
     .attr("height", y.bandwidth())
     .attr("fill", "#6e5ba8")
+    .attr('id', d => d.Genre)
     .on('mouseover', mouseover)
     .on('mouseleave', mouseleave)
     .on('mousemove', mousemove)
+    d3.select('#Other').attr('fill','#ced4da')
 
   svg2.selectAll("rect")
     .transition()

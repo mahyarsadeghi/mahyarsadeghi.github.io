@@ -42,7 +42,7 @@ df = df.drop(dropped_indexes)
 df['Sales ($)'] = df['Sales ($)'].astype(float)
 # Group By and pivot
 # df = df.groupby(by=["Country", "Year", "Genre"], as_index=False)['Sales ($)'].sum()
-df = df.pivot_table(index=["Country", "Year"], columns="Genre", values="Sales ($)", aggfunc=np.sum)
+df = df.pivot_table(index=[ "Year"], columns="Genre", values="Sales ($)", aggfunc=np.sum)
 df = df.fillna(0)
 print(df.head(1))
 

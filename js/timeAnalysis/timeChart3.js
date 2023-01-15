@@ -161,5 +161,18 @@ console.log(data)
         .text(function (d, i) {
             return d
         });
+    svg3.append("text")
+        .attr("class", "x label")
+        .attr("text-anchor", "end")
+        .attr("x", width3+100)
+        .attr("y", height3 + 30)
+        .text("Sales (M$)");
+    svg3.append("text")
+        .attr("class", "y label")
+        .attr("text-anchor", "end")
+        .attr("x", 100)
+        .attr("dy", ".75em")
+        // .attr("transform", "rotate(-90)")
+        .text("Country");
 
 });

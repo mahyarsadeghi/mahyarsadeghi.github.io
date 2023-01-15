@@ -41,15 +41,23 @@ for index, row in df.iterrows():
 df = df.drop(dropped_indexes)
 df['Sales ($)'] = df['Sales ($)'].astype(float)
 # Group By and pivot
-# df = df.groupby(by=["Country", "Year", "Genre"], as_index=False)['Sales ($)'].sum()
-df = df.pivot_table(index=[ "Year"], columns="Genre", values="Sales ($)", aggfunc=np.sum)
-df = df.fillna(0)
-print(df.head(1))
+df2 = df.groupby(by=["Country", "Genre"], as_index=False)['Sales ($)'].sum()
 
-df.to_csv(f'{DATA_PATH}/TA_CH_2.csv', index=True)
-# print(df.to_string())
+df2 = df2.pivot(index="Country", columns="Genre", values="Sales ($)")
+df2=df2.reset_index()
+# print(df2.columns)
+
+df1 = df.pivot_table(index=["Year"], columns="Genre", values="Sales ($)", aggfunc=np.sum)
+# df2 = df.pivot_table(index=["Country"], columns="Genre", values="Sales ($)", aggfunc=np.sum)
+df2 = df2.fillna(0)
+df1 = df1.fillna(0)
+# print(df1.head(1))
+
+df2.to_csv(f'{DATA_PATH}/TA_CH_3.csv', index=False)
+df1.to_csv(f'{DATA_PATH}/TA_CH_2.csv', index=True)
 
 
-#test:
-#df=pd.read_csv(DATA_PATH+"/TA_CH_2.csv")
-#print(df.columns)
+# test:
+# df=pd.read_csv(DATA_PATH+"/TA_CH_3.csv")
+# print(df.columns)
+# df.to_csv(f'{DATA_PATH}/TA_CH_3.csv', index=True)

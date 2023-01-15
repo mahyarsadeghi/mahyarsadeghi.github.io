@@ -8,7 +8,7 @@ let margin2 = {top: 10, right: 100, bottom: 30, left: 30},
 
 //Read the data
 d3.csv("../../data/TA_CH_2.csv").then(function (data) {
-
+    // console.log(data);
     let svg2 = d3.select("#timeChart2")
         .append("svg")
         .attr("width", width2 + margin2.left + margin2.right)

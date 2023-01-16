@@ -64,11 +64,33 @@
             <br/>
             <h2><b>Chart 1</b></h2>
             <h4>
-                Abundance of top 20 tree species present in the municipality of
-                Trento. <br/>
-                Hovering each bar the mean canopy size (m2) is also shown.
+                Distribution of active period of best selling artist through the years
             </h4>
             <div id="timeChart1"></div>
+            <p>
+                <label># bins</label>
+                <input type="number" min="1" max="100" step="20" value="20" id="nBin">
+              </p>
+            <br/>
+            <hr/>
+            <br/>
+            <br/>
+
+
+            <h2><b>Chart X</b></h2>
+            <h4>
+                Distribution of active period of best selling artist through the years
+            </h4>
+            <label for="selectGenres">Choose Genres:</label>
+            <select name="selectGenres" id="selectGenres">
+                <option value="Pop VS Rock" selected>Pop vs Rock</option>
+                <option value="R&B VS Hip-hop">R&B vs Hip-hop</option>
+                <option value="Hard rock VS Pop rock">Hard Rock vs Pop Rock</option>
+
+            </select>
+            <div id="timeChart4"></div>
+
+            <div id="timeChart4_2"></div>
             <br/>
             <hr/>
             <br/>
@@ -127,5 +149,6 @@
 <script src="./js/timeAnalysis/timeChart1.js"></script>
 <script src="./js/timeAnalysis/timeChart2.js"></script>
 <script src="./js/timeAnalysis/timeChart3.js"></script>
+<script src="./js/timeAnalysis/timeChart4.js"></script>
 </body>
 </html>

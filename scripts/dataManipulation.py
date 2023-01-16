@@ -11,7 +11,6 @@ DATA_PATH = '../data'
 df = pd.read_csv(f'{DATA_PATH}/best_selling_artists.csv')
 # print(df)
 
-
 #           ------- Geo Analysis -------
 #%%
 d_zip=df['Country'].unique()
@@ -233,7 +232,7 @@ result1 = (result1
  .drop('level_5', axis=1)
  .rename(columns={0:'period_active'}))
 
-result1.to_csv(f'{DATA_PATH}/timeData.csv', index=False)
+# result1.to_csv(f'{DATA_PATH}/timeData.csv', index=False)
 
 # %%
 # -- Chart 1 Time Analysis --
@@ -241,5 +240,39 @@ final_result = result1[['period_active']]
 # final_result = final_result.sort_values(by='period_active', ascending=False)
 # print(final_result)
 final_result.to_csv(f'{DATA_PATH}/allYears.csv', index=False)
+
+# %%
+result1 = result1[['Artist','Country', 'Sales ($)','TCU (unit)', 'period_active', 'Genre']]
+result1['Genre'] = result1['Genre'].str.split(' / ')
+result1 = (result1
+.set_index(['Artist','Country', 'Sales ($)','TCU (unit)', 'period_active'])['Genre']
+ .apply(pd.Series)
+ .stack()
+ .reset_index()
+ .drop('level_5', axis=1)
+ .rename(columns={0:'Genre'}))
+
+var1 = result1[result1['Genre'] == 'Pop']
+var2 = result1[result1['Genre'] == 'Rock']
+final_result = pd.concat([var1, var2], axis=0)
+# print(final_result)
+final_result = final_result[['Genre', 'period_active']]
+final_result.to_csv(f'{DATA_PATH}/PopRock_years.csv', index=False)
+
+var3 = result1[result1['Genre'] == 'R&B']
+var4 = result1[result1['Genre'] == 'Hip-hop']
+final_result2 = pd.concat([var3, var4], axis=0)
+# print(final_result2)
+final_result2 = final_result2[['Genre', 'period_active']]
+final_result2.to_csv(f'{DATA_PATH}/R&BHip-hop_years.csv', index=False)
+
+
+var5 = result1[result1['Genre'] == 'Hard rock']
+var6 = result1[result1['Genre'] == 'Pop rock']
+final_result3 = pd.concat([var5, var6], axis=0)
+# print(final_result2)
+final_result3 = final_result3[['Genre', 'period_active']]
+final_result3.to_csv(f'{DATA_PATH}/Hard rockPop rock_years.csv', index=False)
+
 
 # %%

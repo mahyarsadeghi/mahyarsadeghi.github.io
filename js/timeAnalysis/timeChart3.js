@@ -15,16 +15,18 @@ d3.csv("../../data/TA_CH_3.csv").then(function (data) {
     // console.log(data);
     // List of subgroups = header of the csv files = soil condition here
     // var subgroups = data.columns.slice(1)
-    let subgroups = ['pop', 'rock','country'];
-    data= data.map(function(d) {
+    let subgroups = ['pop', 'rock', 'country', 'r&b', 'hip-hop'];
+    data = data.map(function (d) {
         return {
-            'Country':d.Country,
+            'Country': d.Country,
             'pop': d.pop,
             'rock': d.rock,
-            'country':d.country
+            'country': d.country,
+            'hip-hop': d['hip-hop'],
+            'r&b': d['r&b']
         }
     });
-console.log(data)
+    console.log(data)
     // List of groups = species here = value of the first column called group -> I show them on the X axis
     var groups = d3.map(data, function (d) {
         return (d.Country)
@@ -32,7 +34,7 @@ console.log(data)
     // console.log('ggggggggg', groups)
     // Add X axis
     var x = d3.scaleLinear()
-        .domain([0, 10000])
+        .domain([0, 14000])
         .range([0, width3])
 
     svg3.append("g")
@@ -82,7 +84,7 @@ console.log(data)
         var subgroupName = d3.select(this.parentNode).datum().key;
         var subgroupValue = d.data[subgroupName];
         tooltip3
-            .html("Genre: " + subgroupName+"  "+subgroupValue+" M$")
+            .html("Genre: " + subgroupName + "  " + subgroupValue + " M$")
             .style("left", (event.pageX + 30) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
             .style("top", (event.pageY) + "px")
     }
@@ -136,7 +138,7 @@ console.log(data)
         .append("svg")
         // .attr("viewBox", `0 0 50 50`)
         .attr('width', 300)
-        .attr('height', 100)
+        .attr('height', 200)
         .append('g')
         .attr("transform", `translate(50,0)`)
         .selectAll("div")
@@ -164,7 +166,7 @@ console.log(data)
     svg3.append("text")
         .attr("class", "x label")
         .attr("text-anchor", "end")
-        .attr("x", width3+100)
+        .attr("x", width3 + 100)
         .attr("y", height3 + 30)
         .text("Sales (M$)");
     svg3.append("text")

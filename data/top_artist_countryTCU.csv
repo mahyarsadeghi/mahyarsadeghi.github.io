@@ -1,14 +1,14 @@
-Artist,Country,TCU (unit)
-Eminem,United States,325700000
-Johnny Hallyday,France,28900000
-B'z,Japan,86200000
-Shakira,Colombia,75000000
-Drake,Canada,413060000
-The Beatles,United Kingdom,290400000
-Bob Marley,Jamaica,46300000
-U2,Ireland,114600000
-Rihanna,Barbados,335300000
-AC/DC,Australia,130200000
-ABBA,Sweden,69000000
-Nicki Minaj,Trinidad and Tobago,156300000
-Julio Iglesias,Spain,51700000
+Artist,Country,Sales ($),TCU (unit)
+Eminem,United States,220.0,325700000
+Johnny Hallyday,France,80.0,28900000
+B'z,Japan,100.0,86200000
+Shakira,Colombia,80.0,75000000
+Drake,Canada,170.0,413060000
+The Beatles,United Kingdom,550.0,290400000
+Bob Marley,Jamaica,75.0,46300000
+U2,Ireland,150.0,114600000
+Rihanna,Barbados,240.0,335300000
+AC/DC,Australia,200.0,130200000
+ABBA,Sweden,150.0,69000000
+Nicki Minaj,Trinidad and Tobago,100.0,156300000
+Julio Iglesias,Spain,100.0,51700000

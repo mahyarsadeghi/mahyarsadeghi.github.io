@@ -72,7 +72,7 @@ d3.csv("../../data/top_15_genres.csv").then(function (data) {
         .attr("text-anchor", "end")
         .attr("x", width2)
         .attr("y", height2 + 50)
-        .text("Sales ($)");
+        .text("Nbr. Artists");
 
 
   // Y axis

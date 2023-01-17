@@ -188,10 +188,10 @@ final_result.to_csv(f'{DATA_PATH}/top_artist_country.csv', index=False)
 
 # -- PART 2
 #%%
-result1 = df[['Artist', 'Country','TCU (unit)']]
+result1 = df[['Artist', 'Country','Sales ($)','TCU (unit)']]
 
 countries = result1['Country'].unique()
-final_result = pd.DataFrame(columns=['Artist', 'Country', 'TCU (unit)'])
+final_result = pd.DataFrame(columns=['Artist', 'Country','Sales ($)', 'TCU (unit)'])
 
 for country in countries:
     dd = result1[result1['Country'] == country]

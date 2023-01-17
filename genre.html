@@ -62,9 +62,10 @@
 
         <div class="content">
           <br />
-          <h2><b>Chart 1</b></h2>
+          <h2><b> Top 15 genres for number of artist</b></h2>
           <h4>
-            TOP 15 genres for amount of artist
+           This first horizontal bar chart shows the top 15 genres considering the number of artists that belong to each of these genres. <br>
+           Hovering each bar is possible to see the exact amount of artis for the desired genre.
           </h4>
           <div id="genreChart1"></div>
           <br />
@@ -72,9 +73,12 @@
           <br>
           <br>
 
-          <h2><b>Chart 2</b></h2>
+          <h2><b>TOP 15 genres for sales amount and TCU units</b></h2>
           <h4>
-            TOP 15 genres for sales (and TCU)?
+            The second horizontal bar chart shows the top 15 genres considering, this time, <br>
+            the total amount of sales ($) for each of these genres, or the total amount of TCU (unit), based on the clicked button. <br>
+            Hovering each bar is possible to see the exact sales' value ($) or the TCU's units for the desired genre.
+            
           </h4>
           <button onclick="update1_chart2()">Sales</button>
           <button onclick="update2_chart2()">TCU</button>
@@ -84,9 +88,11 @@
           <br>
           <br>
 
-          <h2><b>Chart 3</b></h2>
+          <h2><b>TOP 20 artists for sales amount and TCU units</b></h2>
           <h4>
-            TOP 20 artist for sales and TCU
+            In the third one we can see the top 20 best selling music artists of all time, <br>
+            differentiating them by sales amount ($) and TCU (unit), again based on the performed selection. <br>
+            Hovering each bar is possible to see the exact sales' value ($) or the TCU's units for the specific artist.
           </h4>
           <button onclick="update1()">Sales</button>
           <button onclick="update2()">TCU</button>
@@ -98,9 +104,13 @@
           <br>
           <br>
 
-          <h2><b>Chart 4</b></h2>
+          <h2><b> TOP best selling music artist for each country</b></h2>
           <h4>
-            TOP selling artist of Each country
+           The last chart of this section is a bubble chart. Each bubble represents an artist,
+            specifically the best selling music artist for each of the country<br>
+            In the sales configuration there are the best selling artists considering the sale amount (y-axis), but the size of the bubbles are proportional to the TCU of each artist. <br>
+            In the TCU scenario there are the best selling artists considering the TCU (y-axis), but now the size of the bubbles are proportional to the sales amount of each artist. <br>
+            Hovering the bubbles is possible to retrieve some meaningful info about an artist.
           </h4>
           <button onclick="update1_chart4()">Sales</button>
           <button onclick="update2_chart4()">TCU</button>

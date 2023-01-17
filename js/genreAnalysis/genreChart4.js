@@ -46,10 +46,12 @@ function update_initial_chart4() {
       let totalAmount = d['Sales ($)'];
       let artist = d.Artist;
       let country = d.Country;
+      let tcu = d['TCU (unit)']
 
       tooltip4
         .html("<span style='color:grey'>Artist: </span>" + artist +
           "<br>" + "<span style='color:grey'>Sales ($): </span>" + totalAmount + ' million' +
+          "<br>" + "<span style='color:grey'>TCU (unit): </span>" + tcu +
           "<br>" + "<span style='color:grey'>Country: </span>" + country)
         .style("opacity", 1);
       //   d3.select(this).attr("fill", "#9B2335");
@@ -82,7 +84,7 @@ function update_initial_chart4() {
 			.attr("text-anchor", "end")
 			.attr("x", width)
 			.attr("y", height + 50)
-			.text("Sales ($)");
+			.text("Countries");
 
 
     y4.domain([0, 600]);
@@ -94,10 +96,10 @@ function update_initial_chart4() {
 			.attr('class', "text-axis-chart4")
 			.attr("text-anchor", "end")
 			.attr("x", -55)
-			.attr("y", height1 - 490)
-			.text("Artists");
+			.attr("y", height - 420)
+			.text("Sales ($)");
 
-    z.domain([75, 550])
+    z.domain([28900000, 413060000])
 
     // Add dots
     let u = svg
@@ -109,7 +111,7 @@ function update_initial_chart4() {
       .attr("class", d => "bubbles" + d.Artist)
       .attr("cx", d => x4(d.Country))
       .attr("cy", d => y4(d['Sales ($)']))
-      .attr("r", d => z(d['Sales ($)']))
+      .attr("r", d => z(d['TCU (unit)']))
       .style("fill", '#17823c')
       // -3- Trigger the functions
       .on("mouseover", showTooltip)
@@ -166,7 +168,7 @@ function update1_chart4() {
 			.attr("text-anchor", "end")
 			.attr("x", width)
 			.attr("y", height + 50)
-			.text("Sales ($)");
+			.text("Countries");
 
     y4.domain([0, 600]);
     yAxis4.transition().duration(1000).call(d3.axisLeft(y4))
@@ -178,7 +180,7 @@ function update1_chart4() {
 			.attr("text-anchor", "end")
 			.attr("x", -55)
 			.attr("y", height1 - 490)
-			.text("Artists");
+			.text("Sales ($)");
 
     z.domain([75, 550])
 
@@ -252,7 +254,7 @@ function update2_chart4() {
 			.attr("text-anchor", "end")
 			.attr("x", width)
 			.attr("y", height + 50)
-			.text("TCU (unit)");
+			.text("Countries");
 
     y4.domain([0, 450000000]);
     yAxis4.transition().duration(1000).call(d3.axisLeft(y4))
@@ -264,7 +266,7 @@ function update2_chart4() {
 			.attr("text-anchor", "end")
 			.attr("x", -55)
 			.attr("y", height1 - 490)
-			.text("Artists");
+			.text("TCU (unit)");
 
     z.domain([28900000, 413060000])
 

@@ -71,7 +71,7 @@ function update_initial_chart2() {
 				.style("opacity", 0);
 			// d3.select(this).attr("fill", '#17823c');
 			d3.select(this).attr('fill', d => scolor(d.SalesForGenre))
-			d3.select('#OtherSales').attr('fill', "#ced4da");
+			d3.select('#OtherSales').attr('fill', "#868e96");
 		}
 
 		x.domain([0, 9000])
@@ -126,7 +126,7 @@ function update_initial_chart2() {
 			.on('mousemove', mousemove)
 
 
-		d3.select('#OtherSales').attr('fill', "#ced4da");
+		d3.select('#OtherSales').attr('fill', "#868e96");
 	});
 	// Update the X axis
 }

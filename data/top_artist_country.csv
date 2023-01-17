@@ -1,14 +1,14 @@
-Artist,Country,Sales ($)
-Elvis Presley,United States,500.0
-Johnny Hallyday,France,80.0
-B'z,Japan,100.0
-Shakira,Colombia,80.0
-Celine Dion,Canada,187.5
-The Beatles,United Kingdom,550.0
-Bob Marley,Jamaica,75.0
-U2,Ireland,150.0
-Rihanna,Barbados,240.0
-AC/DC,Australia,200.0
-ABBA,Sweden,150.0
-Nicki Minaj,Trinidad and Tobago,100.0
-Julio Iglesias,Spain,100.0
+Artist,Country,TCU (unit),Sales ($)
+Elvis Presley,United States,231200000,500.0
+Johnny Hallyday,France,28900000,80.0
+B'z,Japan,86200000,100.0
+Shakira,Colombia,75000000,80.0
+Celine Dion,Canada,143000000,187.5
+The Beatles,United Kingdom,290400000,550.0
+Bob Marley,Jamaica,46300000,75.0
+U2,Ireland,114600000,150.0
+Rihanna,Barbados,335300000,240.0
+AC/DC,Australia,130200000,200.0
+ABBA,Sweden,69000000,150.0
+Nicki Minaj,Trinidad and Tobago,156300000,100.0
+Julio Iglesias,Spain,51700000,100.0

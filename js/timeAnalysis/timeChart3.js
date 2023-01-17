@@ -1,5 +1,4 @@
-let margin3 = {top: 10, right: 100, bottom: 30, left: 100},
-    width3 = 800 - margin3.left - margin3.right,
+let margin3 = {top: 10, right: 100, bottom: 30, left: 100}, width3 = 800 - margin3.left - margin3.right,
     height3 = 500 - margin3.top - margin3.bottom;
 var svg3 = d3.select("#timeChart3")
     .append("svg")
@@ -7,8 +6,7 @@ var svg3 = d3.select("#timeChart3")
     // .attr("height", height + margin.top + margin.bottom)
     .attr("viewBox", `0 0 1000 500`)
     .append("g")
-    .attr("transform",
-        "translate(" + margin3.left + "," + margin3.top + ")");
+    .attr("transform", "translate(" + margin3.left + "," + margin3.top + ")");
 
 // Parse the Data
 d3.csv("../../data/TA_CH_3.csv").then(function (data) {
@@ -16,6 +14,7 @@ d3.csv("../../data/TA_CH_3.csv").then(function (data) {
     // List of subgroups = header of the csv files = soil condition here
     // var subgroups = data.columns.slice(1)
     let subgroups = ['pop', 'rock', 'country', 'r&b', 'hip-hop'];
+    let top_countries = ["United States", "Canada", "United Kingdom", "Barbados", "Trinidad and Tobago"]
     data = data.map(function (d) {
         return {
             'Country': d.Country,
@@ -26,6 +25,11 @@ d3.csv("../../data/TA_CH_3.csv").then(function (data) {
             'r&b': d['r&b']
         }
     });
+    data = data.filter(function (row) {
+        if (top_countries.includes(row.Country)) {
+            return row;
+        }
+    })
     console.log(data)
     // List of groups = species here = value of the first column called group -> I show them on the X axis
     var groups = d3.map(data, function (d) {
@@ -60,8 +64,7 @@ d3.csv("../../data/TA_CH_3.csv").then(function (data) {
 
     //stack the data? --> stack per subgroup
     var stackedData = d3.stack()
-        .keys(subgroups)
-        (data)
+        .keys(subgroups)(data)
 
 
     // ----------------

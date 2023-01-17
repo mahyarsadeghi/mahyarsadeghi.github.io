@@ -1,403 +1,470 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
+  <head>
+    <meta charset="UTF-8" />
     <title>Tatanka - Project Data Viz</title>
     <link
-            type="image/png"
-            sizes="32x32"
-            rel="icon"
-            href="./iimages/favicon.ico"
+      type="image/png"
+      sizes="32x32"
+      rel="icon"
+      href="./iimages/favicon.ico"
     />
     <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous"
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
     />
     <script
-            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
     ></script>
     <script
-            src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
     ></script>
     <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
     ></script>
     <script
-            src="https://code.jquery.com/jquery-3.6.1.js"
-            integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-            crossorigin="anonymous"
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
     ></script>
     <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
     />
     <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="./css/style.css"/>
-</head>
-<body>
-<div class="dashboard">
-    <aside class="search-wrap" id="includeNavbar"></aside>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <aside class="search-wrap" id="includeNavbar"></aside>
 
-    <header class="menu-wrap" id="includeSidebar"></header>
+      <header class="menu-wrap" id="includeSidebar"></header>
 
-    <main class="content-wrap">
+      <main class="content-wrap">
         <div class="container" id="headersContainer">
-            <header class="w3-container" id="HomePageTitle">
-                <h1 class="h1-mainPage">
-                    <b>Best Selling Music Artist of all Time</b>
-                </h1>
-            </header>
-            <br/>
+          <header class="w3-container" id="HomePageTitle">
+            <h1 class="h1-mainPage">
+              <b>Best Selling Music Artist of all Time</b>
+            </h1>
+          </header>
+          <br />
         </div>
 
         <div class="content">
-            <div>
-                <h3><b>Group Name:</b> TATANKA</h3>
-                <h3><b>Group Members (alphabetic order):</b></h3>
-                <div id="members">
-                    <ul id="membersList">
-                        <li>Pastorino Edoardo</li>
-                        <li>Sadeghi Garjan Mahyar</li>
-                    </ul>
-                </div>
+          <div>
+            <h3><b>Group Name:</b> TATANKA</h3>
+            <h3><b>Group Members (alphabetic order):</b></h3>
+            <div id="members">
+              <ul id="membersList">
+                <li>Pastorino Edoardo</li>
+                <li>Sadeghi Garjan Mahyar</li>
+              </ul>
             </div>
+          </div>
 
-            <h2>
-                <b>About Project and Data</b>
-            </h2>
+          <h2>
+            <b>About Project and Data</b>
+          </h2>
 
-            <div id="description">
-                <p>
-                    This website provides several visualization charts and graphs, based on the extracted information from a dataset about the best selling music artist of all time.
-                    All the visualizations here are created for educational purposes in Data Visualization course in
-                    @UniGe, academic year 2022/2023, made by the
-                    <span><b>TATANKA</b></span> group.
-                    <br/>
-                    In the subpages relative to the different sections it is possible
-                    to find different charts with various techniques of data
-                    visualization, according to different kind of analysis, to demonstrate the information which gives the user the possibility to draw conclusions from them.
-                    <br/>
-                    <br/>
-                    The data used for the creation of our charts are taken from a
-                    <a href="https://www.kaggle.com/datasets/kabhishm/best-selling-music-artists-of-all-time">Kaggle Dataset</a>,
-                    that provides information about music bands and artists, including their nationalities, their incomes, their period of activity and their musical genres. 
+          <div id="description">
+            <p>
+              This website provides several visualization charts and graphs,
+              based on the extracted information from a dataset about the best
+              selling music artist of all time. All the visualizations here are
+              created for educational purposes in Data Visualization course in
+              @UniGe, academic year 2022/2023, made by the
+              <span><b>TATANKA</b></span> group.
+              <br />
+              In the subpages relative to the different sections it is possible
+              to find different charts with various techniques of data
+              visualization, according to different kind of analysis, to
+              demonstrate the information which gives the user the possibility
+              to draw conclusions from them.
+              <br />
+              <br />
+              The data used for the creation of our charts are taken from a
+              <a
+                href="https://www.kaggle.com/datasets/kabhishm/best-selling-music-artists-of-all-time"
+                >Kaggle Dataset</a
+              >, that provides information about music bands and artists,
+              including their nationalities, their incomes, their period of
+              activity and their musical genres.
+            </p>
+          </div>
 
+          <br />
+
+          <section class="person-boxes" style="margin-top: 30px">
+            <div class="person-box">
+              <div class="box-avatar">
+                <a href="geo.html">
+                  <img src="./iimages/world.png" alt="world" />
+                </a>
+              </div>
+
+              <div class="box-bio">
+                <a href="geo.html"><h2 class="bio-name">GEO ANALYSIS</h2></a>
+                <p class="bio-position">
+                  The section associated to an analysis over the best selling
+                  music artist, according to the geographic distribution
                 </p>
+              </div>
+
+              <div class="box-actions">
+                <button>
+                  <a href="geo.html">
+                    Go
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M18 18H6V6h7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8h-2v7z"
+                      />
+                      <path
+                        d="M17.465 5.121l-6.172 6.172 1.414 1.414 6.172-6.172 2.12 2.121L21 3h-5.657z"
+                      />
+                    </svg>
+                  </a>
+                </button>
+
+                <button
+                  type="button"
+                  data-toggle="modal"
+                  data-target="#ModalGeo"
+                >
+                  Info
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 3C6.486 3 2 6.364 2 10.5c0 2.742 1.982 5.354 5 6.678V21a.999.999 0 0 0 1.707.707l3.714-3.714C17.74 17.827 22 14.529 22 10.5 22 6.364 17.514 3 12 3zm0 13a.996.996 0 0 0-.707.293L9 18.586V16.5a1 1 0 0 0-.663-.941C5.743 14.629 4 12.596 4 10.5 4 7.468 7.589 5 12 5s8 2.468 8 5.5-3.589 5.5-8 5.5z"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
 
-            <br/>
+            <div class="person-box">
+              <div class="box-avatar">
+                <a href="time.html">
+                  <img src="./iimages/time.jpg" alt="time" />
+                </a>
+              </div>
 
-            <section class="person-boxes" style="margin-top: 30px">
-                <div class="person-box">
-                    <div class="box-avatar">
-                        <a href="geo.html">
-                            <img src="./iimages/world.png" alt="world"/>
-                        </a>
-                    </div>
+              <div class="box-bio">
+                <a href="time.html"><h2 class="bio-name">TIME ANALYSIS</h2></a>
+                <p class="bio-position">The section associated to the analysis over the best selling
+                  music artist, according to the evolution of some metrics through the years.</p>
+              </div>
 
-                    <div class="box-bio">
-                        <a href="geo.html"><h2 class="bio-name">GEO ANALYSIS</h2></a>
-                        <p class="bio-position">The section associated to an analysis over the best selling music artist, according to the geographic distribution</p>
-                    </div>
+              <div class="box-actions">
+                <button>
+                <a href="time.html">
+                  Go
+                  
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M18 18H6V6h7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8h-2v7z"
+                      />
+                      <path
+                        d="M17.465 5.121l-6.172 6.172 1.414 1.414 6.172-6.172 2.12 2.121L21 3h-5.657z"
+                      />
+                    </svg>
+                  </a>
+                </button>
 
-                    <div class="box-actions">
-                        <button>
-                            
-                            <a href="geo.html">
-                                Go
-                                <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                >
-                                    <path
-                                            d="M18 18H6V6h7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8h-2v7z"
-                                    />
-                                    <path
-                                            d="M17.465 5.121l-6.172 6.172 1.414 1.414 6.172-6.172 2.12 2.121L21 3h-5.657z"
-                                    />
-                                </svg>
-                            </a>
-                        </button>
-
-                        <button
-                                type="button"
-                                data-toggle="modal"
-                                data-target="#ModalGeo"
-                        >
-                            Info
-                            <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                            >
-                                <path
-                                        d="M12 3C6.486 3 2 6.364 2 10.5c0 2.742 1.982 5.354 5 6.678V21a.999.999 0 0 0 1.707.707l3.714-3.714C17.74 17.827 22 14.529 22 10.5 22 6.364 17.514 3 12 3zm0 13a.996.996 0 0 0-.707.293L9 18.586V16.5a1 1 0 0 0-.663-.941C5.743 14.629 4 12.596 4 10.5 4 7.468 7.589 5 12 5s8 2.468 8 5.5-3.589 5.5-8 5.5z"
-                                />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="person-box">
-                    <div class="box-avatar">
-                        <a href="time.html">
-                            <img src="./iimages/time.jpg" alt="time"/>
-                        </a>
-                    </div>
-
-                    <div class="box-bio">
-                        <a href="time.html"><h2 class="bio-name">Time Analysis</h2></a>
-                        <p class="bio-position">description</p>
-                    </div>
-
-                    <div class="box-actions">
-                        <button>
-                            Go
-                            <a href="time.html">
-                                <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                >
-                                    <path
-                                            d="M18 18H6V6h7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8h-2v7z"
-                                    />
-                                    <path
-                                            d="M17.465 5.121l-6.172 6.172 1.414 1.414 6.172-6.172 2.12 2.121L21 3h-5.657z"
-                                    />
-                                </svg>
-                            </a>
-                        </button>
-
-                        <button data-toggle="modal" data-target="#ModalTime">
-                            Info
-                            <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                            >
-                                <path
-                                        d="M12 3C6.486 3 2 6.364 2 10.5c0 2.742 1.982 5.354 5 6.678V21a.999.999 0 0 0 1.707.707l3.714-3.714C17.74 17.827 22 14.529 22 10.5 22 6.364 17.514 3 12 3zm0 13a.996.996 0 0 0-.707.293L9 18.586V16.5a1 1 0 0 0-.663-.941C5.743 14.629 4 12.596 4 10.5 4 7.468 7.589 5 12 5s8 2.468 8 5.5-3.589 5.5-8 5.5z"
-                                />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="person-box">
-                    <div class="box-avatar">
-                        <a href="genre.html"><img src="./iimages/musicLogo.jpg"/></a>
-                    </div>
-
-                    <div class="box-bio">
-                        <a href="genre.html">
-                            <h2 class="bio-name">GENRE & ARTIST ANALYSIS</h2>
-                        </a>
-                        <p class="bio-position">The section associated to an analysis over the best selling music artist, according to their genres and info of the single artist</p>
-                    </div>
-
-                    <div class="box-actions">
-                        <button>
-                            Go
-                            <a href="genre.html">
-                                <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                >
-                                    <path
-                                            d="M18 18H6V6h7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8h-2v7z"
-                                    />
-                                    <path
-                                            d="M17.465 5.121l-6.172 6.172 1.414 1.414 6.172-6.172 2.12 2.121L21 3h-5.657z"
-                                    />
-                                </svg>
-                            </a>
-                        </button>
-
-                        <button data-toggle="modal" data-target="#ModalGenre">
-                            Info
-                            <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                            >
-                                <path
-                                        d="M12 3C6.486 3 2 6.364 2 10.5c0 2.742 1.982 5.354 5 6.678V21a.999.999 0 0 0 1.707.707l3.714-3.714C17.74 17.827 22 14.529 22 10.5 22 6.364 17.514 3 12 3zm0 13a.996.996 0 0 0-.707.293L9 18.586V16.5a1 1 0 0 0-.663-.941C5.743 14.629 4 12.596 4 10.5 4 7.468 7.589 5 12 5s8 2.468 8 5.5-3.589 5.5-8 5.5z"
-                                />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <div
-                    class="modal fade"
-                    id="ModalGeo"
-                    tabindex="-1"
-                    role="dialog"
-                    aria-labelledby="ModalGeoTitle"
-                    aria-hidden="true"
-            >
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="ModalGeoTitle">Geo Analysis</h5>
-                            <button
-                                    type="button"
-                                    class="close"
-                                    data-dismiss="modal"
-                                    aria-label="Close"
-                            >
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">The Geo Section is the section relative to the geographical analysis of the dataset, 
-                            that is the analysis of the distribution, among the countries, of some interesting metrics.
-                            <br>
-                            <br>
-                            The first map of this section shows the geographical distribution of the music sales, in terms of dollars ($). 
-                            Specifically we higlight, with the information inside the tooltip, that appear hovering a country on the map, 
-                            the total amount of sales earned by each country, thanks to the best selling music artists that belong to such country.
-                            Can be interisting for discovering which are, globally, the countries that have earned more money from their best music artist.
-                            <br>
-                            <br>
-                            The second map displays, instead, the geographical distribution of the sold music units, called TCU (total music units). 
-                            A single music units sold by an artist is equivalent or to a sold album, or to 10 downloaded songs, or to 1500 streamed songs.
-                            Thanks to the information showed by the tooltip, hovering a specific country, we can see what are the total amount of TCU for each country.
-                            Can be interisting for discovering which are, globally, the countries that have diffused more music.
-                            <br>
-                            <br>
-                            The last map showed in the geo section is the one relative to the geographical distribution of the best selling music artists of all time.
-                            Again we point out what is the total amount of best artist for each country, number showed hovering the chosen country.
-                            Can be interisting for discovering which are, globally, the most prolific countries in terms of best music artist.
-                        </div>
-                        <div class="modal-footer">
-                            <a href="geo.html">
-                                <button type="button" class="btn" id="btnGeoModal">
-                                    Go to Section
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <button data-toggle="modal" data-target="#ModalTime">
+                  Info
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 3C6.486 3 2 6.364 2 10.5c0 2.742 1.982 5.354 5 6.678V21a.999.999 0 0 0 1.707.707l3.714-3.714C17.74 17.827 22 14.529 22 10.5 22 6.364 17.514 3 12 3zm0 13a.996.996 0 0 0-.707.293L9 18.586V16.5a1 1 0 0 0-.663-.941C5.743 14.629 4 12.596 4 10.5 4 7.468 7.589 5 12 5s8 2.468 8 5.5-3.589 5.5-8 5.5z"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
 
-            <div
-                    class="modal fade"
-                    id="ModalTime"
-                    tabindex="-1"
-                    role="dialog"
-                    aria-labelledby="ModalTimeTitle"
-                    aria-hidden="true"
-            >
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="ModalTimeTitle">TIME ANALYSIS</h5>
-                            <button
-                                    type="button"
-                                    class="close"
-                                    data-dismiss="modal"
-                                    aria-label="Close"
-                            >
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">Long Description</div>
-                        <div class="modal-footer">
-                            <a href="time.html">
-                                <button type="button" class="btn" id="btnTimeModal">
-                                    Go to Section
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="person-box">
+              <div class="box-avatar">
+                <a href="genre.html"><img src="./iimages/musicLogo.jpg" /></a>
+              </div>
 
-            <div
-                    class="modal fade"
-                    id="ModalGenre"
-                    tabindex="-1"
-                    role="dialog"
-                    aria-labelledby="ModalGenreTitle"
-                    aria-hidden="true"
-            >
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="ModalGenreTitle">
-                                Genre & Artist Analysis
-                            </h5>
-                            <button
-                                    type="button"
-                                    class="close"
-                                    data-dismiss="modal"
-                                    aria-label="Close"
-                            >
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">The Genre & Artist Section is the section relative to the genre & artist analysis of the best selling music artist of all time, 
-                            for understanding what are the most diffused and profitable genres, or for retrieving interesting personale info about the various music artist.
-                            <br>
-                            <br>
-                            The first chart of this section is an horizontal bar chart that shows 
-                            <br>
-                            <br>
-                            The second horizontal bar chart displays, instead, 
-                            <br>
-                            <br>
-                            The third one is again an horizontal bar chart and shows 
-                            <br>
-                            <br>
-                            The last chart of this section is a bubble chart in which we can see what are 
-                        
-                        </div>
-                        <div class="modal-footer">
-                            <a href="genre.html">
-                                <button type="button" class="btn" id="btnGenreModal">
-                                    Go to Section
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+              <div class="box-bio">
+                <a href="genre.html" tyle="text-decoration: none;">
+                  <h2 class="bio-name">GENRE & ARTIST ANALYSIS</h2>
+                </a>
+                <p class="bio-position">
+                  The section associated to an analysis over the best selling
+                  music artist, according to their genres and info of the single
+                  artist
+                </p>
+              </div>
 
+              <div class="box-actions">
+                <button>
+                <a href="genre.html" style="text-decoration: none;">
+                  Go
+                
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M18 18H6V6h7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8h-2v7z"
+                      />
+                      <path
+                        d="M17.465 5.121l-6.172 6.172 1.414 1.414 6.172-6.172 2.12 2.121L21 3h-5.657z"
+                      />
+                    </svg>
+                  </a>
+                </button>
+
+                <button data-toggle="modal" data-target="#ModalGenre">
+                  Info
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 3C6.486 3 2 6.364 2 10.5c0 2.742 1.982 5.354 5 6.678V21a.999.999 0 0 0 1.707.707l3.714-3.714C17.74 17.827 22 14.529 22 10.5 22 6.364 17.514 3 12 3zm0 13a.996.996 0 0 0-.707.293L9 18.586V16.5a1 1 0 0 0-.663-.941C5.743 14.629 4 12.596 4 10.5 4 7.468 7.589 5 12 5s8 2.468 8 5.5-3.589 5.5-8 5.5z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <div
+            class="modal fade"
+            id="ModalGeo"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="ModalGeoTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalGeoTitle">Geo Analysis</h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  The Geo Section is the section relative to the geographical
+                  analysis of the dataset, that is the analysis of the
+                  distribution, among the countries, of some interesting
+                  metrics.
+                  <br />
+                  <br />
+                  The first map of this section shows the geographical
+                  distribution of the music sales, in terms of dollars ($).
+                  Specifically we higlight, with the information inside the
+                  tooltip, that appear hovering a country on the map, the total
+                  amount of sales earned by each country, thanks to the best
+                  selling music artists that belong to such country. Can be
+                  interisting for discovering which are, globally, the countries
+                  that have earned more money from their best music artist.
+                  <br />
+                  <br />
+                  The second map displays, instead, the geographical
+                  distribution of the sold music units, called TCU (total music
+                  units). A single music units sold by an artist is equivalent
+                  or to a sold album, or to 10 downloaded songs, or to 1500
+                  streamed songs. Thanks to the information showed by the
+                  tooltip, hovering a specific country, we can see what are the
+                  total amount of TCU for each country. Can be interisting for
+                  discovering which are, globally, the countries that have
+                  diffused more music.
+                  <br />
+                  <br />
+                  The last map showed in the geo section is the one relative to
+                  the geographical distribution of the best selling music
+                  artists of all time. Again we point out what is the total
+                  amount of best artist for each country, number showed hovering
+                  the chosen country. Can be interisting for discovering which
+                  are, globally, the most prolific countries in terms of best
+                  music artist.
+                </div>
+                <div class="modal-footer">
+                  <a href="geo.html">
+                    <button type="button" class="btn" id="btnGeoModal">
+                      Go to Section
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="modal fade"
+            id="ModalTime"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="ModalTimeTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalTimeTitle">TIME ANALYSIS</h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">Long Description</div>
+                <div class="modal-footer">
+                  <a href="time.html">
+                    <button type="button" class="btn" id="btnTimeModal">
+                      Go to Section
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="modal fade"
+            id="ModalGenre"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="ModalGenreTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalGenreTitle">
+                    Genre & Artist Analysis
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  The Genre & Artist Section is the section relative to the
+                  genre & artist analysis of the best selling music artist of
+                  all time, for understanding what are the most diffused and
+                  profitable genres, or for retrieving interesting personale
+                  info about the various music artist.
+                  <br />
+                  <br />
+                  The first chart of this section is an horizontal bar chart
+                  that shows the top 15 genres taking into account the number of
+                  best selling music artist that belong to each of these genres.
+                  Hovering each bar a toooltip will appear for showing the name
+                  of the hovered genre and its exact number of artists. Can be
+                  interesting to discover what are the most popular genres among
+                  all the genres of the best selling music artists.
+                  <br />
+                  <br />
+                  The second horizontal bar chart displays, instead, the top 15
+                  genres considering their associated sales ($), or onsidering
+                  their associated TCU (unit). There are two specific buttons
+                  for changing the measure. Hovering the bars we can take a look
+                  at the precise sales' value, in million (or billion) of
+                  dollar, or the precise TCU's units. With this chart we are
+                  able to understand what are the most profitable genres and
+                  most diffused genres.
+                  <br />
+                  <br />
+                  The third one is again an horizontal bar chart and shows the
+                  top 20 best selling artist for what concern their sales amount
+                  ($) and TCU (unit), based on the clicked button in the
+                  specific section. Hovering each bar the relative tooltip shows
+                  the value of sales, or TCU, for the desired artist. This chart
+                  is useful for knowing what are the most profitable artist and
+                  with more sold music.
+                  <br />
+                  <br />
+                  The last chart of this section is a bubble chart in which we
+                  can see what are the best artists, again or considering the
+                  sales or the TCU, for each of the countries associated to the
+                  best selling music artists. In the sales configuration there
+                  are the best selling artists considering the sale amount
+                  (y-axis), but the size of the bubbles are proportional to the
+                  TCU of each artist. In the TCU scenario there are the best
+                  selling artists considering the TCU (y-axis), but now the size
+                  of the bubbles are proportional to the sales amount of each
+                  artist. This chart is interesting because shows the fact that
+                  it is not always true that the best selling artist of a
+                  nation, considering revenue, is also the best selling artist
+                  for what concerns the sold music units. In addition we can
+                  discover that globally an artist that is first in sales cannot
+                  be in the same position in TCU, as also the viceversa.
+                </div>
+                <div class="modal-footer">
+                  <a href="genre.html">
+                    <button type="button" class="btn" id="btnGenreModal">
+                      Go to Section
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <footer id="includeFooter"></footer>
-    </main>
-</div>
-<script>
-    $(function () {
+      </main>
+    </div>
+    <script>
+      $(function () {
         $("#includeSidebar").load("./components/sidebar.html");
-    });
-    $(function () {
+      });
+      $(function () {
         $("#includeNavbar").load("./components/navbar.html");
-    });
-    $(function () {
+      });
+      $(function () {
         $("#includeFooter").load("./components/footer.html");
-    });
-</script>
-</body>
+      });
+    </script>
+  </body>
 </html>

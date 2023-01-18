@@ -11,11 +11,7 @@ var svg3 = d3.select("#timeChart3")
 
 // Parse the Data
 d3.csv("../../data/TA_CH_3.csv").then(function (data) {
-    // d3.csv("../../data/prova.csv").then(function (data2) {
 
-    //     console.log(data2) 
-
-    // })
     // console.log(data);
     // List of subgroups = header of the csv files = soil condition here
     // var subgroups = data.columns.slice(1)
@@ -100,11 +96,11 @@ d3.csv("../../data/TA_CH_3.csv").then(function (data) {
         } else {
             subgroupValue = `${d.data[subgroupName]} million`
         }
-        d3.csv("../../data/prova.csv").then(function (data2) {
+        // d3.csv("../../data/prova.csv").then(function (data2) {
 
-            console.log(data2) 
+        //     console.log(data2) 
     
-        })
+        // })
         tooltip3
         .html("<span style='color:grey'>Genre: </span>" + subgroupName  + "<br>" + "<span style='color:grey'>Sales ($): </span>" +subgroupValue  )
             .style("left", (event.pageX + 30) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect

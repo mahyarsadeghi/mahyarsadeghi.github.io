@@ -252,6 +252,10 @@ result1 = (result1
  .drop('level_5', axis=1)
  .rename(columns={0:'Genre'}))
 
+result1.Genre = result1.Genre.str.capitalize()
+result1.to_csv(f'{DATA_PATH}/prova.csv', index=False)
+
+
 var1 = result1[result1['Genre'] == 'Pop']
 var2 = result1[result1['Genre'] == 'Rock']
 final_result = pd.concat([var1, var2], axis=0)
@@ -259,7 +263,7 @@ final_result = pd.concat([var1, var2], axis=0)
 final_result = final_result[['Genre', 'period_active']]
 final_result.to_csv(f'{DATA_PATH}/PopRock_years.csv', index=False)
 
-var3 = result1[result1['Genre'] == 'R&B']
+var3 = result1[result1['Genre'] == 'R&b']
 var4 = result1[result1['Genre'] == 'Hip-hop']
 final_result2 = pd.concat([var3, var4], axis=0)
 # print(final_result2)
@@ -274,5 +278,70 @@ final_result3 = pd.concat([var5, var6], axis=0)
 final_result3 = final_result3[['Genre', 'period_active']]
 final_result3.to_csv(f'{DATA_PATH}/Hard rockPop rock_years.csv', index=False)
 
+var7 = result1[result1['Genre'] == 'Country']
+var8 = result1[result1['Genre'] == 'Soul']
+final_result4 = pd.concat([var7, var8], axis=0)
+# print(final_result2)
+final_result4 = final_result4[['Genre', 'period_active']]
+final_result4.to_csv(f'{DATA_PATH}/CountrySoul_years.csv', index=False)
 
+var9 = result1[result1['Genre'] == 'Dance']
+var10 = result1[result1['Genre'] == 'Alternative rock']
+final_result5 = pd.concat([var9, var10], axis=0)
+# print(final_result2)
+final_result5 = final_result5[['Genre', 'period_active']]
+final_result5.to_csv(f'{DATA_PATH}/DanceAlternative rock_years.csv', index=False)
+
+
+# %%
+
+result1 = result1[[ 'TCU (unit)', 'period_active', 'Genre']]
+result1['Genre'] = result1['Genre'].str.split(' / ')
+result1 = (result1
+.set_index(['TCU (unit)', 'period_active'])['Genre']
+ .apply(pd.Series)
+ .stack()
+ .reset_index()
+ .drop('level_2', axis=1)
+ .rename(columns={0:'Genre'}))
+ 
+result1.Genre = result1.Genre.str.capitalize()
+
+filtered_result = result1[result1['Genre'] == 'Pop']
+result2 = filtered_result[['period_active', 'TCU (unit)']]
+pop = result2.groupby('period_active').count().rename(columns={'TCU (unit)': 'Pop'}).reset_index()
+print(pop)
+
+filtered_result = result1[result1['Genre'] == 'Rock']
+result2 = filtered_result[['period_active', 'TCU (unit)']]
+rock = result2.groupby('period_active').count().rename(columns={'TCU (unit)': 'Rock'}).reset_index()
+print(rock)
+
+
+filtered_result = result1[result1['Genre'] == 'R&b']
+result2 = filtered_result[['period_active', 'TCU (unit)']]
+RB = result2.groupby('period_active').count().rename(columns={'TCU (unit)': 'R&b'}).reset_index()
+print(RB)
+
+filtered_result = result1[result1['Genre'] == 'Hip-hop']
+result2 = filtered_result[['period_active', 'TCU (unit)']]
+HipHop = result2.groupby('period_active').count().rename(columns={'TCU (unit)': 'Hip-hop'}).reset_index()
+print(HipHop)
+
+filtered_result = result1[result1['Genre'] == 'Country']
+result2 = filtered_result[['period_active', 'TCU (unit)']]
+country = result2.groupby('period_active').count().rename(columns={'TCU (unit)': 'Country'}).reset_index()
+print(country)
+# %%
+# horizontal_concat = pd.concat([pop, rock, RB, HipHop, country], axis=1)
+# print(horizontal_concat)
+# horizontal_concat.to_csv(f'{DATA_PATH}/top_5_genres_trend.csv', index=False)
+join1 = pop.merge(rock, on='period_active',how='outer', suffixes=('_1', '_2'))
+join2 = join1.merge(RB, on='period_active',how='outer', suffixes=('_1', '_2'))
+join3 = join2.merge(HipHop, on='period_active',how='outer', suffixes=('_1', '_2'))
+join4 = join3.merge(country, on='period_active',how='outer', suffixes=('_1', '_2'))
+
+
+display(join4)
+join4.to_csv(f'{DATA_PATH}/top_5_genres_trend.csv', index=False)
 # %%

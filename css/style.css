@@ -532,3 +532,8 @@ p {
 a{
   text-decoration: none;
 }
+
+.legend-text-histogram{
+  margin-left: 10px;
+  font-size: 11pt;
+}

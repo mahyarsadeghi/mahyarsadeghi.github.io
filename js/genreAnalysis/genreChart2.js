@@ -96,7 +96,7 @@ function update_initial_chart2() {
 		y.domain(data.map(d => d.Genre));
 		yAxis.transition().duration(1000).call(d3.axisLeft(y))
 			.selectAll("text")
-			.attr("transform", "translate(-10,0)rotate(-45)")
+			// .attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
 
 		svg1.append("text")
@@ -184,7 +184,7 @@ function update1_chart2() {
 		y.domain(data.map(d => d.Genre));
 		yAxis.transition().duration(1000).call(d3.axisLeft(y))
 			.selectAll("text")
-			.attr("transform", "translate(-10,0)rotate(-45)")
+			// .attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
 		svg1.append("text")
 			.attr('class', "text-axis-chart2")
@@ -272,7 +272,7 @@ function update2_chart2() {
 		y.domain(data.map(d => d.Genre));
 		yAxis.transition().duration(1000).call(d3.axisLeft(y))
 			.selectAll("text")
-			.attr("transform", "translate(-10,0)rotate(-45)")
+			// .attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
 		svg1.append("text")
 			.attr('class', "text-axis-chart2")

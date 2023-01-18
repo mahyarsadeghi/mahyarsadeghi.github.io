@@ -2,6 +2,7 @@ import pandas as pd
 import re
 import numpy as np
 
+
 DATA_PATH = '../data'
 
 columns_to_read = ['Country', "Year", "Genre", "Sales ($)"]
@@ -40,6 +41,15 @@ for index, row in df.iterrows():
         df.at[index, "Sales ($)"] = temp_salary
 df = df.drop(dropped_indexes)
 df['Sales ($)'] = df['Sales ($)'].astype(float)
+
+prova = df[['Country', 'Genre', 'Year']]
+prova1 = prova.groupby(by=['Country', 'Genre']).min().rename(columns={'Year': 'startYear'}).reset_index()
+prova2 = prova.groupby(by=['Country', 'Genre']).max().rename(columns={'Year': 'endYear'}).reset_index()
+endYear = prova2['endYear']
+prova1['endYear'] = endYear
+prova1 = prova1[prova1["Genre" ].isin(['pop', 'rock', 'r&b', 'hip-hop', 'country'])]
+prova1 = prova1[prova1["Country" ].isin(['United States', 'United Kingdom', 'Canada', 'Barbados', 'Trinidad and Tobago'])]
+prova1.to_csv(f'{DATA_PATH}/prova.csv', index=False)
 # Group By and pivot
 df2 = df.groupby(by=["Country", "Genre"], as_index=False)['Sales ($)'].sum()
 
@@ -53,8 +63,8 @@ df2 = df2.fillna(0)
 df1 = df1.fillna(0)
 # print(df1.head(1))
 
-df2.to_csv(f'{DATA_PATH}/TA_CH_3.csv', index=False)
-df1.to_csv(f'{DATA_PATH}/TA_CH_2.csv', index=True)
+# df2.to_csv(f'{DATA_PATH}/TA_CH_3.csv', index=False)
+# df1.to_csv(f'{DATA_PATH}/TA_CH_2.csv', index=True)
 
 
 # test:

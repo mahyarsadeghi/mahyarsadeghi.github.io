@@ -32,12 +32,18 @@ d3.csv("../../data/PopRock_years.csv").then(function (data) {
         .range([0, widthT4]);
     svgT4.append("g")
         .attr("transform", `translate(0, ${heightT4})`)
+        .transition().duration(1000)
         .call(d3.axisBottom(x));
     svgT4.append("text")
         .attr("text-anchor", "end")
         .attr("x", widthT4)
         .attr("y", heightT4 + 50)
         .text("Years");
+    svgT4.append("text")
+        .attr("text-anchor", "end")
+        .attr("x", -40)
+        .attr("y", height2 - 450)
+        .text("Nbr. Artists");
 
     // set the parameters for the histogram
     let histogram = d3.histogram()
@@ -54,6 +60,7 @@ d3.csv("../../data/PopRock_years.csv").then(function (data) {
         .range([heightT4, 0]);
     y.domain([0, d3.max(bins1, function (d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
     svgT4.append("g")
+    .transition().duration(1000)
         .call(d3.axisLeft(y));
 
     // append the bars for series 1
@@ -81,9 +88,9 @@ d3.csv("../../data/PopRock_years.csv").then(function (data) {
         .style("fill", "#17823c")
         .style("opacity", 0.6)
 
-        let myColor = d3.scaleOrdinal()
+    let myColor = d3.scaleOrdinal()
         .domain(allGroup)
-        .range(['#2877b7','#17823c']);
+        .range(['#2877b7', '#17823c']);
     svgT4
         .selectAll("myLegend")
         .data(dataReady)
@@ -116,8 +123,8 @@ d3.select('#selectGenres').on("change", function () {
 
     let genre1V2 = genre1.replace(" ", "")
     let genre2V2 = genre2.replace(" ", "")
-    if(genre1V2.includes('&') || genre2V2.includes("&") ){
-       genre1V2 =  genre1V2.replace('&', '')
+    if (genre1V2.includes('&') || genre2V2.includes("&")) {
+        genre1V2 = genre1V2.replace('&', '')
         genre2V2 = genre2V2.replace('&', '')
     }
     let allGroup = [genre1V2, genre2V2]
@@ -149,8 +156,18 @@ d3.select('#selectGenres').on("change", function () {
             .range([0, widthT4]);
         svgT4.append("g")
             .attr("transform", `translate(0, ${heightT4})`)
+            .transition().duration(1000)
             .call(d3.axisBottom(x));
-
+        svgT4.append("text")
+            .attr("text-anchor", "end")
+            .attr("x", widthT4)
+            .attr("y", heightT4 + 50)
+            .text("Years");
+        svgT4.append("text")
+            .attr("text-anchor", "end")
+            .attr("x", -40)
+            .attr("y", height2 - 450)
+            .text("Nbr. Artists");
         // set the parameters for the histogram
         let histogram = d3.histogram()
             .value(function (d) { return +d.period_active; })   // I need to give the vector of value
@@ -166,6 +183,7 @@ d3.select('#selectGenres').on("change", function () {
             .range([heightT4, 0]);
         y.domain([0, d3.max(bins1, function (d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
         svgT4.append("g")
+        .transition().duration(1000)
             .call(d3.axisLeft(y));
 
         // append the bars for series 1
@@ -193,9 +211,9 @@ d3.select('#selectGenres').on("change", function () {
             .style("fill", "#17823c")
             .style("opacity", 0.6)
 
-            let myColor = d3.scaleOrdinal()
+        let myColor = d3.scaleOrdinal()
             .domain(allGroup)
-            .range(['#2877b7','#17823c']);
+            .range(['#2877b7', '#17823c']);
         svgT4
             .selectAll("myLegend")
             .data(dataReady)
@@ -212,7 +230,7 @@ d3.select('#selectGenres').on("change", function () {
                 currentOpacity = d3.selectAll("." + d.genre).style("opacity")
                 // Change the opacity: from 0 to 1 or from 1 to 0
                 d3.selectAll("." + d.genre).transition().style("opacity", currentOpacity == 0.6 ? 0 : 0.6)
-    
+
             })
 
     });

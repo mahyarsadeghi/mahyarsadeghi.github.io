@@ -65,13 +65,13 @@
             <h2><b>Period of activity's distribution of best selling music artists through the years.</b></h2>
             <h4>
                 The first chart of this section is an histogram <br>
-                 that shows the trend of the artists' period of activity through the years. <br>
+                that shows the distribution of the artists' period of activity among the years. <br>
                 Hovering the bars of the charts it is possible to see what are the range of years to which each bar is related.
             </h4>
             <div id="timeChart1"></div>
             <p>
                 <label># bins</label>
-                <input type="number" min="1" max="100" step="20" value="20" id="nBin">
+                <input type="number" min="1" max="61" step="20" value="20" id="nBin">
               </p>
             <br/>
             <hr/>
@@ -79,51 +79,45 @@
             <br/>
 
 
-            <h2><b>Period of activity's distribution of the top 15 genres through the years</b></h2>
+            <h2><b>Period of activity's distribution of the top 10 genres through the years</b></h2>
             <h4>
+                This second chart compares the distribution of two genres's period of activity through the years, using two histograms. <br> 
+                With the specific dropdown menu is possible to select among different genres' comparison, considering the top 10 genres in terms of number of artists. <br>
+                Clicking on the genres' names in the legend the associated part of the histogram is hidden and re-clicking is showed again.
                
             </h4>
             <label for="selectGenres">Choose Genres:</label>
             <select name="selectGenres" id="selectGenres">
                 <option value="Pop VS Rock" selected>Pop vs Rock</option>
-                <option value="R&B VS Hip-hop">R&B vs Hip-hop</option>
+                <option value="R&b VS Hip-hop">R&B vs Hip-hop</option>
                 <option value="Hard rock VS Pop rock">Hard Rock vs Pop Rock</option>
+                <option value="Country VS Soul">Country vs Soul</option>
+                <option value="Dance VS Alternative rock">Dance vs Alternative Rock</option>
 
             </select>
             <div id="timeChart4"></div>
-
-            <div id="timeChart4_2"></div>
             <br/>
             <hr/>
             <br/>
             <br/>
 
-            <h2><b>Chart 2</b></h2>
+            <h2><b>Trends of the top 5 genres during the time</b></h2>
             <h4>
-                Abundance of top 20 tree species present in the municipality of
-                Trento. <br/>
-                Hovering each bar the mean canopy size (m2) is also shown.
+                The third chart of time analysis is a multi-line plot that explain <br>
+                how the best selling music artists' top 5 genres are evolved during the time. <br>
+                Again clicking on the genres' names in the legend the associated line is hidden and re-clicking is showed again.
             </h4>
-<!--            <label for="country">Choose country:</label>-->
-<!--            <select name="country" id="country">-->
-<!--                <option value="Australia">Australia</option>-->
-<!--                <option value="Canada">Canada</option>-->
-<!--                <option value="United Kingdom">United Kingdom</option>-->
-<!--                <option value="United States" selected>United States</option>-->
-<!--                <option value="France">France</option>-->
-<!--                <option value="Japan">Japan</option>-->
-<!--                <option value="Spain">Spain</option>-->
-<!--                <option value="Colombia">Colombia</option>-->
-<!--            </select>-->
             <div id="timeChart2"></div>
             <br/>
             <hr/>
             <br/>
             <br/>
 
-            <h2><b>Chart 3</b></h2>
+            <h2><b>Total sale's amount of the top 5 genres in each of the top 5 countries 'till 2023</b></h2>
             <h4>
-                How much sales each country has in different genres 'till present <br/>
+                The last chart is a stacked bar chart that displays how much sales the top 5 genres <br>
+                (considering the number of artists) have gained for each of the top 5 countries, until the 2023 <br/>
+                Hovering each part of each bar we can see the exact amount of sales of that genre for the associated country.
 
             </h4>
             <div  id="task_3_legend"></div>

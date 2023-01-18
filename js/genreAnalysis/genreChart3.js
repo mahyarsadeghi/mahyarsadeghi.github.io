@@ -78,7 +78,7 @@ function update_initial_chart3() {
 		x3.domain([0, 600])
 		xAxis3.transition().duration(1000).call(d3.axisBottom(x3))
 			.selectAll("text")
-			.attr("transform", "translate(-10,0)rotate(-45)")
+			// .attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
 
 			svg3.append("text")
@@ -92,7 +92,7 @@ function update_initial_chart3() {
 		y3.domain(data.map(d => d.Artist));
 		yAxis3.transition().duration(1000).call(d3.axisLeft(y3))
 			.selectAll("text")
-			.attr("transform", "translate(-10,0)rotate(-45)")
+			// .attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
 			svg3.append("text")
 		.attr('class', "text-axis-chart3")
@@ -162,7 +162,7 @@ function update1() {
 		x3.domain([0, 600])
 		xAxis3.transition().duration(1000).call(d3.axisBottom(x3))
 			.selectAll("text")
-			.attr("transform", "translate(-10,0)rotate(-45)")
+			// .attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
 
 			svg3.append("text")
@@ -176,7 +176,7 @@ function update1() {
 		y3.domain(data.map(d => d.Artist));
 		yAxis3.transition().duration(1000).call(d3.axisLeft(y3))
 			.selectAll("text")
-			.attr("transform", "translate(-10,0)rotate(-45)")
+			// .attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
 			svg3.append("text")
 			.attr('class', "text-axis-chart3")
@@ -242,7 +242,7 @@ function update2() {
 		x3.domain([0, 450000000])
 		xAxis3.transition().duration(1000).call(d3.axisBottom(x3))
 			.selectAll("text")
-			.attr("transform", "translate(-10,0)rotate(-45)")
+			// .attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
 			svg3.append("text")
 			// .transition().duration(1000)
@@ -256,7 +256,7 @@ function update2() {
 		y3.domain(data.map(d => d.Artist));
 		yAxis3.transition().duration(1000).call(d3.axisLeft(y3))
 			.selectAll("text")
-			.attr("transform", "translate(-10,0)rotate(-45)")
+			// .attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
 			svg3.append("text")
 			// .transition().duration(1000)

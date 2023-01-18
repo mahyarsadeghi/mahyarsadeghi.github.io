@@ -125,6 +125,25 @@ body {
   font-size: 0.875em;
   line-height: 100%;
 }
+/* .search-wrap .user-actions .user figcaption {
+  margin: 0;
+  padding: 0 0 0 1em;
+  color: #1b253d;
+  font-weight: 700;
+  font-size: 0.875em;
+  line-height: 100%;
+} */
+.search-wrap .user-actions .user .user-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+
+}
+.search-wrap {
+  text-align: center;
+}
+
 .menu-wrap nav {
   display: block;
   padding: 0 3em;
@@ -529,11 +548,18 @@ p {
   margin-right: 15px;
 }
 
+a:hover {
+  text-decoration-line: none;
+  color: var(--title-color);
+}
 a{
-  text-decoration: none;
+  color: var(--title-color);
 }
 
 .legend-text-histogram{
   margin-left: 10px;
   font-size: 11pt;
+}
+button:hover{
+  color: var(--title-color);
 }

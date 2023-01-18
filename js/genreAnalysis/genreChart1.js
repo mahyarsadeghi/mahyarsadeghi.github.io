@@ -62,9 +62,10 @@ d3.csv("../../data/top_15_genres.csv").then(function (data) {
     .range([0, width2]);
   svg2.append("g")
     .attr("transform", `translate(0, ${height2})`)
+    .transition().duration(1000)
     .call(d3.axisBottom(x))
     .selectAll("text")
-    .attr("transform", "translate(-10,0)rotate(-45)")
+    // .attr("transform", "translate(-10,0)")
     .style("text-anchor", "end");
 
 
@@ -81,6 +82,7 @@ d3.csv("../../data/top_15_genres.csv").then(function (data) {
     .domain(data.map(d => d.Genre))
     .padding(.2);
   svg2.append("g")
+  .transition().duration(1000)
     .call(d3.axisLeft(y))
 
   svg2.append("text")

@@ -92,7 +92,7 @@ function update_initial_chart4() {
     y4.domain([0, 600]);
     yAxis4.transition().duration(1000).call(d3.axisLeft(y4))
       .selectAll("text")
-      .attr("transform", "translate(-25,0)rotate(-45)")
+      .attr("transform", "translate(-20,0)")
       .style("text-anchor", "end");
       svg.append("text")
 			.attr('class', "text-axis-chart4")

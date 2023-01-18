@@ -268,7 +268,7 @@ var4 = result1[result1['Genre'] == 'Hip-hop']
 final_result2 = pd.concat([var3, var4], axis=0)
 # print(final_result2)
 final_result2 = final_result2[['Genre', 'period_active']]
-final_result2.to_csv(f'{DATA_PATH}/R&BHip-hop_years.csv', index=False)
+final_result2.to_csv(f'{DATA_PATH}/R&bHip-hop_years.csv', index=False)
 
 
 var5 = result1[result1['Genre'] == 'Hard rock']

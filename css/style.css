@@ -295,6 +295,37 @@ header{
   border-radius: 5px;
   margin-top: 60px;
 }
+
+.content-wrap .person-boxes-aboutUs {
+  text-align: center;
+  align-items: center;
+  padding: 0;
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); */
+  grid-gap: 2em;
+}
+.content-wrap .person-boxes-aboutUs .person-box-aboutUs {
+  background: #f5f5fa;
+  height: 320px;
+  text-align: center;
+  padding: 3em;
+  border: 1px solid #ede8f0;
+  border-radius: 5px;
+  margin-top: 60px;
+}
+.content-wrap .person-boxes-aboutUs .person-box-aboutUs .box-avatar-aboutUs {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0px auto;
+  overflow: hidden;
+}
+.content-wrap .person-boxes-aboutUs .person-box-aboutUs:nth-child(2n) .box-avatar-aboutUs .no-name {
+  background: #4b84fe;
+}
+.content-wrap .person-boxes-aboutUs .person-box-aboutUs:nth-child(5n) .box-avatar-aboutUs .no-name {
+  background: #ffbb09;
+}
 .content-wrap .person-boxes .person-box:nth-child(2n) .box-avatar .no-name {
   background: #4b84fe;
 }
@@ -315,7 +346,27 @@ header{
   -o-object-fit: cover;
      object-fit: cover;
 }
+.content-wrap .person-boxes-aboutUs .person-box-aboutUs .box-avatar-aboutUs img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .content-wrap .person-boxes .person-box .box-avatar .no-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-transform: uppercase;
+  width: 100%;
+  height: 100%;
+  background: #fa5b67;
+}
+.content-wrap .person-boxes-aboutUs .person-box-aboutUs .box-avatar-aboutUs .no-name {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -332,7 +383,18 @@ header{
   white-space: no-wrap;
   text-align: center;
 }
+.content-wrap .person-boxes-aboutUs .person-box-aboutUs .box-bio-aboutUs {
+  white-space: no-wrap;
+  text-align: center;
+}
 .content-wrap .person-boxes .person-box .box-bio .bio-name {
+  margin: 2em 0 0.75em;
+  color: #1b253d;
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 100%;
+}
+.content-wrap .person-boxes-aboutUs .person-box-aboutUs .box-bio-aboutUs .bio-name {
   margin: 2em 0 0.75em;
   color: #1b253d;
   font-size: 1em;
@@ -345,7 +407,22 @@ header{
   line-height: 100%;
   text-align: center;
 }
+.content-wrap .person-boxes-aboutUs .person-box-aboutUs .box-bio-aboutUs .bio-position {
+  margin: 0;
+  font-size: 0.875em;
+  line-height: 100%;
+  text-align: center;
+}
 .content-wrap .person-boxes .person-box .box-actions {
+  margin-top: 1.25em;
+  padding-top: 1.25em;
+  width: 100%;
+  border-top: 1px solid #ede8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.content-wrap .person-boxes-aboutUs .person-box-aboutUs .box-actions {
   margin-top: 1.25em;
   padding-top: 1.25em;
   width: 100%;
@@ -362,7 +439,19 @@ header{
   margin: 0;
   padding: 0;
 }
+.content-wrap .person-boxes-aboutUs .person-box-aboutUs .box-actions button {
+  border: 0;
+  background: none;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+}
 .content-wrap .person-boxes .person-box .box-actions button svg {
+  position: relative;
+  top: 2px;
+}
+.content-wrap .person-boxes-aboutUs .person-box-aboutUs .box-actions button svg {
   position: relative;
   top: 2px;
 }
@@ -371,9 +460,19 @@ header{
   fill: black;
   transition: fill 0.15s ease;
 }
+.content-wrap .person-boxes-aboutUs .person-box-aboutUs .box-actions button svg path,
+.content-wrap .person-boxes-aboutUs .person-box-aboutUs .box-actions button svg circle {
+  fill: black;
+  transition: fill 0.15s ease;
+}
 .content-wrap .person-boxes .person-box .box-actions button:hover svg path,
 .content-wrap .person-boxes .person-box .box-actions button:hover a,
 .content-wrap .person-boxes .person-box .box-actions button:hover svg circle {
+  fill: var(--title-color);
+}
+.content-wrap .person-boxes-aboutUs .person-box-aboutUs .box-actions button:hover svg path,
+.content-wrap .person-boxes-aboutUs .person-box-aboutUs .box-actions button:hover a,
+.content-wrap .person-boxes-aboutUs .person-box-aboutUs .box-actions button:hover svg circle {
   fill: var(--title-color);
 }
 .content-wrap .person-boxes .person-box .box-actions a{
@@ -563,3 +662,68 @@ a{
 button:hover{
   color: var(--title-color);
 }
+
+
+.cards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  margin: 40px;
+  position: relative;
+  max-width: 250px;
+  max-height: 350px;
+  box-shadow: 0 40px 60px -6px black;
+}
+
+.card-title {
+  display: block;
+  text-align: center;
+  color: #fff;
+  background-color: var(--title-color);
+  padding: 2%;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  margin-top: -12px;
+  object-fit: cover;
+  display: block;
+  position: relative;
+}
+
+.card-desc {
+  text-align:initial;
+  display: block;
+  font-size: 1.2rem;
+  position: absolute;
+  height: 0;
+  width: 100%;
+  top: 0;
+  margin-left: 0px;
+  opacity: 0;
+  padding: 18px 8%;
+  background-color: white;
+  overflow-y: scroll;
+  transition: 0.8s ease;
+}
+
+.card:hover .card-desc {
+  opacity: 1;
+  height: 100%;
+  /* width: 100%; */
+  /* margin-left: 15px; */
+}
+
+/* h1 {
+  font-size: 2.8rem;
+  color: #fff;
+  margin: 40px 0 20px 0;
+  text-align: center;
+} */

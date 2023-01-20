@@ -344,4 +344,8 @@ join4 = join3.merge(country, on='period_active',how='outer', suffixes=('_1', '_2
 
 display(join4)
 join4.to_csv(f'{DATA_PATH}/top_5_genres_trend.csv', index=False)
+# %% Time chart 5
+tc5 = df[["Artist", 'Year']]
+print(tc5)
+tc5.to_csv(f'{DATA_PATH}/artist_FirstYear.csv', index=False)
 # %%

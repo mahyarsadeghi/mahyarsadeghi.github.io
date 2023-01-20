@@ -74,7 +74,7 @@ console.log(stackedData)
     // ----------------
     // Create a tooltip
     // ----------------
-    let tooltip3 = d3.select("#timeChart2")
+    let tooltip3 = d3.select("#timeChart3")
         .append("div")
         .style("opacity", 0)
         .attr("class", "tooltip")

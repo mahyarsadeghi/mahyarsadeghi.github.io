@@ -9,8 +9,6 @@ let svgT4 = d3.select("#timeChart4")
     .append("svg")
     .attr('id', 'svg_timeChart4')
     .attr("viewBox", '-200 0 1000 570')
-    // .attr("width", widthT4 + marginT4.left + marginT4.right)
-    // .attr("height", heightT4 + marginT4.top + marginT4.bottom)
     .append("g")
     .attr("transform",
         `translate(${marginT4.left},${marginT4.top})`);
@@ -140,7 +138,7 @@ d3.select('#selectGenres').on("change", function () {
         widthT4 = 600 - marginT4.left - marginT4.right,
         heightT4 = 500 - marginT4.top - marginT4.bottom;
 
-    let svgT4 = d3.select("#timeChart4_2")
+    let svgT4 = d3.select("#timeChart4")
         .append("svg")
         .attr('id', 'svg_timeChart4')
         .attr("viewBox", '-200 0 1000 570')
@@ -236,9 +234,3 @@ d3.select('#selectGenres').on("change", function () {
     });
 
 })
-
-
-// append the svg object to the body of the page
-
-
-// get the data

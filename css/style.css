@@ -43,11 +43,15 @@ body {
 }
 aside .user-actions  b{
 text-align: center;
-margin-left: 380px;
+align-items: center;
+
+/* margin-left: 380px; */
 }
 .search-wrap .user-actions {
-align-items: center;
-text-align: center;
+/* align-items: center;
+text-align: center; */
+margin-top: 10px;
+margin-left: 350px;
 }
 .search-wrap .search {
   height: 40px;
@@ -130,14 +134,6 @@ text-align: center;
   object-fit: cover;
 } */
 /* .menu-wrap .user figcaption {
-  margin: 0;
-  padding: 0 0 0 1em;
-  color: #1b253d;
-  font-weight: 700;
-  font-size: 0.875em;
-  line-height: 100%;
-} */
-/* .search-wrap .user-actions .user figcaption {
   margin: 0;
   padding: 0 0 0 1em;
   color: #1b253d;
@@ -503,6 +499,8 @@ p {
   margin-top: 70px;
 }
 
+/* footer start */
+
 #includeFooter {
   margin-top: 80px;
   height: 280px;
@@ -566,14 +564,11 @@ p {
 #F_container a:hover {
   color: var(--title-color);
 }
+/* footer end */
 
 .map-container {
   text-align: center;
 }
-
-/* .fa {
-  margin-right: 15px;
-} */
 
 a:hover {
   text-decoration-line: none;
@@ -591,6 +586,7 @@ button:hover {
   color: var(--title-color);
 }
 
+/* card about us section  */
 .cards {
   width: 100%;
   display: flex;
@@ -648,27 +644,7 @@ button:hover {
   /* margin-left: 15px; */
 }
 
-/* .nav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-/* The button used to open the sidebar */
-/* .openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-}
-
-.openbtn:hover {
-  background-color: #444;
-} */
+/* Sidebar new */
 
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
@@ -940,7 +916,7 @@ nav.main-menu li.active > a,
 
 
 
-/* footer */
+/* new footer */
 
 /* footer p, footer strong, footer b, footer {
   color: #b0b0b0;

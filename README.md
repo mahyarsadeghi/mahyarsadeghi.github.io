@@ -13,7 +13,7 @@ This website, built with GitHub pages service, provides several visualization ch
 
 In the subpages relative to the different sections it is possible to find different charts with various techniques of data visualization, according to different kind of analysis, to demonstrate the information which gives the user the possibility to draw conclusions from them.
 
-The data used for the creation of our charts are taken from a `[Kaggle Dataset]`, that provides information about music bands and artists, including their nationalities, their incomes, their period of activity and their musical genres. 
+The data used for the creation of our charts are taken from a [Kaggle Dataset], that provides information about music bands and artists, including their nationalities, their incomes, their period of activity and their musical genres. 
 
 ## Project Structure:
 

@@ -74,7 +74,7 @@ python -m http.server
 
 - [D3.js] 
 - [Used Data] 
-- GitHub pages of the website
+- [GitHub pages of the website]
 
 
    [Used data]: <https://github.com/Jeko83/TrentoTreeMap>

@@ -42,11 +42,49 @@ The data used for the creation of our charts are taken from a [Kaggle Dataset], 
 
 │   └── ...
 
-└── scripts
+├── js
 
-    ├── dataManipulation.py
+│   ├── genreAnalysis
+    
+│       ├── genreChart1.js
 
-    └── T_A_chart2.py
+│       ├── genreChart2.js
+
+│       ├── genreChart3.js
+
+│       └── genreChart4.js
+
+│   ├── geoAnalysis
+    
+│       ├── geoChart1.js
+
+│       ├── geoChart2.js
+
+│       └── geoChart4.js
+
+│   ├── TimeAnalysis
+    
+│       ├── timeChart1.js
+
+│       ├── timeChart2.js
+
+│       ├── timeChart3.js
+        
+│       ├── timeChart4.js
+
+│       └── timeChart5.js
+        
+│   └── utils
+
+│       ├── mapLegend.js
+
+│       └── radarChart.js
+
+├── scripts
+
+│   ├── dataManipulation.py
+
+│   └── T_A_chart2.py
     
 ├── about.html
 

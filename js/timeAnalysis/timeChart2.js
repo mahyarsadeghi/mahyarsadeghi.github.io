@@ -1,37 +1,4 @@
 
-//
-//             //Adding Tooltip
-//             let tooltip = d3.select("#timeChart2")
-//                 .append("div")
-//                 .style("opacity", 0)
-//                 .attr("class", "tooltip")
-//                 .style("background-color", "white")
-//                 .style("border", "solid")
-//                 .style("border-width", "1px")
-//                 .style("border-radius", "5px")
-//                 .style("padding", "10px")
-//             let mouseover = function (d) {
-//                 tooltip
-//                     .style("opacity", 1)
-//             }
-//             let mousemove = function (event, d) {
-//                 tooltip
-//                     .html("Year: " + d.Year + " Sales: " + d.value + " M$")
-//                     .style("left", (event.pageX + 30) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
-//                     .style("top", (event.pageY) + "px")
-//             }
-//             var mouseleave = function (d) {
-//                 tooltip
-//                     .transition()
-//                     .duration(200)
-//                     .style("opacity", 0)
-//             }
-//
-//             
-
-
-
-
 // set the dimensions and margins of the graph
 let margin2 = { top: 10, right: 100, bottom: 30, left: 30 },
     width2 = 900 - margin2.left - margin2.right,
@@ -42,7 +9,6 @@ let margin2 = { top: 10, right: 100, bottom: 30, left: 30 },
 
 //Read the data
 d3.csv("../../data/top_5_genres_trend.csv").then(function (data) {
-    // console.log(data);
     let svg2 = d3.select("#timeChart2")
         .append("svg")
         .attr("viewBox", '-100 0 1000 570')
@@ -89,86 +55,8 @@ d3.csv("../../data/top_5_genres_trend.csv").then(function (data) {
         .domain([0, 60])
         .range([height2, 0]);
     svg2.append("g")
-    .transition().duration(1000)
+        .transition().duration(1000)
         .call(d3.axisLeft(y));
-
-    //     var bisect = d3.bisector(function(d) { return d.x; }).left;
-
-    //     var focus = svg2
-    //     .append('g')
-    //     .append('circle')
-    //       .style("fill", "none")
-    //       .attr("stroke", "black")
-    //       .attr('r', 8.5)
-    //       .style("opacity", 0)
-
-    //   // Create the text that travels along the curve of chart
-    //   var focusText = svg2
-    //     .append('g')
-    //     .append('text')
-    //       .style("opacity", 0)
-    //       .attr("text-anchor", "left")
-    //       .attr("alignment-baseline", "middle")
-
-    //       svg2
-    //       .append('rect')
-    //       .style("fill", "none")
-    //       .style("pointer-events", "all")
-    //       .attr('width', width2)
-    //       .attr('height', height2)
-    //       .on('mouseover', mouseover)
-    //       .on('mousemove', mousemove)
-    //       .on('mouseout', mouseout);
-
-    //       function mouseover() {
-    //         focus.style("opacity", 1)
-    //         focusText.style("opacity",1)
-    //       }
-
-    //       function mousemove(event, d) {
-    //         // recover coordinate we need
-    //         var x0 = x.invert(d3.pointer(this));
-    //         var i = bisect(data, x0, 1);
-    //         selectedData = data[i]
-    //         focus
-    //           .attr("cx", x(selectedData.period_active))
-    //           .attr("cy", y(selectedData.Pop))
-    //         focusText
-    //           .html("Year:" + selectedData.period_active + "  -  " + "Nbr. Artists:" + selectedData.Pop)
-    //           .attr("x", x(selectedData.period_active)+15)
-    //           .attr("y", y(selectedData.Pop))
-    //         }
-    //       function mouseout() {
-    //         focus.style("opacity", 0)
-    //         focusText.style("opacity", 0)
-    //       }
-
-    //Adding Tooltip
-    // let tooltip = d3.select("#timeChart2")
-    //     .append("div")
-    //     .style("opacity", 0)
-    //     .attr("class", "tooltip")
-    //     .style("background-color", "white")
-    //     .style("border", "solid")
-    //     .style("border-width", "1px")
-    //     .style("border-radius", "5px")
-    //     .style("padding", "10px")
-    // let mouseover = function (d) {
-    //     tooltip
-    //         .style("opacity", 1)
-    // }
-    // let mousemove = function (event, d) {
-    //     tooltip
-    //         .html("Year: " + d.Year + " Count: " + d.value + " M$")
-    //         .style("left", (event.pageX + 30) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
-    //         .style("top", (event.pageY) + "px")
-    // }
-    // var mouseleave = function (d) {
-    //     tooltip
-    //         .transition()
-    //         .duration(200)
-    //         .style("opacity", 0)
-    // }
 
     // Add the lines
 
@@ -189,30 +77,10 @@ d3.csv("../../data/top_5_genres_trend.csv").then(function (data) {
         .attr("d", d => line(d.values))
         .attr("stroke", d => myColor(d.genre))
         .style("stroke-width", 4)
-        .attr("opacity",'0.6')
+        .attr("opacity", '0.6')
         .style("fill", "none")
 
 
-
-    // Add the points
-    // svg2
-    //     // First we need to enter in a group
-    //     .selectAll("myDots")
-    //     .data(dataReady)
-    //     .join('g')
-    //     .style("fill", d => myColor(d.genre))
-    //     .attr("class", d => d.genre)
-    //     // Second we need to enter in the 'values' part of this group
-    //     .selectAll("myPoints")
-    //     .data(d => d.values)
-    //     .join("circle")
-    //     .attr("cx", d => x(d.Year))
-    //     .attr("cy", d => y(d.value))
-    //     .attr("r", 5)
-    //     .attr("stroke", "white")
-    //     .on("mouseover", mouseover)
-    //     .on("mousemove", mousemove)
-    //     .on("mouseleave", mouseleave)
 
     // Add a label at the end of each line
 
@@ -236,7 +104,7 @@ d3.csv("../../data/top_5_genres_trend.csv").then(function (data) {
         .attr("x", 12) // shift the text a bit more right
         .text(d => d.genre)
         .style("fill", d => myColor(d.genre))
-        .attr('opacity', '0.6')
+        .attr('opacity', '0.8')
         .style("font-size", 15)
     let modGenre = ''
     // Add a legend (interactive)
@@ -249,7 +117,7 @@ d3.csv("../../data/top_5_genres_trend.csv").then(function (data) {
         .attr('y', 30)
         .text(d => d.genre)
         .style("fill", d => myColor(d.genre))
-        .attr('opacity', '0.6')
+        .attr('opacity', '0.8')
         .style("font-size", 15)
         .on("click", function (event, d) {
             if (d.genre.includes('&')) {

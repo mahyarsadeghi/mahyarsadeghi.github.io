@@ -1,175 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
+  <head>
+    <meta charset="UTF-8" />
     <title>Tatanka - Project Data Viz</title>
     <link
-            type="image/png"
-            sizes="32x32"
-            rel="icon"
-            href="./iimages/favicon.ico"
+      type="image/png"
+      sizes="32x32"
+      rel="icon"
+      href="./iimages/favicon.ico"
     />
     <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous"
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
     />
     <!-- Load d3.js -->
     <script src="https://d3js.org/d3.v6.js"></script>
     <!-- <script src="https://d3js.org/d3.v4.js"></script> -->
     <script
-            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
     ></script>
     <script
-            src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
     ></script>
     <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
     ></script>
     <script
-            src="https://code.jquery.com/jquery-3.6.1.js"
-            integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-            crossorigin="anonymous"
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
     ></script>
     <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
     />
     <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="./css/style.css"/>
-</head>
-<body>
-<div class="dashboard">
-    <aside class="search-wrap" id="includeNavbar"></aside>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <aside class="search-wrap" id="includeNavbar"></aside>
 
-    <header class="menu-wrap" id="includeSidebar"></header>
+      <header class="menu-wrap" id="includeSidebar"></header>
 
-    <main class="content-wrap">
+      <main class="content-wrap">
         <header class="w3-container" id="TimeTitle">
-            <h1><b>Time Analysis</b></h1>
+          <h1><b>Time Analysis</b></h1>
         </header>
-        <br/>
+        <br />
 
         <div class="content">
-            <br/>
-            <h2><b>Period of activity's distribution of best-selling music artists through the years.</b></h2>
-            <h4>
-                The first chart of this section is an histogram <br>
-                that demonstrates the distribution of the artists' period of activity during the years. <br>
-                By hovering on each bar, it is possible to see what are the range of years to which each bar is
-                related.
-            </h4>
-            <div id="timeChart1"></div>
-            <p>
-                <label># Bins</label>
-                <input type="number" min="1" max="61" step="20" value="21" id="nBin">
-            </p>
-            <br/>
-            <hr/>
-            <br/>
-            <br/>
+          <br />
+          <h2>
+            <b
+              >Period of activity's distribution of best-selling music artists
+              through the years.</b
+            >
+          </h2>
+          <h4>
+            The first chart of this section is an histogram <br />
+            that demonstrates the distribution of the artists' period of
+            activity during the years. <br />
+            By hovering on each bar, it is possible to see what are the range of
+            years to which each bar is related.
+          </h4>
+          <div id="timeChart1"></div>
+          <p>
+            <label># Bins</label>
+            <input
+              type="number"
+              min="1"
+              max="61"
+              step="20"
+              value="41"
+              id="nBin"
+            />
+          </p>
+          <br />
+          <hr />
+          <br />
+          <br />
 
+          <h2>
+            <b
+              >Period of activity's distribution of the top 10 genres through
+              the years</b
+            >
+          </h2>
+          <h4>
+            This second chart compares the distribution of two genres's period
+            of activity through the years, using two histograms. <br />
+            Using the specific dropdown menu, it is possible to select among
+            different genres' comparisons, considering the top 10 genres in
+            terms of number of artists. <br />
+            By clicking on the genres' names in the legend, the associated line
+            is hidden and it provides better comparisons for desired genres.
+            Reclicking on them will make them visible again.
+          </h4>
 
-            <h2><b>Period of activity's distribution of the top 10 genres through the years</b></h2>
-            <h4>
-                This second chart compares the distribution of two genres's period of activity through the years, using
-                two histograms. <br>
-                Using the specific dropdown menu, it is possible to select among different genres' comparisons,
-                considering
-                the top 10 genres in terms of number of artists. <br>
-                By clicking on the genres' names in the legend, the associated line is hidden and it provides better
-                comparisons for desired genres.
-                Reclicking on them will make them visible again.
+          <label for="selectGenres">Choose Genres:</label>
+          <select name="selectGenres" id="selectGenres">
+            <option value="Pop VS Rock" selected>Pop vs Rock</option>
+            <option value="R&b VS Hip-hop">R&B vs Hip-hop</option>
+            <option value="Hard rock VS Pop rock">Hard Rock vs Pop Rock</option>
+            <option value="Country VS Soul">Country vs Soul</option>
+            <option value="Dance VS Alternative rock">
+              Dance vs Alternative Rock
+            </option>
+          </select>
+          <div id="timeChart4"></div>
+          <br />
+          <hr />
+          <br />
+          <br />
 
-            </h4>
+          <h2><b>Trends of the top 5 genres during the time</b></h2>
+          <h4>
+            The third chart of time analysis <br />
+            is a multi-line plot (also in the small multiple version) <br />
+            that explain how the best-selling music artists' top 5 genres <br />
+            are evolved during the time. By clicking on the genres' names in the
+            legend,<br />
+            the associated line is hidden and it provides better comparisons for
+            desired genres. <br />
+            Reclicking on them will make them visible again.
+          </h4>
+          <div id="timeChart2"></div>
+          <br />
+          <br />
+          <div viewBox="0 0 1200 570 ">
+            <div id="timeChart5"></div>
+          </div>
+          <br />
+          <hr />
+          <br />
+          <br />
 
-            <label for="selectGenres">Choose Genres:</label>
-            <select name="selectGenres" id="selectGenres">
-                <option value="Pop VS Rock" selected>Pop vs Rock</option>
-                <option value="R&b VS Hip-hop">R&B vs Hip-hop</option>
-                <option value="Hard rock VS Pop rock">Hard Rock vs Pop Rock</option>
-                <option value="Country VS Soul">Country vs Soul</option>
-                <option value="Dance VS Alternative rock">Dance vs Alternative Rock</option>
-
-            </select>
-            <div id="timeChart4"></div>
-            <br/>
-            <hr/>
-            <br/>
-            <br/>
-
-            <h2><b>Trends of the top 5 genres during the time</b></h2>
-            <h4>
-                The third chart of time analysis is a multi-line plot that explain <br>
-                how the best-selling music artists' top 5 genres are evolved during the time. <br>
-                By clicking on the genres' names in the legend, the associated line is hidden and it provides better
-                comparisons for desired genres.
-                Reclicking on them will make them visible again.
-            </h4>
-            <div id="timeChart2"></div>
-            <div id="timeChart2_new"></div>
-            <br/>
-            <hr/>
-            <br/>
-            <br/>
-
-            <h2><b>Total sale's amount of the top 5 genres in each of the top 5 countries 'till 2023</b></h2>
-            <h4>
-                The last chart is a stacked bar chart that displays how much sales the top 5 genres <br>
-                (considering the number of artists) have gained for each of the top 5 countries in history of music
-                <br/>
-                By hovering on each part of each bar it is possible to see the exact amount of sales of that genre for
-                the associated
-                country.
-
-            </h4>
-            <div id="task_3_legend"></div>
-            <div id="timeChart3"></div>
-            <br/>
-            <hr/>
-            <br/>
-            <br/>
-            <!--
-                        <h2><b>Distribution of the Artists' first years in making music</b></h2>
-                        <h4>
-
-
-                        </h4>
-                        <div id="timeChart5"></div>
-                        <br/>
-                        <hr/>
-                        <br/>
-                        <br/> -->
+          <h2>
+            <b
+              >Total sale's amount of the top 5 genres in each of the top 5
+              countries 'till 2023</b
+            >
+          </h2>
+          <h4>
+            The last chart is a stacked bar chart that displays how much sales
+            the top 5 genres <br />
+            (considering the number of artists) have gained for each of the top
+            5 countries in history of music
+            <br />
+            By hovering on each part of each bar it is possible to see the exact
+            amount of sales of that genre for the associated country.
+          </h4>
+          <div id="task_3_legend"></div>
+          <div id="timeChart3"></div>
+          <br />
+          <hr />
+          <br />
+          <br />
         </div>
 
         <footer id="includeFooter"></footer>
-    </main>
-</div>
-<script>
-    $(function () {
+      </main>
+    </div>
+    <script>
+      $(function () {
         $("#includeSidebar").load("./components/sidebar.html");
-    });
-    $(function () {
+      });
+      $(function () {
         $("#includeNavbar").load("./components/navbar.html");
-    });
-    $(function () {
+      });
+      $(function () {
         $("#includeFooter").load("./components/footer.html");
-    });
-</script>
-<script src="./js/timeAnalysis/timeChart1.js"></script>
-<script src="./js/timeAnalysis/timeChart2.js"></script>
-<script src="./js/timeAnalysis/timeChart3.js"></script>
-<script src="./js/timeAnalysis/timeChart4.js"></script>
-<!-- <script src="./js/timeAnalysis/timeChart5.js"></script> -->
-</body>
+      });
+    </script>
+    <script src="./js/timeAnalysis/timeChart1.js"></script>
+    <script src="./js/timeAnalysis/timeChart2.js"></script>
+    <script src="./js/timeAnalysis/timeChart3.js"></script>
+    <script src="./js/timeAnalysis/timeChart4.js"></script>
+    <script src="./js/timeAnalysis/timeChart5.js"></script>
+  </body>
 </html>

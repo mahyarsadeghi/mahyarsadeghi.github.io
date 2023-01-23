@@ -29,7 +29,6 @@ let xAxis4 = svg.append("g")
 let y4 = d3.scaleLinear()
   .range([height, 0]);
 let yAxis4 = svg.append("g")
-  // .attr("transform", `translate(0, ${height})`)
   .attr("class", "myYaxis")
 
 let z = d3.scaleLinear()
@@ -54,10 +53,8 @@ function update_initial_chart4() {
           "<br>" + "<span style='color:grey'>TCU (unit): </span>" + tcu + ' units' +
           "<br>" + "<span style='color:grey'>Country: </span>" + country)
         .style("opacity", 1);
-      //   d3.select(this).attr("fill", "#9B2335");
       console.log(artist)
       d3.select(`#bubbles${artist}`.split(" ").join('').split('/').join("").split("'").join("")).attr('stroke', '#9B2335').attr('stroke-width', '3px')
-      //  d3.select(`circle`).attr('stroke' ,'black')
 
 
     }
@@ -65,15 +62,15 @@ function update_initial_chart4() {
       tooltip4
         .style('left', (event.pageX + 40) + 'px')
         .style('top', (event.pageY + 5) + 'px')
-       
+
     }
     const hideTooltip = function (event, d) {
       tooltip4
         .transition()
         .duration(200)
         .style("opacity", 0)
-        let artist = d.Artist;
-        d3.select(`#bubbles${artist}`.split(" ").join('').split('/').join("").split("'").join("")).attr('stroke', 'black').attr('stroke-width', '1px')
+      let artist = d.Artist;
+      d3.select(`#bubbles${artist}`.split(" ").join('').split('/').join("").split("'").join("")).attr('stroke', 'black').attr('stroke-width', '1px')
     }
 
     x4.domain(data.map(d => d.Country))
@@ -81,12 +78,12 @@ function update_initial_chart4() {
       .selectAll("text")
       .attr("transform", "translate(-10,0)rotate(-45)")
       .style("text-anchor", "end");
-      svg.append("text")
-			.attr('class', "text-axis-chart4")
-			.attr("text-anchor", "end")
-			.attr("x", width)
-			.attr("y", height + 50)
-			.text("Countries");
+    svg.append("text")
+      .attr('class', "text-axis-chart4")
+      .attr("text-anchor", "end")
+      .attr("x", width)
+      .attr("y", height + 50)
+      .text("Countries");
 
 
     y4.domain([0, 600]);
@@ -94,12 +91,12 @@ function update_initial_chart4() {
       .selectAll("text")
       .attr("transform", "translate(-20,0)")
       .style("text-anchor", "end");
-      svg.append("text")
-			.attr('class', "text-axis-chart4")
-			.attr("text-anchor", "end")
-			.attr("x", -55)
-			.attr("y", height - 420)
-			.text("Sales ($)");
+    svg.append("text")
+      .attr('class', "text-axis-chart4")
+      .attr("text-anchor", "end")
+      .attr("x", -55)
+      .attr("y", height - 420)
+      .text("Sales ($)");
 
     z.domain([28900000, 335300000])
 
@@ -122,7 +119,7 @@ function update_initial_chart4() {
       .on("mouseleave", hideTooltip)
 
 
-    var valuesToShow = [28900000, 182100000, 335300000 ]
+    var valuesToShow = [28900000, 182100000, 335300000]
     var moveX = 200
     var moveY = 300
     var xCircle = 390 + moveX
@@ -138,7 +135,7 @@ function update_initial_chart4() {
       .style("fill", "none")
       .attr("stroke", "black")
 
-      svg
+    svg
       .selectAll("legend")
       .data(valuesToShow)
       .enter()
@@ -168,6 +165,7 @@ function update_initial_chart4() {
       .attr('x', xCircle)
       .attr("y", height - moveY + 30)
       .text("TCU (unit)")
+      .style("fill", "#2876b6")
       .attr('class', 'legend-text')
       .attr("text-anchor", "middle")
 
@@ -195,10 +193,8 @@ function update1_chart4() {
           "<br>" + "<span style='color:grey'>TCU (unit): </span>" + tcu + ' units' +
           "<br>" + "<span style='color:grey'>Country: </span>" + country)
         .style("opacity", 1);
-      //   d3.select(this).attr("fill", "#9B2335");
       console.log(artist)
       d3.select(`#bubbles${artist}`.split(" ").join('').split('/').join("").split("'").join("")).attr('stroke', '#9B2335').attr('stroke-width', '3px')
-      //  d3.select(`circle`).attr('stroke' ,'black')
 
 
     }
@@ -212,8 +208,8 @@ function update1_chart4() {
         .transition()
         .duration(200)
         .style("opacity", 0)
-        let artist = d.Artist;
-        d3.select(`#bubbles${artist}`.split(" ").join('').split('/').join("").split("'").join("")).attr('stroke', 'black').attr('stroke-width', '1px')
+      let artist = d.Artist;
+      d3.select(`#bubbles${artist}`.split(" ").join('').split('/').join("").split("'").join("")).attr('stroke', 'black').attr('stroke-width', '1px')
     }
 
     x4.domain(data.map(d => d.Country))
@@ -221,24 +217,24 @@ function update1_chart4() {
       .selectAll("text")
       .attr("transform", "translate(-10,0)rotate(-45)")
       .style("text-anchor", "end");
-      svg.append("text")
-			.attr('class', "text-axis-chart4")
-			.attr("text-anchor", "end")
-			.attr("x", width)
-			.attr("y", height + 50)
-			.text("Countries");
+    svg.append("text")
+      .attr('class', "text-axis-chart4")
+      .attr("text-anchor", "end")
+      .attr("x", width)
+      .attr("y", height + 50)
+      .text("Countries");
 
     y4.domain([0, 600]);
     yAxis4.transition().duration(1000).call(d3.axisLeft(y4))
       .selectAll("text")
       .attr("transform", "translate(-25,0)rotate(-45)")
       .style("text-anchor", "end");
-      svg.append("text")
-			.attr('class', "text-axis-chart4")
-			.attr("text-anchor", "end")
-			.attr("x", -55)
-			.attr("y", height1 - 490)
-			.text("Sales ($)");
+    svg.append("text")
+      .attr('class', "text-axis-chart4")
+      .attr("text-anchor", "end")
+      .attr("x", -55)
+      .attr("y", height1 - 490)
+      .text("Sales ($)");
 
     z.domain([28900000, 335300000])
 
@@ -257,60 +253,61 @@ function update1_chart4() {
       .attr("r", d => z(d['TCU (unit)']))
       .style("fill", '#2877b7')
       .attr('stroke', 'black')
-      // -3- Trigger the functions
-      u
+    // -3- Trigger the functions
+    u
       .on("mouseover", showTooltip)
       .on("mousemove", moveTooltip)
       .on("mouseleave", hideTooltip)
 
-      var valuesToShow = [28900000, 182100000, 335300000 ]
-      var moveX = 200
-      var moveY = 300
-      var xCircle = 390 + moveX
-      var xLabel = 440 + moveX
-      svg
-        .selectAll("legend")
-        .data(valuesToShow)
-        .enter()
-        .append("circle")
-        .attr("cx", xCircle)
-        .attr("cy", function (d) { return height - moveY - z(d) })
-        .attr("r", function (d) { return z(d) })
-        .style("fill", "none")
-        .attr("stroke", "black")
-  
-        svg
-        .selectAll("legend")
-        .data(valuesToShow)
-        .enter()
-        .append("line")
-        .attr('x1', function (d) { return xCircle + z(d) })
-        .attr('x2', xLabel)
-        .attr('y1', function (d) { return height - moveY - z(d) })
-        .attr('y2', function (d) { return height - moveY - z(d) })
-        .attr('stroke', 'black')
-        .style('stroke-dasharray', ('2,2'))
-  
-      // Add legend: labels
-      svg
-        .selectAll("legend")
-        .data(valuesToShow)
-        .enter()
-        .append("text")
-        .attr('x', xLabel)
-        .attr('y', function (d) { return height - moveY - z(d) })
-        .text(function (d) { return d })
-        .style("font-size", 10)
-        .attr('class', 'legend-text')
-        .attr('alignment-baseline', 'middle')
-  
-      // Legend title
-      svg.append("text")
-        .attr('x', xCircle)
-        .attr("y", height - moveY + 30)
-        .text("TCU (unit)")
-        .attr('class', 'legend-text')
-        .attr("text-anchor", "middle")
+    var valuesToShow = [28900000, 182100000, 335300000]
+    var moveX = 200
+    var moveY = 300
+    var xCircle = 390 + moveX
+    var xLabel = 440 + moveX
+    svg
+      .selectAll("legend")
+      .data(valuesToShow)
+      .enter()
+      .append("circle")
+      .attr("cx", xCircle)
+      .attr("cy", function (d) { return height - moveY - z(d) })
+      .attr("r", function (d) { return z(d) })
+      .style("fill", "none")
+      .attr("stroke", "black")
+
+    svg
+      .selectAll("legend")
+      .data(valuesToShow)
+      .enter()
+      .append("line")
+      .attr('x1', function (d) { return xCircle + z(d) })
+      .attr('x2', xLabel)
+      .attr('y1', function (d) { return height - moveY - z(d) })
+      .attr('y2', function (d) { return height - moveY - z(d) })
+      .attr('stroke', 'black')
+      .style('stroke-dasharray', ('2,2'))
+
+    // Add legend: labels
+    svg
+      .selectAll("legend")
+      .data(valuesToShow)
+      .enter()
+      .append("text")
+      .attr('x', xLabel)
+      .attr('y', function (d) { return height - moveY - z(d) })
+      .text(function (d) { return d })
+      .style("font-size", 10)
+      .attr('class', 'legend-text')
+      .attr('alignment-baseline', 'middle')
+
+    // Legend title
+    svg.append("text")
+      .attr('x', xCircle)
+      .attr("y", height - moveY + 30)
+      .text("TCU (unit)")
+      .style("fill", "#2876b6")
+      .attr('class', 'legend-text')
+      .attr("text-anchor", "middle")
 
   })
 
@@ -339,7 +336,7 @@ function update2_chart4() {
       //   d3.select(this).attr("fill", "#9B2335");
       console.log(artist)
       d3.select(`#bubbles${artist}`.split(" ").join('').split('/').join("").split("'").join("")).attr('stroke', '#9B2335').attr('stroke-width', '3px')
-    
+
 
 
     }
@@ -362,24 +359,24 @@ function update2_chart4() {
       .selectAll("text")
       .attr("transform", "translate(-10,0)rotate(-45)")
       .style("text-anchor", "end");
-      svg.append("text")
-			.attr('class', "text-axis-chart4")
-			.attr("text-anchor", "end")
-			.attr("x", width)
-			.attr("y", height + 50)
-			.text("Countries");
+    svg.append("text")
+      .attr('class', "text-axis-chart4")
+      .attr("text-anchor", "end")
+      .attr("x", width)
+      .attr("y", height + 50)
+      .text("Countries");
 
     y4.domain([0, 450000000]);
     yAxis4.transition().duration(1000).call(d3.axisLeft(y4))
       .selectAll("text")
       .attr("transform", "translate(-20,0)rotate(-45)")
       .style("text-anchor", "end");
-      svg.append("text")
-			.attr('class', "text-axis-chart4")
-			.attr("text-anchor", "end")
-			.attr("x", -55)
-			.attr("y", height1 - 490)
-			.text("TCU (unit)");
+    svg.append("text")
+      .attr('class', "text-axis-chart4")
+      .attr("text-anchor", "end")
+      .attr("x", -55)
+      .attr("y", height1 - 490)
+      .text("TCU (unit)");
 
     z.domain([75, 550])
 
@@ -404,54 +401,55 @@ function update2_chart4() {
       .on("mousemove", moveTooltip)
       .on("mouseleave", hideTooltip)
 
-      var valuesToShow = [75, 312.5 , 550 ]
-      var moveX = 200
-      var moveY = 300
-      var xCircle = 390 + moveX
-      var xLabel = 440 + moveX
-      svg
-        .selectAll("legend")
-        .data(valuesToShow)
-        .enter()
-        .append("circle")
-        .attr("cx", xCircle)
-        .attr("cy", function (d) { return height - moveY - z(d) })
-        .attr("r", function (d) { return z(d) })
-        .style("fill", "none")
-        .attr("stroke", "black")
-  
-        svg
-        .selectAll("legend")
-        .data(valuesToShow)
-        .enter()
-        .append("line")
-        .attr('x1', function (d) { return xCircle + z(d) })
-        .attr('x2', xLabel)
-        .attr('y1', function (d) { return height - moveY - z(d) })
-        .attr('y2', function (d) { return height - moveY - z(d) })
-        .attr('stroke', 'black')
-        .style('stroke-dasharray', ('2,2'))
-  
-      // Add legend: labels
-      svg
-        .selectAll("legend")
-        .data(valuesToShow)
-        .enter()
-        .append("text")
-        .attr('x', xLabel)
-        .attr('y', function (d) { return height - moveY - z(d) })
-        .text(function (d) { return d })
-        .style("font-size", 10)
-        .attr('class', 'legend-text')
-        .attr('alignment-baseline', 'middle')
-  
-      // Legend title
-      svg.append("text")
-        .attr('x', xCircle)
-        .attr("y", height - moveY + 30)
-        .text("Sales ($)")
-        .attr('class', 'legend-text')
-        .attr("text-anchor", "middle")
+    var valuesToShow = [75, 312.5, 550]
+    var moveX = 200
+    var moveY = 300
+    var xCircle = 390 + moveX
+    var xLabel = 440 + moveX
+    svg
+      .selectAll("legend")
+      .data(valuesToShow)
+      .enter()
+      .append("circle")
+      .attr("cx", xCircle)
+      .attr("cy", function (d) { return height - moveY - z(d) })
+      .attr("r", function (d) { return z(d) })
+      .style("fill", "none")
+      .attr("stroke", "black")
+
+    svg
+      .selectAll("legend")
+      .data(valuesToShow)
+      .enter()
+      .append("line")
+      .attr('x1', function (d) { return xCircle + z(d) })
+      .attr('x2', xLabel)
+      .attr('y1', function (d) { return height - moveY - z(d) })
+      .attr('y2', function (d) { return height - moveY - z(d) })
+      .attr('stroke', 'black')
+      .style('stroke-dasharray', ('2,2'))
+
+    // Add legend: labels
+    svg
+      .selectAll("legend")
+      .data(valuesToShow)
+      .enter()
+      .append("text")
+      .attr('x', xLabel)
+      .attr('y', function (d) { return height - moveY - z(d) })
+      .text(function (d) { return d })
+      .style("font-size", 10)
+      .attr('class', 'legend-text')
+      .attr('alignment-baseline', 'middle')
+
+    // Legend title
+    svg.append("text")
+      .attr('x', xCircle)
+      .attr("y", height - moveY + 30)
+      .text("Sales ($)")
+      .style("fill", "#17823c")
+      .attr('class', 'legend-text')
+      .attr("text-anchor", "middle")
 
   })
 };

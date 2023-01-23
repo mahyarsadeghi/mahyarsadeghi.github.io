@@ -5,6 +5,7 @@ let marginT1 = { top: 10, right: 20, bottom: 30, left: 50 },
     heightT1 = 500 - marginT1.top - marginT1.bottom;
 
 // append the svg object to the body of the page
+
 let svgT1 = d3.select("#timeChart1")
     .append("svg")
     .attr('id', 'svg_timeChart1')
@@ -16,9 +17,10 @@ let svgT1 = d3.select("#timeChart1")
         `translate(${marginT1.left},${marginT1.top})`);
 
 
-
 // get the data
 d3.csv("../../data/allYears.csv").then(function (data) {
+
+
 
     let scolor = d3.scaleSequential()
         .domain([0, 500])
@@ -38,19 +40,17 @@ d3.csv("../../data/allYears.csv").then(function (data) {
     let yAxis = svgT1.append("g");
 
     let tooltip = d3.select("#timeChart1")
-    .append("div")
-    .style("opacity", 0)
-    .attr("class", "tooltip")
-    .attr('id', "tooltipHistogram")
-    .style("background-color", "white")
-    .style("border", "solid")
-    .style("border-width", "2px")
-    .style("border-radius", "5px")
-    .style("padding", "10px")
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .attr('id', "tooltipHistogram")
+        .style("background-color", "white")
+        .style("border", "solid")
+        .style("border-width", "2px")
+        .style("border-radius", "5px")
+        .style("padding", "10px")
 
     function update_initial(nBin) {
-
-  
 
         let showTooltip = function (event, d) {
             tooltip
@@ -120,12 +120,24 @@ d3.csv("../../data/allYears.csv").then(function (data) {
     }
 
     function update(nBin) {
+        let tooltip2 = d3.select("#timeChart1")
+            .append("div")
+            .style("opacity", 0)
+            .attr("class", "tooltip")
+            .attr('id', "tooltipHistogram")
+            .style("background-color", "white")
+            .style("border", "solid")
+            .style("border-width", "2px")
+            .style("border-radius", "5px")
+            .style("padding", "10px")
+
+
         let scolor = d3.scaleSequential()
             .domain([0, 500])
             .interpolator(d3.interpolatePurples);
 
         let showTooltip2 = function (event, d) {
-            tooltip
+            tooltip2
                 .style("opacity", 1)
                 .html("<span style='color:grey'>Range: </span>" + d.x0 + " - " + d.x1)
                 .style("opacity", 1)
@@ -135,13 +147,13 @@ d3.csv("../../data/allYears.csv").then(function (data) {
                 .attr('stroke', 'black').attr('stroke-width', '.2');
         }
         let moveTooltip2 = function (event, d) {
-            tooltip
+            tooltip2
                 .style('left', (event.x + 70) + 'px')
                 .style('top', (event.y - 70) + 'px')
 
         }
         let hideTooltip2 = function (event, d) {
-            tooltip
+            tooltip2
                 .style("opacity", 0)
             d3.select(this).attr('fill', d => scolor(d.length))
 
@@ -191,21 +203,18 @@ d3.csv("../../data/allYears.csv").then(function (data) {
             .attr('fill', d => scolor(d.length))
             .attr('stroke', 'black').attr('stroke-width', '.2')
 
-
         u
             .exit()
             .remove()
-
-
-        u
             .on("mouseover", showTooltip2)
             .on("mousemove", moveTooltip2)
             .on("mouseleave", hideTooltip2)
+
     }
 
 
     // Initialize with 20 bins
-    update_initial(20)
+    update_initial(40)
 
 
     // Listen to the button -> update if user change it

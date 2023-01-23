@@ -30,8 +30,8 @@ let tooltip3 = d3.select("#genreChart1")
 d3.csv("../../data/top_15_genres.csv").then(function (data) {
 
   let scolor = d3.scaleSequential()
-  .domain([0, 59])
-  .interpolator(d3.interpolatePurples);
+    .domain([0, 59])
+    .interpolator(d3.interpolatePurples);
 
   let mouseover = function (event, d) {
     let totalAmount = d.Count;
@@ -51,7 +51,6 @@ d3.csv("../../data/top_15_genres.csv").then(function (data) {
   let mouseleave = function (event, d) {
     tooltip3
       .style("opacity", 0);
-    // d3.select(this).attr("fill", '#6e5ba8');
     d3.select(this).attr('fill', d => scolor(d.Count))
     d3.select('#Other').attr('fill', "#868e96");
   }
@@ -65,15 +64,14 @@ d3.csv("../../data/top_15_genres.csv").then(function (data) {
     .transition().duration(1000)
     .call(d3.axisBottom(x))
     .selectAll("text")
-    // .attr("transform", "translate(-10,0)")
     .style("text-anchor", "end");
 
 
-    svg2.append("text")
-        .attr("text-anchor", "end")
-        .attr("x", width2)
-        .attr("y", height2 + 50)
-        .text("Nbr. Artists");
+  svg2.append("text")
+    .attr("text-anchor", "end")
+    .attr("x", width2)
+    .attr("y", height2 + 50)
+    .text("Nbr. Artists");
 
 
   // Y axis
@@ -82,7 +80,7 @@ d3.csv("../../data/top_15_genres.csv").then(function (data) {
     .domain(data.map(d => d.Genre))
     .padding(.2);
   svg2.append("g")
-  .transition().duration(1000)
+    .transition().duration(1000)
     .call(d3.axisLeft(y))
 
   svg2.append("text")
@@ -99,13 +97,12 @@ d3.csv("../../data/top_15_genres.csv").then(function (data) {
     .attr("y", d => y(d.Genre))
     .attr("width", d => x(0))
     .attr("height", y.bandwidth())
-    // .attr("fill", "#6e5ba8")
     .attr('fill', d => scolor(d.Count))
     .attr('id', d => d.Genre)
     .on('mouseover', mouseover)
     .on('mouseleave', mouseleave)
     .on('mousemove', mousemove)
-    d3.select('#Other').attr('fill','#868e96')
+  d3.select('#Other').attr('fill', '#868e96')
 
   svg2.selectAll("rect")
     .transition()

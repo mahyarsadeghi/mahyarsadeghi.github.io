@@ -11,7 +11,7 @@ const projection2 = d3.geoMercator()
   .center([0, 20])
   .translate([width2 / 2, height2 / 2]);
 
-  Legend(d3.scaleThreshold([0, 10000000, 20000000, 40000000, 6000000, 200000000, 1000000000, 3000000000, 8000000000], d3.schemeBlues[9]), "#geoLegend2")
+Legend(d3.scaleThreshold([0, 10000000, 20000000, 40000000, 6000000, 200000000, 1000000000, 3000000000, 8000000000], d3.schemeBlues[9]), "#geoLegend2")
 
 // Data and color scale
 const data2 = new Map();
@@ -19,14 +19,13 @@ const colorScale2 = d3.scaleThreshold()
   .domain([0, 10000000, 20000000, 40000000, 6000000, 200000000, 1000000000, 3000000000, 8000000000])
   .range(d3.schemeBlues[9]);
 
-  let tooltip2 = d3.select("#geoChart2Div")
+let tooltip2 = d3.select("#geoChart2Div")
   .append("div")
   .style("background-color", "white")
   .style("border", "solid")
   .style("border-width", "2px")
   .style("border-radius", "5px")
   .style("padding", "10px")
-  // .style("min-width", "2px")
   .style("opacity", 0)
   .attr("class", "tooltip")
   .style("font-size", "16px")
@@ -41,8 +40,8 @@ Promise.all([
 
     let mouseOver = function (event, d) {
       console.log(d)
-      console.log( d.properties.name)
-      
+      console.log(d.properties.name)
+
       d3.selectAll(".Country")
         .transition()
         .duration(200)

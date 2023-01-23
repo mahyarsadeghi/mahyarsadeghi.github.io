@@ -58,7 +58,7 @@ d3.csv("../../data/PopRock_years.csv").then(function (data) {
         .range([heightT4, 0]);
     y.domain([0, d3.max(bins1, function (d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
     svgT4.append("g")
-    .transition().duration(1000)
+        .transition().duration(1000)
         .call(d3.axisLeft(y));
 
     // append the bars for series 1
@@ -181,7 +181,7 @@ d3.select('#selectGenres').on("change", function () {
             .range([heightT4, 0]);
         y.domain([0, d3.max(bins1, function (d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
         svgT4.append("g")
-        .transition().duration(1000)
+            .transition().duration(1000)
             .call(d3.axisLeft(y));
 
         // append the bars for series 1

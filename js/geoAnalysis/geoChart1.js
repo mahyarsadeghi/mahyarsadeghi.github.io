@@ -28,7 +28,6 @@ let tooltip = d3.select("#geoChart1Div")
   .style("border-width", "2px")
   .style("border-radius", "5px")
   .style("padding", "10px")
-  // .style("min-width", "2px")
   .style("opacity", 0)
   .attr("class", "tooltip")
   .style("font-size", "16px")
@@ -44,15 +43,15 @@ Promise.all([
     let mouseOver = function (event, d) {
       console.log(d)
       console.log(d.properties.name)
-    let value = ''
-    value = d.total.toString().split(".")[0]
-      if(value > 999){
+      let value = ''
+      value = d.total.toString().split(".")[0]
+      if (value > 999) {
         value = `${d.total} billion`
-      }else{
+      } else {
         value = `${d.total} million`
       }
 
-      d3.selectAll(".Country")  
+      d3.selectAll(".Country")
         .transition()
         .duration(200)
         .style("opacity", .5)
@@ -67,11 +66,10 @@ Promise.all([
         .transition()
         .duration(200)
         .style("opacity", 1)
-        // let numb = d.total.toString().split(".")[0]
-        
+
       tooltip
-        .html("<span style='color:grey'>Country: </span>" + d.properties.name + 
-        "<br>" + "<span style='color:grey'>Sales ($): </span>" + value
+        .html("<span style='color:grey'>Country: </span>" + d.properties.name +
+          "<br>" + "<span style='color:grey'>Sales ($): </span>" + value
         )
         .style("top", (event.pageY) + "px")
         .style("left", (event.pageX + 30) + "px")

@@ -64,99 +64,140 @@
           <br />
           <h2><b> Top 15 genres VS number of artist + others</b></h2>
           <h4>
-           This first horizontal bar chart shows the top 15 genres considering the number of artists that belong to each of these genres. <br>
-            By hovering on each bar, it is possible to see the exact amount of artis for the desired genre.
+            This first horizontal bar chart shows the top 15 genres considering
+            the <span style="color: #817ab8"><b>number</b></span> of artists
+            that belong to each of these genres. <br />
+            By hovering on each bar, it is possible to see the exact amount of
+            artis for the desired genre.
           </h4>
           <div id="genreChart1"></div>
           <br />
           <hr />
-          <br>
-          <br>
+          <br />
+          <br />
 
           <h2><b>TOP 15 genres VS sales amount and TCU units + others</b></h2>
           <h4>
-            The second horizontal bar chart shows the top 15 genres considering <br>
-            the total amount of sales ($) for each of these genres, or the total amount of TCU (unit), based on the clicked button. <br>
-           By hovering on each bar, it is possible to see the exact sales' value ($) or the TCU's units for the desired genre.
-            
+            The second horizontal bar chart shows the top 15 genres considering
+            <br />
+            the total amount of
+            <span style="color: #55b467"><b>sales</b></span> ($) for each of
+            these genres, or the total amount of
+            <span style="color: #2876b6"><b>TCU</b></span> (unit), based on the
+            clicked button. <br />
+            By hovering on each bar, it is possible to see the exact sales'
+            value ($) or the TCU's units for the desired genre.
           </h4>
 
-          <button onclick="update1_chart2()" class="new-button" style="--content: 'Sales';">
+          <button
+            onclick="update1_chart2()"
+            class="new-button"
+            style="--content: 'Sales'"
+          >
             <div class="left"></div>
-             Sales
+            Sales
             <div class="right"></div>
           </button>
 
-
-          <button onclick="update2_chart2()" class="new-button" id="TCU_genre1" style="--content: 'TCU';">
+          <button
+            onclick="update2_chart2()"
+            class="new-button"
+            id="TCU_genre1"
+            style="--content: 'TCU'"
+          >
             <div class="left"></div>
-             TCU
+            TCU
             <div class="right"></div>
           </button>
-          <!-- <button onclick="update1_chart2()">Sales</button>
-          <button onclick="update2_chart2()">TCU</button> -->
           <div id="genreChart2"></div>
           <br />
           <hr />
-          <br>
-          <br>
+          <br />
+          <br />
 
           <h2><b>TOP 20 artists for sales amount and TCU units</b></h2>
           <h4>
-            Here we can see the top 20 best-selling music artists of all time, <br>
-            differentiating them by sales amount ($) and TCU (unit), based on the performed selection. <br>
-            By hovering on each bar, it is possible to see the exact sales' value ($) or the TCU's units for the specific artist.
+            Here we can see the top 20 best-selling music artists of all time,
+            <br />
+            differentiating them by
+            <span style="color: #55b467"><b>sales</b></span> amount ($) and
+            <span style="color: #2876b6"><b>TCU</b></span> (unit), based on the
+            performed selection. <br />
+            By hovering on each bar, it is possible to see the exact sales'
+            value ($) or the TCU's units for the specific artist.
           </h4>
-          <button onclick="update1()" class="new-button" style="--content: 'Sales';">
+          <button
+            onclick="update1()"
+            class="new-button"
+            style="--content: 'Sales'"
+          >
             <div class="left"></div>
-             Sales
+            Sales
             <div class="right"></div>
           </button>
 
-
-          <button onclick="update2()" class="new-button" id="TCU_genre1" style="--content: 'TCU';">
+          <button
+            onclick="update2()"
+            class="new-button"
+            id="TCU_genre1"
+            style="--content: 'TCU'"
+          >
             <div class="left"></div>
-             TCU
+            TCU
             <div class="right"></div>
           </button>
-          <!-- <button onclick="update1()">Sales</button>
-          <button onclick="update2()">TCU</button> -->
           <div id="genreChart3"></div>
-
-          <!-- <div class="radarChart"></div> -->
           <br />
           <hr />
-          <br>
-          <br>
+          <br />
+          <br />
 
           <h2><b> TOP best-selling music artist for each country</b></h2>
           <h4>
-           The last chart of this section is a bubble chart. Each bubble represents an artist,
-            specifically the best-selling music artist for each of the country<br>
-            In the sales configuration there are the best-selling artists considering the sale amount (y-axis), but the size of the bubbles are proportional to the TCU of each artist. <br>
-            In the TCU scenario there are the best-selling artists considering the TCU (y-axis). If this is option is selected, the size of the bubbles will be proportional to the sales amount of each artist. <br>
-            By hovering on each bar, it is possible to retrieve some meaningful info about an artist.
+            The last chart of this section is a bubble chart. Each bubble
+            represents an artist, specifically the best-selling music artist for
+            each of the country<br />
+            In the
+            <span style="color: #55b467"><b>sales</b></span> configuration there
+            are the best-selling artists considering the sale amount (y-axis),
+            but the size of the bubbles are proportional to the TCU of each
+            artist. <br />
+            In the <span style="color: #2876b6"><b>TCU</b></span> scenario there
+            are the best-selling artists considering the
+            <span style="color: #2876b6"><b>TCU</b></span> (y-axis). If this is
+            option is selected, the size of the bubbles will be proportional to
+            the <span style="color: #55b467"><b>sales</b></span> amount of each
+            artist.
+            <br />
+            By hovering on each bar, it is possible to retrieve some meaningful
+            info about an artist.
           </h4>
-          <button onclick="update1_chart4()" class="new-button" style="--content: 'Sales';">
+          <button
+            onclick="update1_chart4()"
+            class="new-button"
+            style="--content: 'Sales'"
+          >
             <div class="left"></div>
-             Sales
+            Sales
             <div class="right"></div>
           </button>
 
-
-          <button onclick="update2_chart4()" class="new-button" id="TCU_genre1" style="--content: 'TCU';">
+          <button
+            onclick="update2_chart4()"
+            class="new-button"
+            id="TCU_genre1"
+            style="--content: 'TCU'"
+          >
             <div class="left"></div>
-             TCU
+            TCU
             <div class="right"></div>
           </button>
-          <!-- <button onclick="update1_chart4()">Sales</button>
-          <button onclick="update2_chart4()">TCU</button> -->
           <div id="genreChart4"></div>
 
           <br />
           <hr />
-          <br>
-          <br>
+          <br />
+          <br />
         </div>
 
         <footer id="includeFooter"></footer>

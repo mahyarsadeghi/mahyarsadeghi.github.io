@@ -81,7 +81,7 @@ function update_initial_chart3() {
 			// .attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
 
-			svg3.append("text")
+		svg3.append("text")
 			.attr('class', "text-axis-chart3")
 			.attr("text-anchor", "end")
 			.attr("x", width3)
@@ -94,12 +94,12 @@ function update_initial_chart3() {
 			.selectAll("text")
 			// .attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
-			svg3.append("text")
-		.attr('class', "text-axis-chart3")
-		.attr("text-anchor", "end")
-		.attr("x", -55)
-		.attr("y", height3 - 550)
-		.text("Artists");
+		svg3.append("text")
+			.attr('class', "text-axis-chart3")
+			.attr("text-anchor", "end")
+			.attr("x", -55)
+			.attr("y", height3 - 550)
+			.text("Artists");
 
 		// Create the u variable
 		var u = svg3.selectAll("rect")
@@ -162,10 +162,9 @@ function update1() {
 		x3.domain([0, 600])
 		xAxis3.transition().duration(1000).call(d3.axisBottom(x3))
 			.selectAll("text")
-			// .attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
 
-			svg3.append("text")
+		svg3.append("text")
 			.attr('class', "text-axis-chart3")
 			.attr("text-anchor", "end")
 			.attr("x", width3)
@@ -176,15 +175,14 @@ function update1() {
 		y3.domain(data.map(d => d.Artist));
 		yAxis3.transition().duration(1000).call(d3.axisLeft(y3))
 			.selectAll("text")
-			// .attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
-			svg3.append("text")
+		svg3.append("text")
 			.attr('class', "text-axis-chart3")
 			.attr("text-anchor", "end")
 			.attr("x", -55)
 			.attr("y", height3 - 550)
 			.text("Artists");
-	
+
 
 		// Create the u variable
 		var u = svg3.selectAll("rect")
@@ -200,7 +198,7 @@ function update1() {
 			.attr("width", d => x3(d['Sales ($)']))
 			.attr("height", y3.bandwidth())
 			.attr("fill", d => scolor(d['Sales ($)']))
-			u
+		u
 			.on('mouseover', mouseover)
 			.on('mouseleave', mouseleave)
 			.on('mousemove', mousemove)
@@ -217,7 +215,7 @@ function update2() {
 			.domain([0, 450000000])
 			.interpolator(d3.interpolateBlues);
 
-			d3.selectAll('.text-axis-chart3').remove()
+		d3.selectAll('.text-axis-chart3').remove()
 		let mouseoverUpdate = function (event, d) {
 			let totalAmount = d['TCU (unit)'];
 			let artist = d.Artist;
@@ -242,10 +240,8 @@ function update2() {
 		x3.domain([0, 450000000])
 		xAxis3.transition().duration(1000).call(d3.axisBottom(x3))
 			.selectAll("text")
-			// .attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
-			svg3.append("text")
-			// .transition().duration(1000)
+		svg3.append("text")
 			.attr('class', "text-axis-chart3")
 			.attr("text-anchor", "end")
 			.attr("x", width3 + 55)
@@ -256,16 +252,14 @@ function update2() {
 		y3.domain(data.map(d => d.Artist));
 		yAxis3.transition().duration(1000).call(d3.axisLeft(y3))
 			.selectAll("text")
-			// .attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
-			svg3.append("text")
-			// .transition().duration(1000)
+		svg3.append("text")
 			.attr('class', "text-axis-chart3")
 			.attr("text-anchor", "end")
 			.attr("x", -55)
 			.attr("y", height3 - 550)
 			.text("Artists");
-	
+
 
 		// Create the u variable
 		var u = svg3.selectAll("rect")

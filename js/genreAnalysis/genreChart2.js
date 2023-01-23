@@ -28,7 +28,6 @@ let tooltip1 = d3.select("#genreChart2")
 // Initialize the X axis
 let x = d3.scaleLinear()
 	.range([0, width1])
-//   .padding(0.2);
 let xAxis = svg1.append("g")
 	.attr("transform", `translate(0,${height1})`)
 
@@ -69,7 +68,6 @@ function update_initial_chart2() {
 		let mouseleave = function (event, d) {
 			tooltip1
 				.style("opacity", 0);
-			// d3.select(this).attr("fill", '#17823c');
 			d3.select(this).attr('fill', d => scolor(d.SalesForGenre))
 			d3.select('#OtherSales').attr('fill', "#868e96");
 		}
@@ -96,7 +94,6 @@ function update_initial_chart2() {
 		y.domain(data.map(d => d.Genre));
 		yAxis.transition().duration(1000).call(d3.axisLeft(y))
 			.selectAll("text")
-			// .attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
 
 		svg1.append("text")
@@ -112,14 +109,11 @@ function update_initial_chart2() {
 
 		u
 			.join("rect")
-			// .transition()
-			// .duration(1000)
 			.attr("y", d => y(d.Genre))
 			.attr("x", x(0))
 			.attr("width", d => x(d.SalesForGenre))
 			.attr("height", y.bandwidth())
 			.attr('id', d => d.Genre + 'Sales')
-			// .attr("fill", '#17823c')
 			.attr('fill', d => scolor(d.SalesForGenre))
 			.on('mouseover', mouseover)
 			.on('mouseleave', mouseleave)
@@ -134,7 +128,7 @@ function update_initial_chart2() {
 // A function that create / update the plot for a given variable:
 function update1_chart2() {
 	d3.csv("../../data/top_15_genres_sales.csv").then(function (data) {
-		
+
 		let scolor = d3.scaleSequential()
 			.domain([0, 8388])
 			.interpolator(d3.interpolateGreens);
@@ -162,7 +156,6 @@ function update1_chart2() {
 		let mouseleave = function (event, d) {
 			tooltip1
 				.style("opacity", 0);
-			// d3.select(this).attr("fill", '#17823c');
 			d3.select(this).attr('fill', d => scolor(d.SalesForGenre))
 			d3.select('#OtherSales').attr('fill', "#868e96");
 		}
@@ -184,7 +177,6 @@ function update1_chart2() {
 		y.domain(data.map(d => d.Genre));
 		yAxis.transition().duration(1000).call(d3.axisLeft(y))
 			.selectAll("text")
-			// .attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
 		svg1.append("text")
 			.attr('class', "text-axis-chart2")
@@ -208,7 +200,6 @@ function update1_chart2() {
 			.attr("height", y.bandwidth())
 		u
 			.attr('id', d => d.Genre + 'Sales')
-			// .attr("fill", '#17823c')
 			.attr('fill', d => scolor(d.SalesForGenre))
 		d3.select('#OtherSales').attr('fill', "#868e96");
 		u
@@ -225,13 +216,13 @@ function update1_chart2() {
 
 function update2_chart2() {
 	d3.csv("../../data/top_15_genres_TCU.csv").then(function (data) {
-		
-				
+
+
 		let scolor = d3.scaleSequential()
 			.domain([0, 7460460000])
 			.interpolator(d3.interpolateBlues);
 
-		
+
 		d3.selectAll('.text-axis-chart2').remove()
 		let mouseoverUpdate = function (event, d) {
 			let totalAmount = d.TCUForGenre;
@@ -251,7 +242,6 @@ function update2_chart2() {
 		let mouseleaveUpdate = function (event, d) {
 			tooltip1
 				.style("opacity", 0);
-			// d3.select(this).attr("fill", '#2877b7');
 			d3.select(this).attr('fill', d => scolor(d.TCUForGenre))
 			d3.select('#OtherTCU').attr('fill', "#868e96");
 		}
@@ -272,7 +262,6 @@ function update2_chart2() {
 		y.domain(data.map(d => d.Genre));
 		yAxis.transition().duration(1000).call(d3.axisLeft(y))
 			.selectAll("text")
-			// .attr("transform", "translate(-10,0)rotate(-45)")
 			.style("text-anchor", "end");
 		svg1.append("text")
 			.attr('class', "text-axis-chart2")
@@ -296,7 +285,6 @@ function update2_chart2() {
 		u
 			.attr('id', d => d.Genre + 'TCU')
 			.attr('fill', d => scolor(d.TCUForGenre))
-			// .attr("fill", '#2877b7');
 
 		u
 			.on('mouseover', mouseoverUpdate)
@@ -311,5 +299,4 @@ function update2_chart2() {
 }
 
 // Initialize the plot with the first dataset
-// update1_chart2()
 update_initial_chart2();

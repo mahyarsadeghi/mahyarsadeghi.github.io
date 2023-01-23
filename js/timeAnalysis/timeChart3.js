@@ -1,5 +1,5 @@
-let margin3 = {top: 10, right: 100, bottom: 30, left: 100}, 
-width3 = 800 - margin3.left - margin3.right,
+let margin3 = { top: 10, right: 100, bottom: 30, left: 100 },
+    width3 = 800 - margin3.left - margin3.right,
     height3 = 500 - margin3.top - margin3.bottom;
 var svg3 = d3.select("#timeChart3")
     .append("svg")
@@ -11,10 +11,6 @@ var svg3 = d3.select("#timeChart3")
 
 // Parse the Data
 d3.csv("../../data/TA_CH_3.csv").then(function (data) {
-
-    // console.log(data);
-    // List of subgroups = header of the csv files = soil condition here
-    // var subgroups = data.columns.slice(1)
     let subgroups = ['Pop', 'Rock', 'R&b', 'Hip-hop', 'country'];
     let top_countries = ["United States", "Canada", "United Kingdom", "Barbados", "Trinidad and Tobago"]
     data = data.map(function (d) {
@@ -37,7 +33,6 @@ d3.csv("../../data/TA_CH_3.csv").then(function (data) {
     var groups = d3.map(data, function (d) {
         return (d.Country)
     });
-    // console.log('ggggggggg', groups)
     // Add X axis
     var x = d3.scaleLinear()
         .domain([0, 14000])
@@ -57,10 +52,10 @@ d3.csv("../../data/TA_CH_3.csv").then(function (data) {
         .range([0, height3])
         .padding([0.2]);
     svg3.append("g")
-    .transition().duration(1000)
+        .transition().duration(1000)
         .call(d3.axisLeft(y));
     // color palette = one color per subgroup
-    let color_list = ['#2877b7', '#17823c', '#817ab8', '#fc8c62', '#00fa9a' ]
+    let color_list = ['#2877b7', '#17823c', '#817ab8', '#fc8c62', '#00fa9a']
     var color = d3.scaleOrdinal()
         .domain(subgroups)
         .range(color_list)
@@ -70,7 +65,7 @@ d3.csv("../../data/TA_CH_3.csv").then(function (data) {
     var stackedData = d3.stack()
         .keys(subgroups)(data)
 
-console.log(stackedData)
+    console.log(stackedData)
     // ----------------
     // Create a tooltip
     // ----------------
@@ -86,7 +81,7 @@ console.log(stackedData)
     let mouseover3 = function (d) {
         tooltip3
             .style("opacity", 1)
-            d3.select(this).attr("fill", "#9B2335");
+        d3.select(this).attr("fill", "#9B2335");
     }
     let mousemove3 = function (event, d) {
         var subgroupName = d3.select(this.parentNode).datum().key;
@@ -97,18 +92,10 @@ console.log(stackedData)
             subgroupValue = `${d.data[subgroupName]} million`
         }
         tooltip3
-        .html("<span style='color:grey'>Genre: </span>" + subgroupName  + "<br>" + "<span style='color:grey'>Sales ($): </span>" +subgroupValue  )
+            .html("<span style='color:grey'>Genre: </span>" + subgroupName + "<br>" + "<span style='color:grey'>Sales ($): </span>" + subgroupValue)
             .style("left", (event.pageX + 30) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
             .style("top", (event.pageY) + "px")
     }
-    // var mouseleave3 = function (d) {
-    //     tooltip3
-    //         .transition()
-    //         .duration(200)
-    //         .style("opacity", 0)
-    //         d3.select(this).attr('fill', d => color)
-    // }
-
 
     // Show the bars
     svg3.append("g")
@@ -127,11 +114,9 @@ console.log(stackedData)
         })
         .enter().append("rect")
         .attr("x", function (d) {
-            // return x(d.data.Neighborhood);
             return x(d[0])
         })
         .attr("y", function (d) {
-            // console.log(d.data.Country);
             return y(d.data.Country);
         })
         .attr("height", y.bandwidth())
@@ -150,7 +135,6 @@ console.log(stackedData)
 
     var legend3 = d3.select("#task_3_legend")
         .append("svg")
-        // .attr("viewBox", `0 0 50 50`)
         .attr('width', 300)
         .attr('height', 200)
         .append('g')
@@ -183,7 +167,7 @@ console.log(stackedData)
         .attr("x", width3 + 50)
         .attr("y", height3 + 50)
         .text("Sales ($)");
-        svg3.append("text")
+    svg3.append("text")
         .attr("text-anchor", "end")
         .attr("x", -40)
         .attr("y", height2 - 450)

@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,900');
 :root {
-  --primary-color: #ff9c9b;
-  --icon-color: #79c484;
-  --bg-color: #55b467;
+  --text-color: white;
+  --shadow-color: hsla(210, 40%, 52%, .4);
+  --btn-color: #55b467;
+  --btn-color2: #2876b6;
+  --bg-color: white;
   --title-color: #9b2335;
 }
+
+
+
 * {
   box-sizing: border-box;
 }
@@ -914,6 +920,118 @@ nav.main-menu li.active > a,
   border-radius: 80px;
 }
 
+
+/* New Button  */
+
+.new-button {
+  position:relative;
+  padding: 5px 10px;  
+  border: none;
+  background: none;
+  cursor: pointer;
+  
+  font-family: "Source Code Pro";
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 15px;  
+  color: var(--text-color);
+  
+  background-color: var(--btn-color);
+  box-shadow: var(--shadow-color) 2px 2px 22px;
+  border-radius: 4px; 
+  z-index: 0;  
+  overflow: hidden;   
+}
+#TCU_genre1{
+  background-color: var(--btn-color2);
+}
+
+.new-button:focus {
+  outline-color: transparent;
+  box-shadow: var(--btn-color) 2px 2px 22px;
+}
+#TCU_genre1:focus {
+  outline-color: transparent;
+  box-shadow: var(--btn-color2) 2px 2px 22px;
+}
+
+.new-button .right::after, .new-button::after {
+  content: var(--content);
+  display: block;
+  position: absolute;
+  white-space: nowrap;
+  padding: 35px 31px;
+  pointer-events:none;
+}
+
+.new-button::after{
+  font-weight: 200;
+  top: -30px;
+  left: -20px;
+} 
+
+.new-button .right, .left {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+.new-button .right {
+  left: 66%;
+}
+.new-button .left {
+  right: 66%;
+}
+.new-button .right::after {
+  top: -30px;
+  left: calc(-66% - 20px);
+  
+  background-color: var(--bg-color);
+  color:transparent;
+  transition: transform .4s ease-out;
+  transform: translate(0, -90%) rotate(0deg)
+}
+
+.new-button:hover .right::after {
+  transform: translate(0, -47%) rotate(0deg)
+}
+
+.new-button .right:hover::after {
+  transform: translate(0, -50%) rotate(-7deg)
+}
+
+.new-button .left:hover ~ .right::after {
+  transform: translate(0, -50%) rotate(7deg)
+}
+
+/* bubbles */
+.new-button::before {
+  content: '';
+  pointer-events: none;
+  opacity: .6;
+  background:
+    radial-gradient(circle at 20% 35%,  transparent 0,  transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px),
+    radial-gradient(circle at 75% 44%, transparent 0,  transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px),
+    radial-gradient(circle at 46% 52%, transparent 0, transparent 4px, var(--text-color) 5px, var(--text-color) 6px, transparent 6px);
+
+  width: 100%;
+  height: 300%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  animation: bubbles 5s linear infinite both;
+}
+
+@keyframes bubbles {
+  from {
+    transform: translate();
+  }
+  to {
+    transform: translate(0, -66.666%);
+  }
+}
+
+/* Dropdown  */
 
 
 /* new footer */

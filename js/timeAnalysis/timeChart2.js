@@ -189,6 +189,7 @@ d3.csv("../../data/top_5_genres_trend.csv").then(function (data) {
         .attr("d", d => line(d.values))
         .attr("stroke", d => myColor(d.genre))
         .style("stroke-width", 4)
+        .attr("opacity",'0.6')
         .style("fill", "none")
 
 
@@ -220,7 +221,14 @@ d3.csv("../../data/top_5_genres_trend.csv").then(function (data) {
         .data(dataReady)
         .join('g')
         .append("text")
-        .attr("class", d => d.genre)
+        .attr("class", function (d) {
+            if (d.genre.includes('&')) {
+                return d.genre.replace('&', '')
+            } else {
+                return d.genre
+            }
+        }
+        )
         .datum(d => {
             return { genre: d.genre, value: d.values[d.values.length - 1] };
         }) // keep only the last value of each time series
@@ -228,6 +236,7 @@ d3.csv("../../data/top_5_genres_trend.csv").then(function (data) {
         .attr("x", 12) // shift the text a bit more right
         .text(d => d.genre)
         .style("fill", d => myColor(d.genre))
+        .attr('opacity', '0.6')
         .style("font-size", 15)
     let modGenre = ''
     // Add a legend (interactive)
@@ -240,6 +249,7 @@ d3.csv("../../data/top_5_genres_trend.csv").then(function (data) {
         .attr('y', 30)
         .text(d => d.genre)
         .style("fill", d => myColor(d.genre))
+        .attr('opacity', '0.6')
         .style("font-size", 15)
         .on("click", function (event, d) {
             if (d.genre.includes('&')) {
@@ -250,7 +260,7 @@ d3.csv("../../data/top_5_genres_trend.csv").then(function (data) {
             // is the element currently visible ?
             currentOpacity = d3.selectAll("." + modGenre).style("opacity")
             // Change the opacity: from 0 to 1 or from 1 to 0
-            d3.selectAll("." + modGenre).transition().style("opacity", currentOpacity == 1 ? 0 : 1)
+            d3.selectAll("." + modGenre).transition().style("opacity", currentOpacity == 0.6 ? 0 : 0.6)
 
         })
     //adding x and y labels

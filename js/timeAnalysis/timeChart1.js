@@ -7,6 +7,7 @@ let marginT1 = { top: 10, right: 20, bottom: 30, left: 50 },
 // append the svg object to the body of the page
 let svgT1 = d3.select("#timeChart1")
     .append("svg")
+    .attr('id', 'svg_timeChart1')
     .attr("viewBox", '-200 0 1000 570')
     // .attr("width", width + margin.left + margin.right)
     // .attr("height", height + margin.top + margin.bottom)
@@ -37,16 +38,19 @@ d3.csv("../../data/allYears.csv").then(function (data) {
     let yAxis = svgT1.append("g");
 
     let tooltip = d3.select("#timeChart1")
-        .append("div")
-        .style("opacity", 0)
-        .attr("class", "tooltip")
-        .style("background-color", "white")
-        .style("border", "solid")
-        .style("border-width", "2px")
-        .style("border-radius", "5px")
-        .style("padding", "10px")
+    .append("div")
+    .style("opacity", 0)
+    .attr("class", "tooltip")
+    .attr('id', "tooltipHistogram")
+    .style("background-color", "white")
+    .style("border", "solid")
+    .style("border-width", "2px")
+    .style("border-radius", "5px")
+    .style("padding", "10px")
 
     function update_initial(nBin) {
+
+  
 
         let showTooltip = function (event, d) {
             tooltip
@@ -120,7 +124,7 @@ d3.csv("../../data/allYears.csv").then(function (data) {
             .domain([0, 500])
             .interpolator(d3.interpolatePurples);
 
-        let showTooltip = function (event, d) {
+        let showTooltip2 = function (event, d) {
             tooltip
                 .style("opacity", 1)
                 .html("<span style='color:grey'>Range: </span>" + d.x0 + " - " + d.x1)
@@ -130,13 +134,13 @@ d3.csv("../../data/allYears.csv").then(function (data) {
             d3.select(this).attr("fill", "#9B2335")
                 .attr('stroke', 'black').attr('stroke-width', '.2');
         }
-        let moveTooltip = function (event, d) {
+        let moveTooltip2 = function (event, d) {
             tooltip
                 .style('left', (event.x + 70) + 'px')
                 .style('top', (event.y - 70) + 'px')
 
         }
-        let hideTooltip = function (event, d) {
+        let hideTooltip2 = function (event, d) {
             tooltip
                 .style("opacity", 0)
             d3.select(this).attr('fill', d => scolor(d.length))
@@ -194,9 +198,9 @@ d3.csv("../../data/allYears.csv").then(function (data) {
 
 
         u
-            .on("mouseover", showTooltip)
-            .on("mousemove", moveTooltip)
-            .on("mouseleave", hideTooltip)
+            .on("mouseover", showTooltip2)
+            .on("mousemove", moveTooltip2)
+            .on("mouseleave", hideTooltip2)
     }
 
 
